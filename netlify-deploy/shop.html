@@ -74,10 +74,12 @@
 			<h2 id="cart-drawer-title">Your Cart</h2>
 			<button class="icon-btn" id="cart-close" aria-label="Close cart">✕</button>
 		</div>
-		<div class="cart-items" id="cart-items"></div>
+		<div class="cart-scroll">
+			<div class="cart-items" id="cart-items"></div>
+		</div>
 		<div class="cart-footer">
 			<p class="cart-total">Total: <strong id="cart-total">$0</strong></p>
-			<a href="checkout.html" class="btn btn-primary" id="checkout-btn">Proceed to Checkout</a>
+			<button type="button" class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
 		</div>
 	</aside>
 	<div class="cart-backdrop" id="cart-backdrop" hidden></div>
@@ -168,13 +170,14 @@
 				const image = GLShopImages.categoryImage(cat, PRODUCTS);
 				return `
 				<a href="shop.html?category=${cat}" class="category-card">
-					<img src="${image}" alt="" class="cat-img" loading="lazy" onerror="this.onerror=null;this.src='${fallback}';">
+					<img src="${image}" alt="" class="cat-img" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">
 					<div class="cat-info">
 						<h3>${name}</h3>
 						<p class="muted">${count} products</p>
 					</div>
 				</a>`;
 			}).join('');
+			if (typeof window.GL_markLazyImages === 'function') window.GL_markLazyImages(categoryGrid);
 		}
 
 		function renderProducts(list) {
@@ -225,7 +228,7 @@
 					<article class="product-frame" data-id="${p.id}">
 						<div class="product-frame-inner">
 							<div class="product-header">
-								<img class="p-img" src="${initial}" alt="${p.title}" onerror="this.onerror=null; this.src='${fallback}';">
+								<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" onerror="this.onerror=null; this.src='${fallback}';">
 								<div class="p-icon"><img src="${p.icon}" alt=""></div>
 							</div>
 							<div class="product-content">
@@ -270,7 +273,7 @@
 					<article class="product-frame" data-id="${p.id}">
 						<div class="product-frame-inner">
 							<div class="product-header">
-								<img class="p-img" src="${initial}" alt="${p.title}" onerror="this.onerror=null; this.src='${fallback}';">
+								<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" onerror="this.onerror=null; this.src='${fallback}';">
 								<div class="p-icon"><img src="${p.icon}" alt=""></div>
 							</div>
 							<div class="product-content">
@@ -402,7 +405,7 @@
 					return `
 					<div class="cart-item">
 						<div class="ci-left">
-							<img src="${icon}" alt="" loading="lazy"/>
+							<img class="cart-thumb" src="${icon}" alt="" width="44" height="44" decoding="async"/>
 							<div>
 								<strong>${item.title}</strong>
 								<p class="muted">$${item.price.toFixed(2)} × ${item.qty}</p>
@@ -427,16 +430,8 @@
 
 			if (checkoutBtn) {
 				const empty = count === 0;
-				checkoutBtn.setAttribute('aria-disabled', empty ? 'true' : 'false');
-				if (empty) {
-					checkoutBtn.removeAttribute('href');
-					checkoutBtn.setAttribute('tabindex', '-1');
-					checkoutBtn.textContent = 'Add items to checkout';
-				} else {
-					checkoutBtn.setAttribute('href', 'checkout.html');
-					checkoutBtn.removeAttribute('tabindex');
-					checkoutBtn.textContent = 'Proceed to Checkout';
-				}
+				checkoutBtn.disabled = empty;
+				checkoutBtn.textContent = empty ? 'Add items to checkout' : `Proceed to Checkout — $${total.toFixed(2)}`;
 			}
 		}
 
@@ -606,11 +601,12 @@
 			updateCartUI();
 		});
 
-		checkoutBtn?.addEventListener('click', (e) => {
+		checkoutBtn?.addEventListener('click', () => {
 			if (GLCart.count() === 0) {
-				e.preventDefault();
 				showToast('Add items before checkout');
+				return;
 			}
+			window.location.href = 'checkout.html';
 		});
 
 		document.addEventListener('keydown', (e) => {
