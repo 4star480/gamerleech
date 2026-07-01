@@ -409,7 +409,12 @@ body {
 	bottom: 8px;
 	left: 10px;
 	font-size: 1.25rem;
-	z-index: 1;
+	z-index: 3;
+	pointer-events: none;
+}
+.synapse-game-cover.cover-loaded .synapse-game-emoji,
+.synapse-listing-thumb.cover-loaded .synapse-game-emoji {
+	display: none;
 }
 .synapse-game-body { padding: 12px; }
 .synapse-game-body h3 {
@@ -1200,16 +1205,24 @@ body.mobile-menu-open {
 	.synapse-header-inner .synapse-header-actions {
 		margin-left: auto;
 		flex-shrink: 0;
+		gap: 8px;
+	}
+	.synapse-header-actions .synapse-header-link {
+		display: none;
 	}
 	.synapse-header-inner .mobile-menu-root--header {
+		order: 99;
 		flex-shrink: 0;
-		margin-left: 4px;
+		margin-left: 0;
 	}
 	.mobile-menu-trigger {
 		display: grid;
 		position: relative;
 		z-index: 101;
 		pointer-events: auto;
+		border-color: rgba(168, 85, 247, 0.55);
+		background: rgba(22, 19, 34, 0.95);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 	}
 	.synapse-header .nav-toggle {
 		display: none !important;
@@ -1311,3 +1324,55 @@ body.mobile-menu-open {
 /* Stub pages */
 .synapse-stub { max-width: 32rem; margin: 0 auto; text-align: center; padding: 48px 16px; }
 .synapse-stub p { color: var(--syn-muted); line-height: 1.6; }
+
+/* Auth pages */
+.synapse-auth-page {
+	display: grid;
+	place-items: center;
+	min-height: calc(100dvh - var(--syn-tab-h) - 72px);
+	padding: 24px 16px calc(var(--syn-tab-h) + 24px);
+}
+.synapse-auth-card {
+	width: min(100%, 440px);
+	padding: 32px 28px;
+	border-radius: 16px;
+	border: 1px solid var(--syn-border);
+	background: linear-gradient(160deg, rgba(22, 19, 34, 0.98), rgba(16, 14, 24, 0.98));
+	box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+.synapse-auth-card h1 {
+	margin: 0 0 8px;
+	font-size: 1.75rem;
+	font-weight: 800;
+}
+.synapse-auth-card .synapse-auth-lead {
+	margin: 0 0 20px;
+	color: var(--syn-muted);
+	line-height: 1.55;
+	font-size: 15px;
+}
+.synapse-auth-list {
+	margin: 0 0 24px;
+	padding-left: 20px;
+	color: var(--syn-muted);
+	line-height: 1.75;
+	font-size: 14px;
+}
+.synapse-auth-list a {
+	color: var(--syn-accent-2);
+}
+.synapse-auth-actions {
+	display: grid;
+	gap: 12px;
+	margin-top: 24px;
+}
+.synapse-auth-actions .synapse-btn-primary,
+.synapse-auth-actions .synapse-btn-outline {
+	display: block;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+	font-weight: 700;
+	border-radius: 12px;
+	touch-action: manipulation;
+}

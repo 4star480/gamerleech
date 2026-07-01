@@ -10,7 +10,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="synapse-ui.css?v=5">
+	<link rel="stylesheet" href="synapse-ui.css?v=8">
 	<link rel="icon" href="assets/logo.svg">
 	<link rel="canonical" href="https://gamerleech.netlify.app/">
 	<script src="config.js"></script>
@@ -48,9 +48,36 @@
 				<a href="login.html" class="synapse-header-link">Log in</a>
 				<a href="register.html" class="synapse-btn-signup">Sign up</a>
 			</div>
-			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
-				<span></span><span></span><span></span>
-			</button>
+			<div class="mobile-menu-root mobile-menu-root--header">
+				<input type="checkbox" id="gamerleech-mobile-menu" class="mobile-menu-check" aria-hidden="true" tabindex="-1">
+				<label for="gamerleech-mobile-menu" class="mobile-menu-trigger" aria-label="Open menu">
+					<span class="mobile-menu-icon mobile-menu-icon--open" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+					<span class="mobile-menu-icon mobile-menu-icon--close" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+				</label>
+				<div class="mobile-menu-overlay">
+					<label for="gamerleech-mobile-menu" class="mobile-menu-backdrop" aria-label="Close menu"></label>
+					<nav class="mobile-menu-panel" aria-label="Mobile navigation">
+						<div class="mobile-menu-head">
+							<span class="mobile-menu-title">Menu</span>
+							<label for="gamerleech-mobile-menu" class="mobile-menu-close touch-target" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></label>
+						</div>
+						<div class="mobile-menu-links">
+							<a href="index.html" class="mobile-menu-link">Home</a>
+							<a href="shop.html" class="mobile-menu-link">Cheats</a>
+							<a href="browse.html" class="mobile-menu-link">Marketplace</a>
+							<a href="games.html" class="mobile-menu-link">All games</a>
+							<a href="sell.html" class="mobile-menu-link">Sell</a>
+							<a href="status.html" class="mobile-menu-link">Status</a>
+							<a href="wishlist.html" class="mobile-menu-link">Saved</a>
+						</div>
+						<div class="mobile-menu-foot">
+							<a href="sell.html" class="mobile-menu-cta">Start selling</a>
+							<a href="login.html" class="mobile-menu-secondary">Log in</a>
+							<a href="register.html" class="mobile-menu-accent">Create account</a>
+						</div>
+					</nav>
+				</div>
+			</div>
 		</div>
 	</header>
 
@@ -253,8 +280,8 @@
 	<script src="wishlist.js"></script>
 	<script src="shop-images.js"></script>
 	<script src="body-scroll-lock.js"></script>
-	<script src="mobile-menu.js?v=2"></script>
-	<script src="chrome.js"></script>
+	<script src="mobile-menu.js?v=4"></script>
+	<script src="chrome.js?v=8"></script>
 	<script src="search-suggest.js"></script>
 	<script src="site.js"></script>
 	<script src="home-app.js"></script>

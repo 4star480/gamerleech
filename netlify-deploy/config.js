@@ -4,7 +4,7 @@ window.GL_CONFIG = {
 	email: 'gamerleech2@gmail.com',
 	siteUrl: 'https://gamerleech.netlify.app',
 	/** Bump after image/deploy updates to bust mobile browser cache */
-	assetVersion: '7',
+	assetVersion: '8',
 	emailjs: {
 		publicKey: 'o1TL0rKhww3ZFclTv',
 		serviceId: 'service_kxignqr',

@@ -57,14 +57,16 @@
 	function encodeImagePath(path) {
 		if (window.GL_encodeImagePath) return window.GL_encodeImagePath(path);
 		if (!path || /^https?:/i.test(path)) return path;
-		return path.split('/').map((seg) => encodeURIComponent(seg)).join('/');
+		const encoded = path.split('/').map((seg) => encodeURIComponent(seg)).join('/');
+		const v = cfg.assetVersion;
+		return v ? `${encoded}?v=${encodeURIComponent(v)}` : encoded;
 	}
 
 	function gameCoverImg(slug, alt) {
-		const safe = (alt || '').replace(/"/g, '&quot;');
-		const jpg = encodeImagePath(`images/games/${slug}.jpg`);
-		const svg = encodeImagePath(`images/games/${slug}.svg`);
-		return `<img class="synapse-cover-img" src="${jpg}" alt="${safe}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='${svg}'}else{this.style.display='none'}">`;
+		const safe = escHtml(alt || '');
+		const jpg = encodeImagePath(`Images/games/${slug}.jpg`);
+		const svg = encodeImagePath(`Images/games/${slug}.svg`);
+		return `<img class="synapse-cover-img" src="${jpg}" alt="${safe}" loading="eager" decoding="async" onload="this.closest('.synapse-game-cover,.synapse-listing-thumb')?.classList.add('cover-loaded')" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='${svg}'}">`;
 	}
 
 	function gameThumbHtml(game, badges) {
@@ -92,7 +94,7 @@
 	}
 
 	function injectSynapseChrome() {
-		injectMobileNav();
+		if (window.GL_mountMobileMenu) window.GL_mountMobileMenu();
 		initMobileTabbar();
 		initSearch();
 	}
