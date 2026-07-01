@@ -3,425 +3,58 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="#060a06">
-	<title>Checkout — Cryptocurrency Payment | GamerLeech</title>
-	<meta name="description" content="Complete your purchase with cryptocurrency">
+	<meta name="theme-color" content="#07060e">
+	<title>Checkout — GamerLeech</title>
+	<meta name="description" content="Complete your GamerLeech purchase with cryptocurrency">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="synapse-ui.css?v=9">
-	<link rel="stylesheet" href="components.css">
-	<link rel="stylesheet" href="cart-ui.css">
+	<link rel="stylesheet" href="synapse-ui.css?v=10">
 	<link rel="icon" href="assets/logo.svg">
 	<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src="config.js"></script>
-	<style>
-		.checkout-container {
-			min-height: 100vh;
-			padding: 120px 0 60px;
-			background: radial-gradient(1200px 800px at 70% -10%, rgba(40,224,109,.06), transparent), var(--bg);
-		}
-
-		.checkout-grid {
-			display: grid;
-			grid-template-columns: 1fr 400px;
-			gap: 40px;
-			margin-top: 40px;
-		}
-
-		.payable-amount-card {
-			position: sticky;
-			top: 120px;
-			height: fit-content;
-		}
-
-		.checkout-card {
-			background: var(--panel);
-			border: 1px solid var(--border);
-			border-radius: 16px;
-			padding: 30px;
-			box-shadow: var(--shadow);
-		}
-
-		.checkout-card h2 {
-			margin-top: 0;
-			margin-bottom: 20px;
-			color: var(--text);
-			font-size: 24px;
-		}
-
-		.order-item {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 15px 0;
-			border-bottom: 1px solid var(--border);
-		}
-
-		.order-item:last-child {
-			border-bottom: none;
-		}
-
-		.order-item-info h4 {
-			margin: 0 0 5px 0;
-			color: var(--text);
-			font-size: 16px;
-		}
-
-		.order-item-info p {
-			margin: 0;
-			color: var(--muted);
-			font-size: 14px;
-		}
-
-		.order-item-price {
-			font-weight: 800;
-			color: var(--green);
-			font-size: 16px;
-		}
-
-		.order-total {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 20px 0;
-			margin-top: 20px;
-			border-top: 2px solid var(--green);
-		}
-
-		.order-total span {
-			font-size: 18px;
-			color: var(--muted);
-		}
-
-		.order-total strong {
-			font-size: 28px;
-			color: var(--green);
-		}
-
-		.payment-section {
-			margin-bottom: 40px;
-		}
-
-		.payment-section-title {
-			font-size: 18px;
-			font-weight: 600;
-			color: var(--text);
-			margin-bottom: 20px;
-		}
-
-		.crypto-options {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-			gap: 12px;
-			margin-bottom: 30px;
-		}
-
-		.crypto-address {
-			background: var(--bg);
-			border: 2px solid var(--border);
-			border-radius: 12px;
-			padding: 20px;
-			margin: 30px 0;
-		}
-
-		.crypto-address[hidden] {
-			display: none !important;
-		}
-
-		.crypto-option {
-			background: var(--bg);
-			border: 2px solid var(--border);
-			border-radius: 8px;
-			padding: 16px 12px;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			min-height: 100px;
-			font: inherit;
-			color: inherit;
-			width: 100%;
-		}
-
-		.crypto-option:hover {
-			border-color: var(--green);
-			transform: translateY(-2px);
-			box-shadow: 0 4px 12px rgba(40,224,109,.2);
-		}
-
-		.crypto-option.active {
-			border-color: var(--green);
-			background: rgba(40,224,109,.1);
-			box-shadow: 0 4px 12px rgba(40,224,109,.3);
-		}
-
-		.crypto-option-icon {
-			font-size: 28px;
-			margin-bottom: 8px;
-			line-height: 1;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.crypto-option-icon img {
-			width: 48px;
-			height: 48px;
-			object-fit: contain;
-		}
-
-		.crypto-option-name {
-			font-weight: 600;
-			color: var(--text);
-			font-size: 14px;
-			margin-bottom: 4px;
-		}
-
-		.crypto-option-network {
-			font-size: 11px;
-			color: var(--muted);
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-		}
-
-		.crypto-address-label {
-			font-size: 12px;
-			color: var(--muted);
-			margin-bottom: 10px;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-		}
-
-		.crypto-address-value {
-			font-family: 'JetBrains Mono', monospace;
-			font-size: 16px;
-			color: var(--green);
-			word-break: break-all;
-			margin-bottom: 15px;
-			line-height: 1.6;
-		}
-
-		.copy-btn {
-			background: var(--green);
-			color: white;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 6px;
-			cursor: pointer;
-			font-weight: 600;
-			transition: all 0.3s ease;
-		}
-
-		.copy-btn:hover {
-			background: #2fc86f;
-			transform: translateY(-1px);
-		}
-
-		.qr-code-container {
-			margin-top: 20px;
-			text-align: center;
-			display: none;
-		}
-
-		.qr-code-container.active {
-			display: block;
-		}
-
-		.qr-code-container img {
-			max-width: 200px;
-			border-radius: 8px;
-		}
-
-		.payment-status {
-			background: rgba(40,224,109,.1);
-			border: 2px solid var(--green);
-			border-radius: 12px;
-			padding: 20px;
-			text-align: center;
-			margin-top: 20px;
-		}
-
-		.status-icon {
-			font-size: 32px;
-			margin-bottom: 10px;
-		}
-
-		.status-message {
-			font-weight: 600;
-			color: var(--green);
-			margin-bottom: 5px;
-		}
-
-		.status-note {
-			font-size: 14px;
-			color: var(--muted);
-		}
-
-		.payable-amount {
-			background: var(--panel);
-			border: 1px solid var(--border);
-			border-radius: 16px;
-			padding: 30px;
-			box-shadow: var(--shadow);
-		}
-
-		.payable-amount-label {
-			font-size: 14px;
-			color: var(--muted);
-			margin-bottom: 10px;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-		}
-
-		.payable-amount-value {
-			font-size: 36px;
-			font-weight: 800;
-			color: var(--green);
-			margin-bottom: 30px;
-		}
-
-		.terms-checkbox {
-			display: flex;
-			align-items: flex-start;
-			gap: 10px;
-			margin-bottom: 20px;
-		}
-
-		.terms-checkbox input {
-			margin-top: 3px;
-		}
-
-		.terms-checkbox label {
-			font-size: 14px;
-			color: var(--muted);
-			line-height: 1.5;
-		}
-
-		.terms-checkbox a {
-			color: var(--green);
-			text-decoration: underline;
-		}
-
-		#customer-email {
-			width: 100%;
-			padding: 12px;
-			border: 1px solid var(--border);
-			border-radius: 8px;
-			background: var(--bg);
-			color: var(--text);
-			font-size: 14px;
-			box-sizing: border-box;
-			font-family: inherit;
-			transition: border-color 0.3s ease;
-		}
-
-		#customer-email:focus {
-			outline: none;
-			border-color: var(--green);
-		}
-
-		#customer-email:invalid {
-			border-color: rgba(255, 0, 0, 0.5);
-		}
-
-		.pay-now-btn {
-			width: 100%;
-			background: var(--green);
-			color: white;
-			border: none;
-			padding: 16px;
-			border-radius: 8px;
-			font-size: 16px;
-			font-weight: 600;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-
-		.pay-now-btn:hover:not(:disabled) {
-			background: #2fc86f;
-			transform: translateY(-2px);
-			box-shadow: 0 4px 12px rgba(40,224,109,.3);
-		}
-
-		.pay-now-btn:disabled {
-			opacity: 0.5;
-			cursor: not-allowed;
-		}
-
-		.empty-cart {
-			text-align: center;
-			padding: 60px 20px;
-		}
-
-		.empty-cart h2 {
-			margin-bottom: 10px;
-		}
-
-		@media (max-width: 768px) {
-			.checkout-container { padding: 88px 0 calc(100px + env(safe-area-inset-bottom)); }
-			.checkout-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
-			.payable-amount-card { position: static; order: -1; }
-			.checkout-card { padding: 20px 16px; border-radius: 14px; }
-			.crypto-options { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-			.pay-now-btn { min-height: 48px; font-size: 1rem; }
-			input, select, textarea { font-size: 16px; min-height: 44px; }
-		}
-	</style>
 </head>
-<body class="has-synapse-tabbar checkout-page">
-	<header class="synapse-header">
+<body class="has-synapse-tabbar">
+	<header class="synapse-header safe-top">
 		<div class="synapse-header-inner">
 			<a href="index.html" class="synapse-brand">
 				<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
-				<span class="synapse-brand-text"><span class="synapse-brand-name">GamerLeech</span><span class="synapse-brand-tag">Checkout</span></span>
+				<span class="synapse-brand-text">
+					<span class="synapse-brand-name">GamerLeech</span>
+					<span class="synapse-brand-tag">Checkout</span>
+				</span>
 			</a>
-			<nav class="synapse-nav">
-				<a href="shop.html">Cheats</a>
-				<a href="browse.html">Marketplace</a>
-				<a href="games.html">All games</a>
-			</nav>
 			<div class="synapse-header-actions">
+				<a href="shop.html" title="Shop">⚡</a>
 				<a href="checkout.html" title="Cart">🛒</a>
 			</div>
-			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span><span></span></button>
 		</div>
 	</header>
 
-	<main class="checkout-container">
-		<div class="container">
-			<a href="shop.html" class="back-link">← Back to Shop</a>
-			
-			<h1>Checkout</h1>
-			<p class="muted">Complete your purchase with cryptocurrency</p>
-
-			<div id="checkout-content">
-				<div style="text-align: center; padding: 40px;">
-					<p>Loading...</p>
-				</div>
-			</div>
+	<main class="synapse-page synapse-checkout-page">
+		<div class="synapse-section" id="checkout-content">
+			<p class="synapse-empty">Loading checkout…</p>
 		</div>
 	</main>
 
-	<nav class="synapse-tabbar"><div class="synapse-tabbar-inner">
-		<a href="index.html"><span class="synapse-tabbar-icon">⌂</span>Home</a>
-		<a href="shop.html"><span class="synapse-tabbar-icon">⚡</span>Cheats</a>
-		<a href="browse.html"><span class="synapse-tabbar-icon">◎</span>Browse</a>
-		<a href="games.html"><span class="synapse-tabbar-icon">▦</span>Games</a>
-		<a href="wishlist.html"><span class="synapse-tabbar-icon">♥</span>Saved</a>
-	</div></nav>
+	<nav class="synapse-tabbar safe-bottom" aria-label="Mobile navigation">
+		<div class="synapse-tabbar-inner">
+			<a href="index.html"><span class="synapse-tabbar-icon">⌂</span>Home</a>
+			<a href="shop.html"><span class="synapse-tabbar-icon">⚡</span>Cheats</a>
+			<a href="browse.html"><span class="synapse-tabbar-icon">◎</span>Browse</a>
+			<a href="games.html"><span class="synapse-tabbar-icon">▦</span>Games</a>
+			<a href="wishlist.html"><span class="synapse-tabbar-icon">♥</span>Saved</a>
+		</div>
+	</nav>
 
 	<script src="cart.js"></script>
 	<script src="body-scroll-lock.js"></script>
 	<script src="mobile-menu.js?v=4"></script>
-	<script src="chrome.js?v=9"></script>
+	<script src="chrome.js?v=10"></script>
 	<script src="site.js"></script>
-	<script src="checkout-app.js"></script>
-	<script>GL_CHROME?.initMobileTabbar?.();</script>
+	<script src="checkout-app.js?v=10"></script>
+	<script>GL_CHROME?.initMobileTabbar?.(); GL_CHROME?.injectSynapseChrome?.();</script>
 </body>
 </html>

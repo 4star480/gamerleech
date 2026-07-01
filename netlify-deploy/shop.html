@@ -5,16 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="theme-color" content="#07060e">
 	<title>GamerLeech Cheats — Premium Gaming Tools</title>
-	<meta name="description" content="Browse premium gaming cheats for Call of Duty, Valorant, Fortnite, FiveM, Roblox, and more. Undetected builds with weekly, monthly, and lifetime options.">
+	<meta name="description" content="Browse premium gaming cheats for Call of Duty, Valorant, Fortnite, FiveM, Roblox, and more.">
 	<link rel="canonical" href="https://gamerleech.netlify.app/shop.html">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="synapse-ui.css?v=9">
-	<link rel="stylesheet" href="shop-premium.css?v=7">
+	<link rel="stylesheet" href="synapse-ui.css?v=10">
 	<link rel="stylesheet" href="cart-ui.css?v=5">
-	<link rel="stylesheet" href="mobile-shop.css?v=7">
 	<link rel="icon" href="assets/logo.svg">
 	<script src="config.js"></script>
 </head>
@@ -34,7 +32,7 @@
 				<form class="synapse-search-glow" data-synapse-search>
 					<div class="synapse-search-inner">
 						<span aria-hidden="true">🔍</span>
-						<input type="search" name="q" id="header-search" placeholder="Search cheats & services…" aria-label="Search shop">
+						<input type="search" name="q" id="header-search" placeholder="Search cheats…" aria-label="Search shop">
 					</div>
 				</form>
 			</div>
@@ -52,49 +50,34 @@
 	</header>
 
 	<main class="synapse-page">
-		<section class="synapse-shop-hero">
+		<div class="synapse-browse-hero">
 			<div class="synapse-section">
 				<nav class="synapse-breadcrumb" aria-label="Breadcrumb">
 					<a href="index.html" class="synapse-link">Home</a>
 					<span aria-hidden="true">/</span>
 					<span id="breadcrumb-current">Cheats</span>
 				</nav>
-				<a href="shop.html" id="back-link" class="synapse-link synapse-back-link" style="display:none">← Back</a>
-				<h1 id="page-title" class="synapse-shop-title">Gaming <span class="synapse-hero-gradient">Cheats</span></h1>
-				<p id="page-subtitle" class="synapse-shop-sub">Premium undetected builds across top titles — crypto checkout on every order.</p>
-				<div class="synapse-search-glow synapse-shop-search-mobile" data-synapse-search>
+				<h1 id="page-title" class="synapse-browse-title">Browse <span class="synapse-hero-gradient">cheats</span></h1>
+				<p id="page-subtitle" class="synapse-browse-sub"></p>
+				<div class="synapse-search-glow synapse-shop-search-mobile">
 					<div class="synapse-search-inner">
 						<span aria-hidden="true">🔍</span>
 						<input type="search" id="search-input" placeholder="Search cheats…" aria-label="Search cheats">
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 
-		<div class="synapse-section synapse-shop-body">
+		<div class="synapse-section">
 			<nav id="category-tabs" class="synapse-tabs scroll-touch" aria-label="Site sections"></nav>
-
 			<nav class="synapse-catalog-tabs" id="catalog-tabs" aria-label="Shop catalog"></nav>
-
-			<div id="shop-filters" class="synapse-filters scroll-touch" hidden></div>
+			<div id="shop-filters" class="synapse-filters scroll-touch"></div>
+			<div id="shop-sort" class="synapse-filters scroll-touch" style="margin-top:0"></div>
 			<div id="tier-chips" class="synapse-filters synapse-tier-filters scroll-touch" aria-label="Product type filters"></div>
-
-			<section class="synapse-featured-section" id="featured-strip">
-				<div class="synapse-section-head">
-					<div>
-						<h2>Featured builds</h2>
-						<p class="synapse-section-meta">Hand-picked undetected tools</p>
-					</div>
-				</div>
-				<div id="featured-grid" class="synapse-listings-grid"></div>
-			</section>
-
-			<div id="category-grid" class="synapse-category-grid"></div>
-			<div id="product-grid" class="synapse-listings-grid" style="display:none"></div>
-
-			<div class="synapse-cta synapse-shop-cta">
+			<div id="product-grid" class="synapse-listings-grid" style="margin-top:24px"></div>
+			<div class="synapse-cta" style="margin-top:48px">
 				<h2>Need accounts or currency?</h2>
-				<p>Browse 3,200+ player-to-player marketplace offers — accounts, gold, items, and boosting.</p>
+				<p>Browse 3,200+ player-to-player marketplace offers.</p>
 				<a href="browse.html" class="synapse-btn-primary">Open marketplace</a>
 			</div>
 		</div>
@@ -105,9 +88,7 @@
 			<h2 id="cart-drawer-title">Your Cart</h2>
 			<button class="icon-btn touch-target" id="cart-close" aria-label="Close cart">✕</button>
 		</div>
-		<div class="cart-scroll">
-			<div class="cart-items" id="cart-items"></div>
-		</div>
+		<div class="cart-scroll"><div class="cart-items" id="cart-items"></div></div>
 		<div class="cart-footer">
 			<p class="cart-total">Total: <strong id="cart-total">$0</strong></p>
 			<button type="button" class="btn btn-primary cart-checkout-btn touch-target" id="checkout-btn">Proceed to Checkout</button>
@@ -118,50 +99,9 @@
 
 	<footer class="synapse-footer safe-bottom">
 		<div class="synapse-footer-inner">
-			<div class="synapse-footer-grid">
-				<div class="synapse-footer-col synapse-footer-brand">
-					<a href="index.html" class="synapse-brand">
-						<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
-						<span class="synapse-brand-text">
-							<span class="synapse-brand-name">GamerLeech</span>
-							<span class="synapse-brand-tag">Cheats</span>
-						</span>
-					</a>
-					<p>Undetected cheats and growth services with instant crypto checkout.</p>
-				</div>
-				<div class="synapse-footer-col">
-					<h4>Cheats</h4>
-					<nav>
-						<a href="shop.html">› All cheats</a>
-						<a href="shop.html?category=valorant">› Valorant</a>
-						<a href="shop.html?category=call-of-duty">› Call of Duty</a>
-						<a href="shop.html?category=fivem">› FiveM</a>
-					</nav>
-				</div>
-				<div class="synapse-footer-col">
-					<h4>Store</h4>
-					<nav>
-						<a href="shop.html?tab=services">› Services</a>
-						<a href="status.html">› Live status</a>
-						<a href="checkout.html">› Checkout</a>
-						<a href="browse.html">› Marketplace</a>
-					</nav>
-				</div>
-				<div class="synapse-footer-col">
-					<h4>Support</h4>
-					<nav>
-						<a href="terms.html">› Terms</a>
-						<a href="refund.html">› Refunds</a>
-						<a href="mailto:gamerleech2@gmail.com">› gamerleech2@gmail.com</a>
-					</nav>
-				</div>
-			</div>
-			<div class="synapse-footer-bottom">
-				<p>© <span id="year"></span> GamerLeech. Independent store — not affiliated with any game publisher.</p>
-				<div>
-					<a href="refund.html">Privacy</a>
-					<a href="terms.html">Terms</a>
-				</div>
+			<div class="synapse-footer-bottom" style="border:0;margin:0;padding:24px 0">
+				<p>© <span id="year"></span> GamerLeech</p>
+				<a href="checkout.html" class="synapse-link">Checkout</a>
 			</div>
 		</div>
 	</footer>
@@ -180,33 +120,14 @@
 		<button type="button" class="btn btn-primary touch-target" id="checkout-btn-fixed">Proceed to Checkout</button>
 	</div>
 
-	<div class="product-modal" id="product-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
-		<div class="product-modal-backdrop" data-close-modal></div>
-		<div class="product-modal-panel">
-			<button type="button" class="icon-btn product-modal-close touch-target" data-close-modal aria-label="Close">✕</button>
-			<div class="modal-hero">
-				<img src="" alt="">
-				<div class="modal-meta">
-					<div class="modal-badges product-badges"></div>
-					<h2 id="modal-product-title"></h2>
-					<p class="modal-desc"></p>
-				</div>
-			</div>
-			<h3>Features</h3>
-			<div class="feature-grid"></div>
-			<div class="modal-pricing"></div>
-		</div>
-	</div>
-
 	<script src="body-scroll-lock.js"></script>
 	<script src="cart.js"></script>
-	<script src="shop-images.js?v=9"></script>
-	<script src="wishlist.js"></script>
+	<script src="shop-images.js?v=10"></script>
 	<script src="mobile-menu.js?v=4"></script>
-	<script src="chrome.js?v=9"></script>
+	<script src="chrome.js?v=10"></script>
 	<script src="search-suggest.js?v=2"></script>
 	<script src="site.js"></script>
-	<script src="shop-app.js?v=7"></script>
+	<script src="shop-app.js?v=10"></script>
 	<script>
 		document.getElementById('year').textContent = new Date().getFullYear();
 		GL_CHROME?.initMobileTabbar?.();

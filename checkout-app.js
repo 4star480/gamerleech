@@ -1,39 +1,38 @@
 /**
- * GamerLeech checkout flow
+ * GamerLeech checkout — Synapse-style crypto payment (GamerLeech wallet addresses)
  */
 (function () {
 	'use strict';
 
-	const CRYPTO_ADDRESSES = {
-		'binance-pay': { name: 'Binance Pay', icon: '💳', logo: 'https://cryptologos.cc/logos/binance-coin-bnb-logo.png', address: 'bnb1qxy2kg9gj2gskp6e5m4kmq6g5g4n6g8k9x0z2p', barcode: null },
-		bitcoin: { name: 'Bitcoin', icon: '₿', logo: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png', address: '1LrtmepWxUKXbWVMcNBHXV8WXqt29aHUWv', barcode: 'Images/barcodes/BTC.jpg' },
-		'crypto-com': { name: 'Crypto.com', icon: '🟣', logo: 'https://cryptologos.cc/logos/crypto-com-cro-logo.png', address: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb', barcode: null },
-		ethereum: { name: 'Ethereum', icon: 'Ξ', logo: 'https://cryptologos.cc/logos/ethereum-eth-logo.png', address: '0xe26085227017e56647606c722cc4162d3926df83', barcode: 'Images/barcodes/eth.jpg' },
-		'usdt-eth': { name: 'Tether', network: 'USDT (ETH)', icon: '₮', logo: 'https://cryptologos.cc/logos/tether-usdt-logo.png', address: '0xe26085227017e56647606c722cc4162d3926df83', barcode: 'Images/barcodes/eth.jpg' },
-		'usdt-polygon': { name: 'Tether', network: 'USDT (Polygon)', icon: '₮', logo: 'https://cryptologos.cc/logos/tether-usdt-logo.png', address: '0xe26085227017e56647606c722cc4162d3926df83', barcode: 'Images/barcodes/usdt polygon.jpg' },
-		'usdt-trc20': { name: 'Tether', network: 'USDT (TRC20)', icon: '₮', logo: 'https://cryptologos.cc/logos/tether-usdt-logo.png', address: 'TCwDWG1sWdke4X7AyLAUKSQFA93Hcqzb5w', barcode: 'Images/barcodes/usdt trc20.jpg' },
-		usdc: { name: 'USD Coin', network: 'USDC', icon: '💵', logo: 'https://cryptologos.cc/logos/usd-coin-usdc-logo.png', address: '0xe26085227017e56647606c722cc4162d3926df83', barcode: 'Images/barcodes/eth.jpg' },
-		'usdc-arbitrum': { name: 'USD Coin', network: 'USDC (Arbitrum)', icon: '💵', logo: 'https://cryptologos.cc/logos/usd-coin-usdc-logo.png', address: '0xe26085227017e56647606c722cc4162d3926df83', barcode: 'Images/barcodes/usdc arbitrum .jpg' },
-		'usdc-polygon': { name: 'USD Coin', network: 'USDC (Polygon)', icon: '💵', logo: 'https://cryptologos.cc/logos/usd-coin-usdc-logo.png', address: '0xe26085227017e56647606c722cc4162d3926df83', barcode: 'Images/barcodes/Usdc polygon.jpg' },
-		'usdc-solana': { name: 'USD Coin', network: 'USDC (Solana)', icon: '💵', logo: 'https://cryptologos.cc/logos/usd-coin-usdc-logo.png', address: '8TP6k4DHorT67LUSPrH7C34maPLzZN6MUuSdWGkW7iXc', barcode: 'Images/barcodes/usdc solana.jpg' }
-	};
-
-	const E_WALLET = ['binance-pay', 'crypto-com'];
-	const CRYPTO = ['bitcoin', 'ethereum', 'usdt-eth', 'usdt-polygon', 'usdt-trc20', 'usdc', 'usdc-arbitrum', 'usdc-polygon', 'usdc-solana'];
-
 	const ORDER_KEY = 'gl_checkout_order_id';
+	const cfg = () => window.GL_CONFIG || {};
+	const v = () => cfg().assetVersion || '10';
 
 	let cart = [];
 	let selectedCrypto = null;
 	let currentTotal = 0;
 	let pendingOrderId = null;
 
-	function escapeHtml(str) {
-		return String(str)
-			.replace(/&/g, '&amp;')
-			.replace(/</g, '&lt;')
-			.replace(/>/g, '&gt;')
-			.replace(/"/g, '&quot;');
+	function esc(str) {
+		return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+	}
+
+	function assetUrl(path) {
+		if (!path) return '';
+		const enc = path.split('/').map((s) => encodeURIComponent(s)).join('/');
+		return `${enc}?v=${encodeURIComponent(v())}`;
+	}
+
+	function wallets() {
+		return cfg().cryptoWallets || {};
+	}
+
+	function primaryIds() {
+		return cfg().cryptoPrimary || ['bitcoin', 'ethereum', 'usdt-trc20', 'usdt-eth'];
+	}
+
+	function extendedIds() {
+		return cfg().cryptoExtended || [];
 	}
 
 	function getOrCreateOrderId() {
@@ -48,37 +47,43 @@
 	function clearCheckoutSession() {
 		sessionStorage.removeItem(ORDER_KEY);
 	}
-	const cfg = () => window.GL_CONFIG || {};
-	const ej = () => cfg().emailjs || {};
 
 	function isEmailReady() {
-		const c = ej();
-		return typeof emailjs !== 'undefined' && c.publicKey && c.serviceId && c.templatePayment && c.templateConfirmation;
+		const ej = cfg().emailjs || {};
+		return typeof emailjs !== 'undefined' && ej.publicKey && ej.serviceId && ej.templatePayment;
 	}
 
-	function cryptoOptionHtml(id) {
-		const c = CRYPTO_ADDRESSES[id];
-		const icon = c.logo
-			? `<img src="${c.logo}" alt="${c.name}" onerror="this.replaceWith(document.createTextNode('${c.icon}'))">`
-			: c.icon;
+	function cryptoOption(id) {
+		const c = wallets()[id];
+		if (!c) return '';
 		return `
-			<button type="button" class="crypto-option" data-crypto="${id}" aria-pressed="false">
-				<div class="crypto-option-icon">${icon}</div>
-				<div class="crypto-option-name">${c.name}</div>
-				${c.network ? `<div class="crypto-option-network">${c.network}</div>` : ''}
-			</button>`;
+			<label class="synapse-checkout-crypto-opt">
+				<input type="radio" name="crypto" value="${id}"${selectedCrypto === id ? ' checked' : ''}>
+				<span class="synapse-checkout-crypto-label">${esc(c.symbol)} ${esc(c.name)}</span>
+				${c.network ? `<span class="synapse-checkout-crypto-net">${esc(c.network)}</span>` : ''}
+			</label>`;
 	}
 
-	function addressBlockHtml(id) {
-		const c = CRYPTO_ADDRESSES[id];
+	function paymentPanel(id) {
+		const c = wallets()[id];
+		if (!c) return '';
+		const barcode = c.barcode ? `<img class="synapse-checkout-barcode" src="${assetUrl(c.barcode)}" alt="Payment QR" width="200" height="200">` : '';
 		return `
-			<div class="crypto-address" id="address-${id}" hidden>
-				<div class="crypto-address-label">${c.name}${c.network ? ` (${c.network})` : ''} address</div>
-				<div class="crypto-address-value" id="address-value-${id}">${c.address}</div>
-				<button type="button" class="copy-btn" data-copy="${id}">Copy address</button>
-				<div class="qr-code-container" id="qr-code-${id}" data-address="${escapeHtml(c.address)}" hidden>
-					<canvas class="qr-dynamic" aria-label="${escapeHtml(c.name)} payment QR code"></canvas>
+			<div class="synapse-checkout-paypanel" id="paypanel-${id}" hidden>
+				<div class="synapse-checkout-amount-box">
+					<p class="synapse-checkout-amount-label">Send exactly</p>
+					<p class="synapse-checkout-amount-value">$${currentTotal.toFixed(2)} USD</p>
+					<p class="synapse-checkout-amount-hint">in ${esc(c.symbol)}${c.network ? ` · ${esc(c.network)}` : ''}</p>
 				</div>
+				<div class="synapse-checkout-wallet">
+					<p class="synapse-checkout-field-label">Wallet address</p>
+					<div class="synapse-checkout-copy-row">
+						<code class="synapse-checkout-address" id="addr-${id}">${esc(c.address)}</code>
+						<button type="button" class="synapse-btn-outline synapse-checkout-copy" data-copy="${id}">Copy</button>
+					</div>
+					${barcode ? `<div class="synapse-checkout-qr">${barcode}</div>` : `<div class="synapse-checkout-qr"><canvas class="qr-dynamic" data-qr="${esc(c.address)}" aria-label="QR code"></canvas></div>`}
+				</div>
+				<p class="synapse-checkout-warning">Send only <strong>${esc(c.symbol)}</strong> on the correct network. Wrong network = lost funds.</p>
 			</div>`;
 	}
 
@@ -86,10 +91,11 @@
 		const el = document.getElementById('checkout-content');
 		if (!el) return;
 		el.innerHTML = `
-			<div class="checkout-empty">
+			<div class="synapse-checkout-empty">
+				<span class="synapse-checkout-empty-icon">🛒</span>
 				<h2>Your cart is empty</h2>
-				<p class="muted">Add products from the shop before checkout.</p>
-				<a href="shop.html" class="btn btn-primary" style="margin-top:16px;display:inline-flex">Browse shop</a>
+				<p>Add cheat products from the shop, then return here to pay with crypto.</p>
+				<a href="shop.html" class="synapse-btn-primary">Browse cheats</a>
 			</div>`;
 		document.getElementById('checkout-sticky-pay')?.remove();
 	}
@@ -104,92 +110,117 @@
 			return;
 		}
 
+		if (!selectedCrypto) selectedCrypto = primaryIds()[0];
+
 		const el = document.getElementById('checkout-content');
 		if (!el) return;
 
+		const allIds = [...primaryIds(), ...extendedIds()].filter((id) => wallets()[id]);
+
 		el.innerHTML = `
-			<div class="checkout-grid">
-				<div>
-					<div class="checkout-card">
+			<nav class="synapse-breadcrumb" aria-label="Breadcrumb">
+				<a href="shop.html" class="synapse-link">Cheats</a>
+				<span aria-hidden="true">/</span>
+				<span>Checkout</span>
+			</nav>
+			<h1 class="synapse-checkout-title">Secure checkout</h1>
+			<p class="synapse-checkout-sub">Pay with crypto — keys delivered to your email after confirmation.</p>
+
+			<div class="synapse-checkout-layout">
+				<div class="synapse-checkout-main">
+					<section class="synapse-checkout-card">
 						<h2>Order summary</h2>
-						<div style="padding:12px 14px;background:rgba(46,244,122,.08);border-radius:10px;margin-bottom:16px;border-left:3px solid var(--green)">
-							<div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Order ID</div>
-							<div style="font-family:ui-monospace,monospace;font-size:1rem;color:var(--green);font-weight:800">${escapeHtml(pendingOrderId)}</div>
+						<div class="synapse-checkout-order-id">
+							<span>Order ID</span>
+							<strong>${esc(pendingOrderId)}</strong>
 						</div>
-						${cart.map((item) => `
-							<div class="order-item">
-								<div class="order-item-info">
-									<h4>${escapeHtml(item.title)}</h4>
-									<p>Qty ${item.qty}${item.period ? ` · ${item.period}` : ''}</p>
-								</div>
-								<div class="order-item-price">$${(item.price * item.qty).toFixed(2)}</div>
-							</div>`).join('')}
-						<div class="order-total"><span>Total</span><strong>$${currentTotal.toFixed(2)}</strong></div>
-						<p class="muted" style="font-size:0.8125rem;margin:12px 0 0"><a href="shop.html">← Edit cart in shop</a></p>
-					</div>
-					<div class="checkout-card" style="margin-top:24px">
+						<ul class="synapse-checkout-items">
+							${cart.map((item) => `
+								<li>
+									<div>
+										<strong>${esc(item.title)}</strong>
+										<span>Qty ${item.qty}${item.period ? ` · ${item.period}` : ''}</span>
+									</div>
+									<strong>$${(item.price * item.qty).toFixed(2)}</strong>
+								</li>`).join('')}
+						</ul>
+						<div class="synapse-checkout-total"><span>Total</span><strong>$${currentTotal.toFixed(2)}</strong></div>
+					</section>
+
+					<section class="synapse-checkout-card">
 						<h2>Payment method</h2>
-						<div class="payment-section">
-							<div class="payment-section-title">E-Wallet</div>
-							<div class="crypto-options">${E_WALLET.map(cryptoOptionHtml).join('')}</div>
-						</div>
-						<div class="payment-section">
-							<div class="payment-section-title">Cryptocurrency</div>
-							<div class="crypto-options">${CRYPTO.map(cryptoOptionHtml).join('')}</div>
-						</div>
-						${Object.keys(CRYPTO_ADDRESSES).map(addressBlockHtml).join('')}
-						<div class="payment-status" id="payment-status" hidden>
-							<div class="status-icon">⏳</div>
-							<div class="status-message">Awaiting payment</div>
-							<div class="status-note" id="status-note"></div>
-						</div>
-					</div>
+						<p class="synapse-checkout-lead">Select cryptocurrency — you'll get a wallet address and exact USD amount.</p>
+						<fieldset class="synapse-checkout-crypto-grid">
+							<legend class="sr-only">Cryptocurrency</legend>
+							${allIds.map(cryptoOption).join('')}
+						</fieldset>
+						${allIds.map(paymentPanel).join('')}
+					</section>
 				</div>
-				<div class="payable-amount-card">
-					<div class="payable-amount checkout-card">
-						<div class="payable-amount-label">Payable amount</div>
-						<div class="payable-amount-value">$${currentTotal.toFixed(2)}</div>
-						<div class="form-field">
-							<label for="customer-email">Email for delivery</label>
+
+				<aside class="synapse-checkout-sidebar">
+					<div class="synapse-checkout-card synapse-checkout-sidebar-card">
+						<p class="synapse-checkout-sidebar-total">$${currentTotal.toFixed(2)}</p>
+						<p class="synapse-checkout-sidebar-label">Payable amount</p>
+						<label class="synapse-checkout-field" for="customer-email">
+							<span>Email for delivery</span>
 							<input type="email" id="customer-email" placeholder="you@example.com" autocomplete="email" required>
-						</div>
-						<div class="terms-checkbox">
+						</label>
+						<label class="synapse-checkout-terms">
 							<input type="checkbox" id="terms-checkbox">
-							<label for="terms-checkbox">I accept the <a href="terms.html" target="_blank" rel="noopener">Terms</a> and <a href="refund.html" target="_blank" rel="noopener">Refund Policy</a></label>
-						</div>
-						<button type="button" class="pay-now-btn" id="pay-now-btn" disabled>I’ve sent payment</button>
-						<p class="muted" style="font-size:0.75rem;margin-top:12px;line-height:1.4">Send the exact USD amount in crypto to the address shown, then confirm. Keys are delivered via email.</p>
+							<span>I accept the <a href="terms.html" target="_blank" rel="noopener">Terms</a> and <a href="refund.html" target="_blank" rel="noopener">Refund Policy</a></span>
+						</label>
+						<button type="button" class="synapse-btn-primary synapse-checkout-submit" id="pay-now-btn" disabled>I've sent the payment</button>
+						<p class="synapse-checkout-note">After sending crypto, tap the button above. We verify payment and email your key.</p>
 					</div>
-				</div>
+				</aside>
 			</div>
-			<div class="checkout-sticky-pay" id="checkout-sticky-pay">
-				<span class="sticky-total">$${currentTotal.toFixed(2)}</span>
-				<button type="button" class="pay-now-btn" id="pay-now-btn-mobile" disabled>I’ve sent payment</button>
+
+			<div class="synapse-checkout-sticky mobile-above-tab-bar" id="checkout-sticky-pay">
+				<div>
+					<strong>$${currentTotal.toFixed(2)}</strong>
+					<span>Total due</span>
+				</div>
+				<button type="button" class="synapse-btn-primary synapse-checkout-submit" id="pay-now-btn-mobile" disabled>I've sent payment</button>
 			</div>`;
 
-		bindCheckoutEvents();
-		renderQrCodes();
+		bindEvents();
+		showPaymentPanel(selectedCrypto);
+		renderDynamicQr();
 	}
 
-	function renderQrCodes() {
+	function renderDynamicQr() {
 		if (typeof QRCode === 'undefined') return;
-		document.querySelectorAll('.qr-code-container[data-address]').forEach((container) => {
-			const addr = container.dataset.address;
+		document.querySelectorAll('canvas.qr-dynamic[data-qr]').forEach((canvas) => {
+			const addr = canvas.dataset.qr;
 			if (!addr) return;
-			const canvas = container.querySelector('canvas.qr-dynamic');
-			if (!canvas) return;
-			QRCode.toCanvas(canvas, addr, { width: 200, margin: 1 }, (err) => {
-				if (err) container.hidden = true;
+			QRCode.toCanvas(canvas, addr, { width: 180, margin: 1 }, (err) => {
+				if (err) canvas.closest('.synapse-checkout-qr')?.remove();
 			});
 		});
 	}
 
-	function bindCheckoutEvents() {
-		document.querySelectorAll('.crypto-option').forEach((btn) => {
-			btn.addEventListener('click', () => selectCrypto(btn.dataset.crypto));
+	function showPaymentPanel(id) {
+		selectedCrypto = id;
+		document.querySelectorAll('.synapse-checkout-paypanel').forEach((p) => { p.hidden = true; });
+		const panel = document.getElementById(`paypanel-${id}`);
+		if (panel) panel.hidden = false;
+		updatePayButton();
+	}
+
+	function bindEvents() {
+		document.querySelectorAll('input[name="crypto"]').forEach((input) => {
+			input.addEventListener('change', () => showPaymentPanel(input.value));
 		});
 		document.querySelectorAll('[data-copy]').forEach((btn) => {
-			btn.addEventListener('click', () => copyAddress(btn.dataset.copy));
+			btn.addEventListener('click', () => {
+				const c = wallets()[btn.dataset.copy];
+				if (!c?.address) return;
+				navigator.clipboard.writeText(c.address).then(() => {
+					btn.textContent = 'Copied!';
+					setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+				}).catch(() => alert('Copy failed — select the address manually.'));
+			});
 		});
 		document.getElementById('terms-checkbox')?.addEventListener('change', updatePayButton);
 		document.getElementById('customer-email')?.addEventListener('input', updatePayButton);
@@ -197,101 +228,31 @@
 		document.getElementById('pay-now-btn-mobile')?.addEventListener('click', processPayment);
 	}
 
-	function selectCrypto(cryptoId) {
-		selectedCrypto = cryptoId;
-		document.querySelectorAll('.crypto-option').forEach((o) => {
-			const on = o.dataset.crypto === cryptoId;
-			o.classList.toggle('active', on);
-			o.setAttribute('aria-pressed', on ? 'true' : 'false');
-		});
-		document.querySelectorAll('.crypto-address').forEach((a) => { a.hidden = true; });
-		document.querySelectorAll('.qr-code-container').forEach((q) => {
-			q.classList.remove('active');
-			q.hidden = true;
-		});
-		const block = document.getElementById(`address-${cryptoId}`);
-		if (block) block.hidden = false;
-		const qr = document.getElementById(`qr-code-${cryptoId}`);
-		if (qr) {
-			qr.hidden = false;
-			qr.classList.add('active');
-		}
-		const status = document.getElementById('payment-status');
-		const note = document.getElementById('status-note');
-		const c = CRYPTO_ADDRESSES[cryptoId];
-		if (status && note && c) {
-			status.hidden = false;
-			note.textContent = `Send $${currentTotal.toFixed(2)} via ${c.name}${c.network ? ` (${c.network})` : ''} to the address above.`;
-		}
-		updatePayButton();
-	}
-
-	function copyAddress(id) {
-		const text = CRYPTO_ADDRESSES[id]?.address;
-		if (!text) return;
-		navigator.clipboard.writeText(text).then(() => {
-			const btn = document.querySelector(`[data-copy="${id}"]`);
-			if (btn) {
-				const prev = btn.textContent;
-				btn.textContent = 'Copied!';
-				setTimeout(() => { btn.textContent = prev; }, 2000);
-			}
-		}).catch(() => alert('Copy failed — select and copy the address manually.'));
-	}
-
 	function updatePayButton() {
 		const ok = document.getElementById('terms-checkbox')?.checked;
 		const email = document.getElementById('customer-email')?.value.trim() || '';
 		const validEmail = email.includes('@') && email.includes('.');
 		const enabled = !!(ok && selectedCrypto && validEmail);
-		['pay-now-btn', 'pay-now-btn-mobile'].forEach((id) => {
-			const b = document.getElementById(id);
-			if (b) b.disabled = !enabled;
-		});
+		document.querySelectorAll('.synapse-checkout-submit').forEach((b) => { b.disabled = !enabled; });
 	}
 
 	function showSuccess(orderId, customerEmail, paymentMethod, emailNote) {
 		const el = document.getElementById('checkout-content');
 		if (!el) return;
-		const supportEmail = cfg().email || 'gamerleech2@gmail.com';
 		el.innerHTML = `
-			<div class="checkout-success">
+			<div class="synapse-checkout-success">
+				<span class="synapse-checkout-success-icon">✓</span>
 				<h2>Payment submitted</h2>
-				<p>We received your order. Once payment is confirmed, delivery goes to <strong>${escapeHtml(customerEmail)}</strong>.</p>
-				<div class="order-id">${escapeHtml(orderId)}</div>
-				<p class="muted">Method: ${escapeHtml(paymentMethod)}<br>Total: $${currentTotal.toFixed(2)}</p>
-				${emailNote ? `<p class="checkout-warn">${escapeHtml(emailNote)}</p>` : ''}
-				<div class="checkout-success-actions">
-					<a href="mailto:${supportEmail}" class="btn btn-primary">Email support</a>
-					<a href="shop.html" class="btn btn-outline">Continue shopping</a>
+				<p>Order <strong>${esc(orderId)}</strong> received. Once your crypto payment confirms, we deliver to <strong>${esc(customerEmail)}</strong>.</p>
+				<p class="synapse-checkout-success-meta">Method: ${esc(paymentMethod)} · Total: $${currentTotal.toFixed(2)}</p>
+				${emailNote ? `<p class="synapse-checkout-warn">${esc(emailNote)}</p>` : ''}
+				<div class="synapse-checkout-success-actions">
+					<a href="orders.html" class="synapse-btn-primary">View orders</a>
+					<a href="shop.html" class="synapse-btn-outline">Continue shopping</a>
 				</div>
 			</div>`;
 		document.getElementById('checkout-sticky-pay')?.remove();
 		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
-
-	function showSubmitError(message) {
-		const el = document.getElementById('checkout-content');
-		const sticky = document.getElementById('checkout-sticky-pay');
-		if (sticky) {
-			sticky.querySelectorAll('.pay-now-btn').forEach((b) => {
-				b.disabled = false;
-				b.textContent = 'I\u2019ve sent payment';
-			});
-		}
-		const banner = document.getElementById('checkout-error');
-		if (banner) {
-			banner.textContent = message;
-			banner.hidden = false;
-			return;
-		}
-		if (el) {
-			const note = document.createElement('p');
-			note.id = 'checkout-error';
-			note.className = 'checkout-warn';
-			note.textContent = message;
-			el.prepend(note);
-		}
 	}
 
 	async function processPayment() {
@@ -299,14 +260,12 @@
 		const email = document.getElementById('customer-email')?.value.trim();
 		if (!email || !email.includes('@')) return;
 
-		const btns = ['pay-now-btn', 'pay-now-btn-mobile'].map((id) => document.getElementById(id)).filter(Boolean);
+		const btns = document.querySelectorAll('.synapse-checkout-submit');
 		btns.forEach((b) => { b.disabled = true; b.textContent = 'Submitting…'; });
 
 		const orderId = pendingOrderId || GLCart.createOrderId();
-		const crypto = CRYPTO_ADDRESSES[selectedCrypto];
-		const paymentMethod = `${crypto.name}${crypto.network ? ` (${crypto.network})` : ''}`;
-		const businessEmail = cfg().email || 'gamerleech2@gmail.com';
-		const cartLines = cart.map((i) => `- ${i.title} ×${i.qty} — $${(i.price * i.qty).toFixed(2)}`).join('\n');
+		const crypto = wallets()[selectedCrypto];
+		const paymentMethod = `${crypto.name} (${crypto.symbol})${crypto.network ? ` · ${crypto.network}` : ''}`;
 
 		GLCart.saveOrder({
 			id: orderId,
@@ -319,10 +278,12 @@
 			status: 'pending'
 		});
 
-		let businessSent = false;
-		let customerSent = false;
+		const cartLines = cart.map((i) => `- ${i.title} ×${i.qty} — $${(i.price * i.qty).toFixed(2)}`).join('\n');
+		let emailNote = '';
 
 		if (isEmailReady()) {
+			const ej = cfg().emailjs;
+			const businessEmail = cfg().email || 'gamerleech2@gmail.com';
 			const base = {
 				order_id: orderId,
 				total_amount: `$${currentTotal.toFixed(2)}`,
@@ -332,7 +293,7 @@
 				customer_email: email
 			};
 			try {
-				await emailjs.send(ej().serviceId, ej().templatePayment, {
+				await emailjs.send(ej.serviceId, ej.templatePayment, {
 					...base,
 					to_email: businessEmail,
 					reply_to: email,
@@ -340,44 +301,28 @@
 					from_email: email,
 					message: `New order ${orderId}\n${cartLines}\n${paymentMethod}\n${crypto.address}`
 				});
-				businessSent = true;
-			} catch (e) { console.warn('Business email failed', e); }
+			} catch (e) {
+				console.warn('Business email failed', e);
+				emailNote = 'Order saved — our notification email may be delayed. Save your order ID.';
+			}
 			try {
-				await emailjs.send(ej().serviceId, ej().templateConfirmation, {
+				await emailjs.send(ej.serviceId, ej.templateConfirmation, {
 					...base,
 					to_email: email,
 					from_name: 'GamerLeech',
 					reply_to: businessEmail,
-					message: `Thanks for your order ${orderId}. We will deliver to this email after payment confirms.`
+					message: `Thanks for order ${orderId}. We will deliver after payment confirms.`
 				});
-				customerSent = true;
-			} catch (e) { console.warn('Customer email failed', e); }
-		}
-
-		if (isEmailReady() && !businessSent && !customerSent) {
-			showSubmitError('Order saved locally but confirmation emails failed. Your cart is still here — try again or email gamerleech2@gmail.com with your order ID.');
-			btns.forEach((b) => { b.disabled = false; b.textContent = 'I\u2019ve sent payment'; });
-			return;
+			} catch (e) {
+				console.warn('Customer email failed', e);
+				if (!emailNote) emailNote = 'Order saved — confirmation email may be delayed. Save your order ID.';
+			}
 		}
 
 		GLCart.clear();
 		clearCheckoutSession();
-
-		let emailNote = '';
-		if (isEmailReady()) {
-			if (!customerSent) emailNote = 'We could not send your confirmation email — save your order ID and email us if needed.';
-			else if (!businessSent) emailNote = 'Your confirmation was sent; our team notification may be delayed.';
-		} else {
-			emailNote = 'Email service unavailable — order saved locally. Contact gamerleech2@gmail.com with your order ID.';
-		}
-
 		showSuccess(orderId, email, paymentMethod, emailNote);
 	}
-
-	window.selectCrypto = selectCrypto;
-	window.copyAddress = copyAddress;
-	window.updatePayButton = updatePayButton;
-	window.processPayment = processPayment;
 
 	document.addEventListener('DOMContentLoaded', renderCheckout);
 	window.addEventListener('pageshow', (e) => {
