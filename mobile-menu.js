@@ -1,4 +1,4 @@
-/** Synapse-style mobile menu — checkbox + label, portaled to body */
+/** Synapse-style mobile menu — checkbox + label, trigger lives in header */
 (function () {
 	'use strict';
 
@@ -54,29 +54,22 @@
 			</div>`;
 	}
 
-	function ensureSpacer() {
-		const actions = document.querySelector('.synapse-header-actions');
-		if (!actions || actions.querySelector('.mobile-menu-spacer')) return;
-		const spacer = document.createElement('div');
-		spacer.className = 'mobile-menu-spacer';
-		spacer.setAttribute('aria-hidden', 'true');
-		actions.appendChild(spacer);
-	}
-
 	function mount() {
 		if (document.getElementById(MENU_ID)) return;
+		const headerInner = document.querySelector('.synapse-header-inner');
+		if (!headerInner) return;
 
 		const root = document.createElement('div');
-		root.className = 'mobile-menu-root';
+		root.className = 'mobile-menu-root mobile-menu-root--header';
 		root.innerHTML = menuHTML();
-		document.body.appendChild(root);
 
-		const headerToggle = document.querySelector('.synapse-header .nav-toggle');
-		if (headerToggle) {
-			headerToggle.hidden = true;
-			headerToggle.setAttribute('aria-hidden', 'true');
+		const oldToggle = headerInner.querySelector('.nav-toggle');
+		if (oldToggle) {
+			headerInner.insertBefore(root, oldToggle);
+			oldToggle.remove();
+		} else {
+			headerInner.appendChild(root);
 		}
-		ensureSpacer();
 
 		const input = root.querySelector(`#${MENU_ID}`);
 		if (!input) return;

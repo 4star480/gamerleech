@@ -152,7 +152,7 @@
 	}
 
 	function renderCategoryTabs(activeId) {
-		const el = document.getElementById('category-tabs');
+		const el = document.getElementById('category-tabs') || document.getElementById('shop-site-tabs');
 		if (!el) return;
 		el.className = 'synapse-tabs';
 		el.innerHTML = TABS.map((t) => {
@@ -197,6 +197,10 @@
 		if (window.GL_WISHLIST) window.GL_WISHLIST.wire(el);
 	}
 
+	function escHtml(s) {
+		return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+	}
+
 	function cheatCategoryCardHtml(cat, name, count, image, href) {
 		const fallback = 'assets/shop/fallback.svg';
 		const img = image || fallback;
@@ -205,7 +209,7 @@
 				<img class="synapse-cover-img" src="${img}" alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}'">
 			</div>
 			<div class="synapse-game-body">
-				<h3>${name}</h3>
+				<h3>${escHtml(name)}</h3>
 				<p>${count} product${count === 1 ? '' : 's'}</p>
 				<div class="synapse-game-meta">Browse cheats →</div>
 			</div>
@@ -233,7 +237,7 @@
 		return `<article class="synapse-cheat-wrap product-frame" data-id="${p.id}">
 			<div class="synapse-hub-card synapse-listing-card synapse-cheat-card">
 				<div class="synapse-listing-thumb" style="background:linear-gradient(135deg,#581c87,#22d3ee)">
-					<img class="synapse-cover-img" src="${img}" alt="${String(p.title).replace(/"/g, '&quot;')}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}'">
+					<img class="synapse-cover-img" src="${img}" alt="${escHtml(p.title)}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}'">
 					${featured}${statusBadge}${tierBadge}
 				</div>
 				<div class="synapse-listing-body">
@@ -241,8 +245,8 @@
 						<span>⚡ Cheats</span>
 						<span class="synapse-cat-badge">${catLabel}</span>
 					</div>
-					<h3 class="synapse-listing-title">${p.title}</h3>
-					${p.desc ? `<p class="synapse-cheat-desc">${p.desc}</p>` : ''}
+					<h3 class="synapse-listing-title">${escHtml(p.title)}</h3>
+					${p.desc ? `<p class="synapse-cheat-desc">${escHtml(p.desc)}</p>` : ''}
 					<div class="synapse-listing-footer">
 						<div class="synapse-seller">
 							<span class="synapse-avatar" style="background:#7e22ce">G</span>

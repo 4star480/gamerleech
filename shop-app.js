@@ -154,8 +154,14 @@
 	}
 
 	function renderCategories(categories) {
-		if (!chrome?.cheatCategoryCardHtml) return;
+		if (!categoryGrid) return;
 		categoryGrid.className = 'synapse-category-grid';
+		categoryGrid.style.display = 'grid';
+		if (!categories.length) {
+			categoryGrid.innerHTML = '<p class="synapse-empty" style="grid-column:1/-1">No categories available.</p>';
+			return;
+		}
+		const render = chrome?.cheatCategoryCardHtml;
 		categoryGrid.innerHTML = categories.map((cat) => {
 			const count = PRODUCTS.filter((p) => p.category === cat && (
 				activeTab === 'cheats'
@@ -165,7 +171,9 @@
 			const name = CATEGORY_NAMES[cat] || cat;
 			const firstProduct = PRODUCTS.find((p) => p.category === cat);
 			const image = firstProduct?.image || `assets/shop/${cat}.svg`;
-			return chrome.cheatCategoryCardHtml(cat, name, count, image, shopUrl(activeTab, cat));
+			const href = shopUrl(activeTab, cat);
+			if (render) return render(cat, name, count, image, href);
+			return `<a href="${href}" class="synapse-hub-card synapse-category-card"><h3>${name}</h3><p>${count} products</p></a>`;
 		}).join('');
 	}
 
@@ -428,10 +436,30 @@
 	}
 
 	function useCatalog(data) {
-		PRODUCTS = (Array.isArray(data.products) ? data.products : []).map(normalizeProduct);
+		if (!data || !Array.isArray(data.products)) {
+			if (categoryGrid) categoryGrid.innerHTML = '<p class="synapse-empty">Could not load catalog.</p>';
+			return;
+		}
+		PRODUCTS = data.products.map(normalizeProduct);
 		const category = getCategoryFromURL();
 		if (category) showCategoryView(category);
 		else showMainView();
+	}
+
+	function loadCatalog() {
+		if (categoryGrid) {
+			categoryGrid.innerHTML = '<p class="synapse-empty" style="grid-column:1/-1">Loading cheats…</p>';
+			categoryGrid.style.display = 'grid';
+		}
+		return fetch('data/products.json', { cache: 'no-store' })
+			.then((r) => { if (!r.ok) throw new Error('catalog'); return r.json(); })
+			.then(useCatalog)
+			.catch(() => {
+				if (categoryGrid) {
+					categoryGrid.innerHTML = '<p class="synapse-empty" style="grid-column:1/-1">Could not load catalog. Please refresh.</p>';
+				}
+				if (productGrid) productGrid.innerHTML = '';
+			});
 	}
 
 	// Cart
@@ -644,13 +672,7 @@
 		}
 	});
 
-	fetch('data/products.json')
-		.then((r) => { if (!r.ok) throw new Error('catalog'); return r.json(); })
-		.then(useCatalog)
-		.catch(() => {
-			categoryGrid.innerHTML = '<p class="muted">Could not load catalog. Please refresh.</p>';
-			productGrid.innerHTML = '';
-		});
+	loadCatalog();
 
 	bindGridEvents(productGrid);
 	bindGridEvents(featuredGrid);

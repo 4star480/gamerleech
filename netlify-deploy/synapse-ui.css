@@ -378,7 +378,8 @@ body {
 }
 @media (min-width: 640px) { .synapse-game-card { flex-basis: 180px; } }
 .synapse-game-cover {
-	height: 96px;
+	height: 110px;
+	min-height: 110px;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -399,7 +400,9 @@ body {
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+	z-index: 2;
+	pointer-events: none;
+	background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 55%);
 }
 .synapse-game-emoji {
 	position: absolute;
@@ -429,6 +432,7 @@ body {
 /* Listing cards */
 .synapse-listings-grid {
 	display: grid;
+	grid-template-columns: 1fr;
 	gap: 12px;
 }
 @media (min-width: 640px) { .synapse-listings-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
@@ -440,7 +444,8 @@ body {
 	color: inherit;
 }
 .synapse-listing-thumb {
-	height: 100px;
+	height: 110px;
+	min-height: 110px;
 	margin: 12px 12px 0;
 	border-radius: 8px;
 	background-size: cover;
@@ -952,22 +957,21 @@ body.has-synapse-tabbar { padding-bottom: var(--syn-tab-h); }
 	50% { transform: scale(1.15); }
 }
 
-/* Synapse-style mobile menu (checkbox + label — portaled to body) */
-.mobile-menu-root {
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 10000;
-	width: 0;
-	height: 0;
+/* Synapse-style mobile menu — trigger in header (reliable on iOS) */
+.mobile-menu-root--header {
+	flex-shrink: 0;
+	position: relative;
+	z-index: 101;
+	width: auto;
+	height: auto;
 	overflow: visible;
-	pointer-events: none;
+	pointer-events: auto;
 }
 
-.mobile-menu-spacer {
-	flex-shrink: 0;
-	width: 2.75rem;
-	height: 2.75rem;
+.mobile-menu-root--header .mobile-menu-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 10001;
 }
 
 .mobile-menu-check {
@@ -1185,16 +1189,27 @@ body.mobile-menu-open {
 }
 
 @media (max-width: 1023px) {
-	.mobile-menu-trigger {
-		position: fixed;
-		z-index: 10002;
-		display: grid;
-		top: calc(env(safe-area-inset-top, 0px) + 0.5rem);
-		right: max(1rem, env(safe-area-inset-right, 0px));
-		pointer-events: auto;
+	.synapse-header-inner {
+		flex-wrap: nowrap;
+		gap: 8px;
 	}
-	.mobile-menu-root {
-		display: block;
+	.synapse-header-inner .synapse-brand {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+	.synapse-header-inner .synapse-header-actions {
+		margin-left: auto;
+		flex-shrink: 0;
+	}
+	.synapse-header-inner .mobile-menu-root--header {
+		flex-shrink: 0;
+		margin-left: 4px;
+	}
+	.mobile-menu-trigger {
+		display: grid;
+		position: relative;
+		z-index: 101;
+		pointer-events: auto;
 	}
 	.synapse-header .nav-toggle {
 		display: none !important;
@@ -1205,8 +1220,7 @@ body.mobile-menu-open {
 }
 
 @media (min-width: 1024px) {
-	.mobile-menu-root,
-	.mobile-menu-spacer {
+	.mobile-menu-root--header {
 		display: none !important;
 	}
 }
