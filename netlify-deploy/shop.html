@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="components.css">
-	<link rel="stylesheet" href="legal.css">
+	<link rel="stylesheet" href="cart-ui.css">
 	<link rel="stylesheet" href="mobile-shop.css">
 	<link rel="icon" href="assets/favicon.svg">
 </head>
@@ -163,6 +163,7 @@
 		</div>
 	</aside>
 	<div class="cart-backdrop" id="cart-backdrop" hidden></div>
+	<div class="cart-toast" id="cart-toast" role="status" aria-live="polite"></div>
 
 	<footer class="site-footer">
 		<div class="container footer-inner">
@@ -191,6 +192,7 @@
 		</div>
 	</nav>
 
+	<script src="cart.js"></script>
 	<script src="site.js"></script>
 	<script src="script.js"></script>
 	<script>
@@ -353,7 +355,7 @@
 								<div class="p-footer">
 									<div class="price-display">
 										<span class="price-label">Price:</span>
-										<span class="p-price">$${p.price.toFixed(2)}</span>
+										<span class="p-price">$${Number(p.price || 0).toFixed(2)}</span>
 									</div>
 									<button class="btn btn-outline add-to-cart" data-id="${p.id}">Add to cart</button>
 								</div>
@@ -424,7 +426,7 @@
 			}
 		}
 
-		// Cart logic
+		// Cart (shared GLCart module)
 		const drawer = document.getElementById('cart-drawer');
 		const drawerBtn = document.getElementById('cart-button');
 		const drawerClose = document.getElementById('cart-close');
@@ -432,78 +434,87 @@
 		const cartItemsEl = document.getElementById('cart-items');
 		const cartCountEl = document.getElementById('cart-count');
 		const cartTotalEl = document.getElementById('cart-total');
+		const checkoutBtn = document.getElementById('checkout-btn');
+		const cartToast = document.getElementById('cart-toast');
+		let toastTimer;
 
-		let cart = JSON.parse(localStorage.getItem('gl_cart') || '[]');
+		function showToast(msg) {
+			if (!cartToast) return;
+			cartToast.textContent = msg;
+			cartToast.classList.add('show');
+			clearTimeout(toastTimer);
+			toastTimer = setTimeout(() => cartToast.classList.remove('show'), 2200);
+		}
 
-		function saveCart() { localStorage.setItem('gl_cart', JSON.stringify(cart)); }
 		function openCart() {
 			drawer.setAttribute('aria-hidden', 'false');
 			drawerBackdrop.hidden = false;
+			document.body.classList.add('cart-open');
 		}
+
 		function closeCart() {
 			drawer.setAttribute('aria-hidden', 'true');
 			drawerBackdrop.hidden = true;
+			document.body.classList.remove('cart-open');
 		}
+
 		function updateCartUI() {
-			cartItemsEl.innerHTML = cart.map(item => `
-				<div class="cart-item">
-					<div class="ci-left">
-						<img src="${item.icon}" alt=""/>
-						<div>
-							<strong>${item.title}</strong>
-							<p class="muted">$${item.price.toFixed(2)} × ${item.qty}</p>
-						</div>
-					</div>
-					<div class="ci-right">
-						<button class="icon-btn" data-action="dec" data-cart-id="${item.cartId || item.id}">−</button>
-						<button class="icon-btn" data-action="inc" data-cart-id="${item.cartId || item.id}">+</button>
-						<button class="icon-btn" data-action="remove" data-cart-id="${item.cartId || item.id}">✕</button>
-					</div>
-				</div>
-			`).join('');
-			const total = cart.reduce((sum, i) => sum + (i.price || 0) * i.qty, 0);
-			cartTotalEl.textContent = `$${total.toFixed(2)}`;
-			cartCountEl.textContent = String(cart.reduce((n, i) => n + i.qty, 0));
-			const dockCount = document.getElementById('dock-cart-count');
-			if (dockCount) dockCount.textContent = cartCountEl.textContent;
-		}
-		function addToCart(id, period = null, price = null) {
-			const prod = PRODUCTS.find(p => p.id === id);
-			if (!prod) return;
-			
-			const cartId = period ? `${id}-${period}` : id;
-			const displayPrice = price || prod.price;
-			// Format period label properly
-			let periodLabel = '';
-			if (period) {
-				const periodMap = {
-					'daily': 'Day',
-					'weekly': 'Week',
-					'monthly': 'Month',
-					'onetime': 'One-Time',
-					'lifetime': 'Lifetime'
-				};
-				periodLabel = periodMap[period] || period.charAt(0).toUpperCase() + period.slice(1);
-			}
-			const displayTitle = period ? `${prod.title} (${periodLabel})` : prod.title;
-			
-			const existing = cart.find(i => i.cartId === cartId);
-			if (existing) {
-				existing.qty += 1;
+			const cart = GLCart.get();
+			if (!cart.length) {
+				cartItemsEl.innerHTML = `
+					<div class="cart-empty">
+						<p>Your cart is empty.</p>
+						<button type="button" class="btn btn-outline" id="cart-browse-btn">Browse products</button>
+					</div>`;
+				document.getElementById('cart-browse-btn')?.addEventListener('click', closeCart);
 			} else {
-				cart.push({
-					...prod,
-					cartId: cartId,
-					price: displayPrice,
-					title: displayTitle,
-					period: period,
-					qty: 1
-				});
+				cartItemsEl.innerHTML = cart.map((item) => {
+					const cid = item.cartId || item.id;
+					const icon = item.icon || 'assets/icons/bolt.svg';
+					const line = (item.price * item.qty).toFixed(2);
+					return `
+					<div class="cart-item">
+						<div class="ci-left">
+							<img src="${icon}" alt="" loading="lazy"/>
+							<div>
+								<strong>${item.title}</strong>
+								<p class="muted">$${item.price.toFixed(2)} × ${item.qty}</p>
+								<span class="line-total">$${line}</span>
+							</div>
+						</div>
+						<div class="ci-right">
+							<button type="button" class="icon-btn" data-action="dec" data-cart-id="${cid}" aria-label="Decrease quantity">−</button>
+							<button type="button" class="icon-btn" data-action="inc" data-cart-id="${cid}" aria-label="Increase quantity">+</button>
+							<button type="button" class="icon-btn" data-action="remove" data-cart-id="${cid}" aria-label="Remove item">✕</button>
+						</div>
+					</div>`;
+				}).join('');
 			}
-			saveCart();
+
+			const total = GLCart.total(cart);
+			const count = GLCart.count(cart);
+			cartTotalEl.textContent = `$${total.toFixed(2)}`;
+			cartCountEl.textContent = String(count);
+			const dockCount = document.getElementById('dock-cart-count');
+			if (dockCount) dockCount.textContent = String(count);
+
+			if (checkoutBtn) {
+				const empty = count === 0;
+				checkoutBtn.setAttribute('aria-disabled', empty ? 'true' : 'false');
+				checkoutBtn.classList.toggle('is-disabled', empty);
+			}
+		}
+
+		function addToCart(id, period = null, price = null) {
+			const prod = PRODUCTS.find((p) => p.id === id);
+			if (!prod) return;
+			GLCart.add(prod, period, price ? parseFloat(price) : null);
 			updateCartUI();
 			openCart();
+			showToast(`${prod.title} added to cart`);
 		}
+
+		window.addEventListener('gl-cart-updated', updateCartUI);
 
 		// Delegate product add-to-cart
 		productGrid.addEventListener('click', (e) => {
@@ -653,13 +664,22 @@
 			if (!btn) return;
 			const cartId = btn.getAttribute('data-cart-id');
 			const action = btn.getAttribute('data-action');
-			const it = cart.find(i => (i.cartId || i.id) === cartId);
-			if (!it) return;
-			if (action === 'inc') it.qty += 1;
-			if (action === 'dec') it.qty = Math.max(1, it.qty - 1);
-			if (action === 'remove') cart = cart.filter(i => (i.cartId || i.id) !== cartId);
-			saveCart();
+			if (!cartId || !action) return;
+			if (action === 'inc') GLCart.inc(cartId);
+			else if (action === 'dec') GLCart.dec(cartId);
+			else if (action === 'remove') GLCart.remove(cartId);
 			updateCartUI();
+		});
+
+		checkoutBtn?.addEventListener('click', (e) => {
+			if (GLCart.count() === 0) {
+				e.preventDefault();
+				showToast('Add items before checkout');
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') closeCart();
 		});
 
 		updateCartUI();

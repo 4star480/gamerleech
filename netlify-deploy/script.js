@@ -12,6 +12,13 @@ document.querySelectorAll('.faq-item').forEach((btn) => {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+(function initEmailJS() {
+	const ej = window.GL_CONFIG?.emailjs;
+	if (typeof emailjs !== 'undefined' && ej?.publicKey) {
+		try { emailjs.init(ej.publicKey); } catch (e) { console.warn('EmailJS init', e); }
+	}
+})();
+
 // Lazy loading images
 if ('loading' in HTMLImageElement.prototype) {
 	document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
