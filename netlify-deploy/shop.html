@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="components.css">
-	<link rel="stylesheet" href="cart-ui.css">
+	<link rel="stylesheet" href="cart-ui.css?v=3">
 	<link rel="stylesheet" href="mobile-shop.css">
 	<link rel="icon" href="assets/logo.svg">
 </head>
@@ -125,8 +125,11 @@
 		</div>
 	</nav>
 
+	<div class="cart-pay-bar" id="cart-pay-bar" hidden>
+		<button type="button" class="btn btn-primary" id="checkout-btn-fixed">Proceed to Checkout</button>
+	</div>
+
 	<script src="cart.js"></script>
-	<script src="shop-images.js"></script>
 	<script src="site.js"></script>
 	<script src="script.js"></script>
 	<script>
@@ -163,11 +166,12 @@
 		}
 
 		function renderCategories(categories) {
-			const fallback = GLShopImages.FALLBACK;
+			const fallback = 'assets/shop/fallback.svg';
 			categoryGrid.innerHTML = categories.map(cat => {
 				const count = PRODUCTS.filter(p => p.category === cat).length;
 				const name = CATEGORY_NAMES[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
-				const image = GLShopImages.categoryImage(cat, PRODUCTS);
+				const firstProduct = PRODUCTS.find(p => p.category === cat);
+				const image = firstProduct?.image || `assets/shop/${cat}.svg`;
 				return `
 				<a href="shop.html?category=${cat}" class="category-card">
 					<img src="${image}" alt="" class="cat-img" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">
@@ -181,9 +185,9 @@
 		}
 
 		function renderProducts(list) {
-			const fallback = GLShopImages.FALLBACK;
+			const fallback = 'assets/shop/fallback.svg';
 			productGrid.innerHTML = list.length ? list.map(p => {
-				const initial = GLShopImages.productImage(p);
+				const initial = p.image || `assets/shop/${p.category}.svg`;
 				const hasPricing = p.pricing && typeof p.pricing === 'object';
 				
 				if (hasPricing) {
@@ -360,6 +364,8 @@
 		const cartCountEl = document.getElementById('cart-count');
 		const cartTotalEl = document.getElementById('cart-total');
 		const checkoutBtn = document.getElementById('checkout-btn');
+		const checkoutBtnFixed = document.getElementById('checkout-btn-fixed');
+		const cartPayBar = document.getElementById('cart-pay-bar');
 		const cartToast = document.getElementById('cart-toast');
 		let toastTimer;
 
@@ -373,11 +379,20 @@
 
 		let cartTriggerEl = null;
 
+		function goCheckout() {
+			if (GLCart.count() === 0) {
+				showToast('Add items before checkout');
+				return;
+			}
+			window.location.href = 'checkout.html';
+		}
+
 		function openCart() {
 			cartTriggerEl = document.activeElement;
 			drawer.setAttribute('aria-hidden', 'false');
 			drawerBackdrop.hidden = false;
 			document.body.classList.add('cart-open');
+			if (cartPayBar) cartPayBar.hidden = false;
 			drawerClose?.focus();
 		}
 
@@ -385,6 +400,7 @@
 			drawer.setAttribute('aria-hidden', 'true');
 			drawerBackdrop.hidden = true;
 			document.body.classList.remove('cart-open');
+			if (cartPayBar) cartPayBar.hidden = true;
 			if (cartTriggerEl && typeof cartTriggerEl.focus === 'function') cartTriggerEl.focus();
 		}
 
@@ -430,8 +446,14 @@
 
 			if (checkoutBtn) {
 				const empty = count === 0;
+				const label = empty ? 'Add items to checkout' : `Proceed to Checkout — $${total.toFixed(2)}`;
 				checkoutBtn.disabled = empty;
-				checkoutBtn.textContent = empty ? 'Add items to checkout' : `Proceed to Checkout — $${total.toFixed(2)}`;
+				checkoutBtn.textContent = label;
+			}
+			if (checkoutBtnFixed) {
+				const empty = count === 0;
+				checkoutBtnFixed.disabled = empty;
+				checkoutBtnFixed.textContent = empty ? 'Add items to checkout' : `Proceed to Checkout — $${total.toFixed(2)}`;
 			}
 		}
 
@@ -601,13 +623,8 @@
 			updateCartUI();
 		});
 
-		checkoutBtn?.addEventListener('click', () => {
-			if (GLCart.count() === 0) {
-				showToast('Add items before checkout');
-				return;
-			}
-			window.location.href = 'checkout.html';
-		});
+		checkoutBtn?.addEventListener('click', goCheckout);
+		checkoutBtnFixed?.addEventListener('click', goCheckout);
 
 		document.addEventListener('keydown', (e) => {
 			if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') closeCart();

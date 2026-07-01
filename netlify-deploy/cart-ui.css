@@ -1,3 +1,52 @@
+/* Fixed mobile checkout bar — always above dock */
+.cart-pay-bar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 200;
+	padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
+	background: #0a100b;
+	border-top: 2px solid var(--green);
+	box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.65);
+}
+
+.cart-pay-bar[hidden] {
+	display: none !important;
+}
+
+.cart-pay-bar .btn {
+	width: 100%;
+	min-height: 56px;
+	font-size: 1.0625rem;
+	font-weight: 800;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(180deg, var(--green), var(--green-600)) !important;
+	color: #061006 !important;
+	border: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.cart-pay-bar .btn:disabled {
+	opacity: 0.5;
+}
+
+@media (min-width: 769px) {
+	.cart-pay-bar {
+		display: none !important;
+	}
+}
+
+body.cart-open .mobile-dock,
+body.cart-open nav.mobile-dock {
+	display: none !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
+
 /* Cart drawer + checkout UX */
 
 .cart-drawer {
@@ -102,6 +151,10 @@ body.cart-open .mobile-dock {
 }
 
 @media (max-width: 768px) {
+	body.cart-open .cart-scroll {
+		padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+	}
+
 	.cart-header {
 		padding: 16px;
 		padding-top: calc(12px + env(safe-area-inset-top, 0px));
