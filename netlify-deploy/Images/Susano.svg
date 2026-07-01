@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="susanoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="url(#susanoGrad)"/>
+  <path d="M 100 50 L 130 90 L 170 90 L 140 120 L 155 160 L 100 135 L 45 160 L 60 120 L 30 90 L 70 90 Z" fill="white" opacity="0.9"/>
+  <text x="100" y="175" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24" letter-spacing="2">SUSANO</text>
+</svg>
+

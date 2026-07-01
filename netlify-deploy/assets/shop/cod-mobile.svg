@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="codGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="url(#codGrad)"/>
+  <text x="100" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24">CALL OF</text>
+  <text x="100" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="24">DUTY</text>
+  <text x="100" y="145" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="18">MOBILE</text>
+</svg>
+

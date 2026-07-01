@@ -1,0 +1,35 @@
+# OSINT / unrelated tooling — not part of the store
+OSINT_Investigation_Tools/
+phoneinfoga.exe
+*.log
+
+# Duplicate deploy copy (source of truth: netlify-deploy/)
+Deployment/
+
+# Local / editor
+.vscode/
+.cursor/
+*.tmp
+Thumbs.db
+desktop.ini
+
+# Secrets
+.env
+.env.*
+
+# Netlify local
+.netlify/
+
+# Large archives
+*.zip
+*.rar
+*.7z
+
+# Accidental root copies if out of sync (netlify-deploy is canonical)
+/checkout.html
+/components.css
+/config.js
+/legal.css
+/site.js
+/terms.html
+/refund.html

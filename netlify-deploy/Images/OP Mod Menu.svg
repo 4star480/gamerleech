@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="opGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B00FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9400D3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4B0082;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="url(#opGrad)"/>
+  <text x="100" y="90" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="48" letter-spacing="4">OP</text>
+  <text x="100" y="140" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="20">MOD MENU</text>
+  <text x="100" y="165" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14">ULTIMATE</text>
+</svg>
+

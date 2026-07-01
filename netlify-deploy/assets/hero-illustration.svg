@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+	<defs>
+		<linearGradient id="glow" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0" stop-color="#28e06d" stop-opacity=".9"/>
+			<stop offset="1" stop-color="#19b857" stop-opacity=".4"/>
+		</linearGradient>
+	</defs>
+	<rect width="640" height="480" rx="24" fill="#0a100b"/>
+	<g opacity=".25">
+		<circle cx="520" cy="-20" r="220" fill="url(#glow)"/>
+	</g>
+	<g fill="#0f1510" stroke="#203420">
+		<rect x="60" y="70" width="520" height="300" rx="22"/>
+		<rect x="120" y="120" width="400" height="60" rx="12"/>
+		<rect x="120" y="200" width="200" height="60" rx="12"/>
+		<rect x="340" y="200" width="180" height="60" rx="12"/>
+		<rect x="120" y="280" width="260" height="60" rx="12"/>
+	</g>
+	<g>
+		<circle cx="120" cy="400" r="6" fill="#28e06d"/>
+		<circle cx="140" cy="400" r="6" fill="#28e06d"/>
+		<circle cx="160" cy="400" r="6" fill="#28e06d"/>
+	</g>
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
