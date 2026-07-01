@@ -33,7 +33,6 @@
 				<a aria-current="page" href="shop.html">Shop</a>
 				<a href="index.html#pricing">Pricing</a>
 				<a href="index.html#faq">FAQ</a>
-				<a href="https://discord.gg/EDhZwqxH9" class="nav-discord" target="_blank" rel="noopener noreferrer">Discord</a>
 				<a href="index.html#contact" class="btn btn-primary">Get Started</a>
 			</nav>
 			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
@@ -99,7 +98,6 @@
 			</div>
 			<div class="footer-col">
 				<h4>Support</h4>
-				<a href="https://discord.gg/EDhZwqxH9" target="_blank" rel="noopener noreferrer">Discord</a>
 				<a href="index.html#faq">FAQ</a>
 				<a href="index.html#contact">Contact</a>
 				<a href="mailto:gamerleech2@gmail.com">gamerleech2@gmail.com</a>
@@ -113,7 +111,7 @@
 		</div>
 	</footer>
 
-	<nav class="mobile-dock shop-dock" aria-label="Mobile navigation">
+	<nav class="mobile-dock" aria-label="Mobile navigation">
 		<div class="mobile-dock-inner">
 			<a href="index.html" class="dock-item">Home</a>
 			<a href="shop.html" class="dock-item">Shop</a>
@@ -121,7 +119,6 @@
 				<span class="dock-cart-count" id="dock-cart-count">0</span>
 				Cart
 			</button>
-			<a href="https://discord.gg/EDhZwqxH9" class="dock-item discord-dock" target="_blank" rel="noopener noreferrer">Discord</a>
 		</div>
 	</nav>
 
@@ -339,7 +336,7 @@
 			.then((r) => { if (!r.ok) throw new Error('catalog'); return r.json(); })
 			.then(useCatalog)
 			.catch(() => {
-				categoryGrid.innerHTML = '<p class="muted">Could not load the shop catalog. Please refresh or contact support on Discord.</p>';
+				categoryGrid.innerHTML = '<p class="muted">Could not load the shop catalog. Please refresh or email gamerleech2@gmail.com.</p>';
 				productGrid.innerHTML = '';
 			});
 

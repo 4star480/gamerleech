@@ -158,7 +158,7 @@
 							<label for="terms-checkbox">I accept the <a href="terms.html" target="_blank" rel="noopener">Terms</a> and <a href="refund.html" target="_blank" rel="noopener">Refund Policy</a></label>
 						</div>
 						<button type="button" class="pay-now-btn" id="pay-now-btn" disabled>I’ve sent payment</button>
-						<p class="muted" style="font-size:0.75rem;margin-top:12px;line-height:1.4">Send the exact USD amount in crypto to the address shown, then confirm. Keys are delivered via email and Discord.</p>
+						<p class="muted" style="font-size:0.75rem;margin-top:12px;line-height:1.4">Send the exact USD amount in crypto to the address shown, then confirm. Keys are delivered via email.</p>
 					</div>
 				</div>
 			</div>
@@ -253,7 +253,7 @@
 	function showSuccess(orderId, customerEmail, paymentMethod, emailNote) {
 		const el = document.getElementById('checkout-content');
 		if (!el) return;
-		const discord = cfg().discord || '#';
+		const supportEmail = cfg().email || 'gamerleech2@gmail.com';
 		el.innerHTML = `
 			<div class="checkout-success">
 				<h2>Payment submitted</h2>
@@ -262,7 +262,7 @@
 				<p class="muted">Method: ${escapeHtml(paymentMethod)}<br>Total: $${currentTotal.toFixed(2)}</p>
 				${emailNote ? `<p class="checkout-warn">${escapeHtml(emailNote)}</p>` : ''}
 				<div class="checkout-success-actions">
-					<a href="${discord}" class="btn btn-primary" target="_blank" rel="noopener">Open Discord for support</a>
+					<a href="mailto:${supportEmail}" class="btn btn-primary">Email support</a>
 					<a href="shop.html" class="btn btn-outline">Continue shopping</a>
 				</div>
 			</div>`;
@@ -355,7 +355,7 @@
 		}
 
 		if (isEmailReady() && !businessSent && !customerSent) {
-			showSubmitError('Order saved locally but confirmation emails failed. Your cart is still here — try again or contact us on Discord with your order ID.');
+			showSubmitError('Order saved locally but confirmation emails failed. Your cart is still here — try again or email gamerleech2@gmail.com with your order ID.');
 			btns.forEach((b) => { b.disabled = false; b.textContent = 'I\u2019ve sent payment'; });
 			return;
 		}
@@ -365,10 +365,10 @@
 
 		let emailNote = '';
 		if (isEmailReady()) {
-			if (!customerSent) emailNote = 'We could not send your confirmation email — save your order ID and check Discord if needed.';
+			if (!customerSent) emailNote = 'We could not send your confirmation email — save your order ID and email us if needed.';
 			else if (!businessSent) emailNote = 'Your confirmation was sent; our team notification may be delayed.';
 		} else {
-			emailNote = 'Email service unavailable — order saved locally. Contact us on Discord with your order ID.';
+			emailNote = 'Email service unavailable — order saved locally. Contact gamerleech2@gmail.com with your order ID.';
 		}
 
 		showSuccess(orderId, email, paymentMethod, emailNote);
