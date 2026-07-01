@@ -431,9 +431,11 @@
 				if (empty) {
 					checkoutBtn.removeAttribute('href');
 					checkoutBtn.setAttribute('tabindex', '-1');
+					checkoutBtn.textContent = 'Add items to checkout';
 				} else {
 					checkoutBtn.setAttribute('href', 'checkout.html');
 					checkoutBtn.removeAttribute('tabindex');
+					checkoutBtn.textContent = 'Proceed to Checkout';
 				}
 			}
 		}
