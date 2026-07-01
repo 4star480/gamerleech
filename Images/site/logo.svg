@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="swirl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b9eff"/>
+      <stop offset="33%" stop-color="#2ecc71"/>
+      <stop offset="66%" stop-color="#f5c542"/>
+      <stop offset="100%" stop-color="#ff5c5c"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#swirl)"/>
+  <circle cx="60" cy="60" r="42" fill="#06080f"/>
+  <circle cx="60" cy="60" r="22" fill="url(#swirl)"/>
+</svg>

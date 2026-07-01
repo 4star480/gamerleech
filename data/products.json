@@ -16,89 +16,1401 @@
 		"services"
 	],
 	"products": [
-		{ "id": "bo6-wz4-internal", "title": "BO6/WZ4 Internal", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "call-of-duty", "icon": "assets/icons/rocket.svg", "image": "Images/Call of duty.png", "desc": "INTERNAL CHEAT for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, UNDETECTED, V.I.P tier." },
-		{ "id": "bo6-wz4-external", "title": "BO6/WZ4 External", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "call-of-duty", "icon": "assets/icons/shield.svg", "image": "Images/Call of duty.png", "desc": "EXTERNAL CHEAT for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, includes +SPOOFER, PREMIUM tier." },
-		{ "id": "bo6-wz4-external-v2", "title": "BO6/WZ4 External V2", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "call-of-duty", "icon": "assets/icons/bolt.svg", "image": "Images/Call of duty.png", "desc": "EXTERNAL CHEAT for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, UNDETECTED, STANDARD tier." },
-		{ "id": "bo6-wz4-unlock-all-v2", "title": "BO6/WZ4 Unlock All V2", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "call-of-duty", "icon": "assets/icons/crown.svg", "image": "Images/Call of duty.png", "desc": "UNLOCK ALL for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, ONE-CLICK, STANDARD tier." },
-		{ "id": "bo6-wz4-unlock-all", "title": "BO6/WZ4 Unlock All", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "call-of-duty", "icon": "assets/icons/crown.svg", "image": "Images/Call of duty.png", "desc": "UNLOCK ALL for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, ONE-CLICK, PREMIUM tier." },
-
-		{ "id": "fivem-eulen-cheats", "title": "Eulen Cheats", "price": 19.99, "pricing": { "monthly": 19.99, "lifetime": 69.99 }, "category": "fivem", "icon": "assets/icons/rocket.svg", "image": "Images/eulen clear.jpg", "desc": "Premium FiveM cheat menu with advanced features." },
-		{ "id": "fivem-hx-cheats-spoofer", "title": "HX Cheats + Spoofer", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/shield.svg", "image": "Images/hx cheats.jpeg", "desc": "PVP cheat internal with integrated spoofer for FiveM." },
-		{ "id": "fivem-susano", "title": "Susano", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/bolt.svg", "image": "Images/susano.png", "desc": "Advanced FiveM cheat solution." },
-		{ "id": "fivem-tz-project", "title": "TZ Project", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/crown.svg", "image": "Images/tz projects.jpeg", "desc": "Professional FiveM project solution." },
-		{ "id": "fivem-account-generator", "title": "Account Generator", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/bolt.svg", "image": "Images/Account Generator.svg", "desc": "Generate FiveM accounts automatically." },
-		{ "id": "fivem-external-pvp", "title": "External PvP", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/shield.svg", "image": "Images/External PvP.svg", "desc": "External PvP cheat for FiveM servers." },
-		{ "id": "fivem-redengine-spoofer", "title": "redENGINE Spoofer", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/shield.svg", "image": "Images/red engine.png", "desc": "Hardware ID spoofer for FiveM using redENGINE." },
-		{ "id": "fivem-macho", "title": "Macho", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/rocket.svg", "image": "Images/Macho cheats.jpeg", "desc": "Premium FiveM cheat menu solution." },
-		{ "id": "fivem-redengine-executor", "title": "redENGINE Executor", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/bolt.svg", "image": "Images/red engine.png", "desc": "Script executor for FiveM using redENGINE technology." },
-		{ "id": "fivem-lumia-lua-menu", "title": "Lumia Lua Menu", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/crown.svg", "image": "Images/Lumia menu.jpeg", "desc": "Lua menu system for FiveM servers." },
-		{ "id": "fivem-phaze-lua-menu", "title": "Phaze Lua Menu", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/rocket.svg", "image": "Images/Phaze menu.jpeg", "desc": "Advanced Lua menu system for FiveM." },
-		{ "id": "fivem-vortex-lua-menu", "title": "Vortex Lua Menu", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fivem", "icon": "assets/icons/shield.svg", "image": "Images/vortex menu.jpeg", "desc": "Premium Lua menu solution for FiveM." },
-		{ "id": "fivem-money-spawn-v2", "title": "Money Spawn V2", "price": 59.99, "pricing": { "lifetime": 59.99 }, "category": "fivem", "icon": "assets/icons/crown.svg", "image": "Images/Fivem.png", "desc": "Spawn money in any FiveM server. Works on all servers with easy-to-use interface." },
-		{ "id": "fivem-unban", "title": "Fivem unban", "price": 49.99, "pricing": { "onetime": 49.99, "lifetime": 79.99 }, "category": "fivem", "icon": "assets/icons/shield.svg", "image": "Images/Fivem.png", "desc": "Get unbanned from FiveM servers. One-time purchase or lifetime access available." },
-
-		{ "id": "val-vip", "title": "Valorant VIP", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "valorant", "icon": "assets/icons/crown.svg", "image": "Images/Valorant.png", "desc": "VALORANT CHEAT INTERNAL. EXPLOITS, WIN10/11, VIP tier." },
-		{ "id": "val-premium", "title": "Valorant Premium", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "valorant", "icon": "assets/icons/rocket.svg", "image": "Images/Valorant.png", "desc": "VALORANT CHEAT EXTERNAL. +SKINCHANGER, AIMBOT, ESP..., PREMIUM tier." },
-		{ "id": "val-standard", "title": "Valorant Standard", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "valorant", "icon": "assets/icons/bolt.svg", "image": "Images/Valorant.png", "desc": "VALORANT CHEAT INTERNAL. UNDETECTED, AIMBOT, ESP..., STANDARD tier." },
-
-		{ "id": "rbx-executor-basic", "title": "Roblox Executor - Basic", "price": 15, "category": "roblox", "icon": "assets/icons/bolt.svg", "image": "Images/Roblox.png", "desc": "Basic Roblox script executor." },
-		{ "id": "rbx-executor-premium", "title": "Roblox Executor - Premium", "price": 30, "category": "roblox", "icon": "assets/icons/rocket.svg", "image": "Images/Roblox.png", "desc": "Premium Roblox executor with bypasses." },
-		{ "id": "rbx-scripts-pack", "title": "Roblox Scripts Pack", "price": 20, "category": "roblox", "icon": "assets/icons/crown.svg", "image": "Images/Roblox.png", "desc": "Collection of premium Roblox scripts." },
-
-		{ "id": "fn-vip", "title": "Fortnite VIP", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fortnite", "icon": "assets/icons/crown.svg", "image": "Images/Fortnite.jpg", "desc": "Premium Fortnite cheat with VIP features." },
-		{ "id": "fn-premium", "title": "Fortnite Premium", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fortnite", "icon": "assets/icons/rocket.svg", "image": "Images/Fortnite.jpg", "desc": "Advanced Fortnite cheat with premium features." },
-		{ "id": "fn-standard", "title": "Fortnite Standard", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "fortnite", "icon": "assets/icons/bolt.svg", "image": "Images/Fortnite.jpg", "desc": "Standard Fortnite cheat with essential features." },
-
-		{ "id": "r6-cheat-basic", "title": "Rainbow Six Cheat - Basic", "price": 35, "category": "rainbow-six", "icon": "assets/icons/bolt.svg", "image": "Images/rainbow six.png", "desc": "Basic Rainbow Six cheat with essential features." },
-		{ "id": "r6-cheat-premium", "title": "Rainbow Six Cheat - Premium", "price": 60, "category": "rainbow-six", "icon": "assets/icons/rocket.svg", "image": "Images/rainbow six.png", "desc": "Premium Rainbow Six cheat with advanced features." },
-		{ "id": "r6-spoofer", "title": "Rainbow Six Spoofer", "price": 30, "category": "rainbow-six", "icon": "assets/icons/shield.svg", "image": "Images/rainbow six.png", "desc": "Hardware ID spoofer for Rainbow Six." },
-		{ "id": "r6-boost", "title": "Rainbow Six Rank Boost", "price": 40, "category": "rainbow-six", "icon": "assets/icons/crown.svg", "image": "Images/rainbow six.png", "desc": "Professional rank boosting service." },
-
-		{ "id": "gta5-online-mod-menu", "title": "GTA Online Mod Menu", "price": 44.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "gta5", "icon": "assets/icons/rocket.svg", "image": "Images/GTA V.jpg", "desc": "Complete GTA Online mod menu with lifetime access." },
-
-		{ "id": "premium-gamerleech-reselling", "title": "GamerLeech Reselling", "price": 44.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "premium", "icon": "assets/icons/crown.svg", "image": "assets/shop/premium.svg", "desc": "Reselling service with lifetime access." },
-		{ "id": "premium-pc-check-bypass", "title": "PC Check Bypass", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "premium", "icon": "assets/icons/shield.svg", "image": "assets/shop/premium.svg", "desc": "Bypass PC checks with premium features." },
-
-		{ "id": "cs2-cheat-basic", "title": "CS2 Cheat - Basic", "price": 30, "category": "cs2", "icon": "assets/icons/bolt.svg", "image": "Images/CSGO.jpg", "desc": "Basic CS2 cheat with essential features." },
-		{ "id": "cs2-cheat-premium", "title": "CS2 Cheat - Premium", "price": 55, "category": "cs2", "icon": "assets/icons/rocket.svg", "image": "Images/CSGO.jpg", "desc": "Premium CS2 cheat with advanced features." },
-		{ "id": "cs2-spoofer", "title": "CS2 Spoofer", "price": 25, "category": "cs2", "icon": "assets/icons/shield.svg", "image": "Images/CSGO.jpg", "desc": "Hardware ID spoofer for CS2." },
-		{ "id": "cs2-boost", "title": "CS2 Rank Boost", "price": 40, "category": "cs2", "icon": "assets/icons/crown.svg", "image": "Images/CSGO.jpg", "desc": "Professional rank boosting service." },
-
-		{ "id": "apex-legends", "title": "Apex Legends", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "apex", "icon": "assets/icons/rocket.svg", "image": "Images/Apex.png", "desc": "Premium Apex Legends cheat with advanced features." },
-
-		{ "id": "codm-dragon-menu", "title": "Dragon Mod Menu", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "cod-mobile", "icon": "assets/icons/rocket.svg", "image": "Images/csll of duty mobile.png", "desc": "Premium Dragon mod menu for Call of Duty Mobile with advanced features and undetected gameplay." },
-		{ "id": "codm-starfire-menu", "title": "Starfire Mod Menu", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "cod-mobile", "icon": "assets/icons/shield.svg", "image": "Images/csll of duty mobile.png", "desc": "Advanced Starfire mod menu for Call of Duty Mobile with premium features and safe gameplay." },
-		{ "id": "codm-op-menu", "title": "OP Mod Menu", "price": 9.99, "pricing": { "weekly": 9.99, "monthly": 14.99, "lifetime": 44.99 }, "category": "cod-mobile", "icon": "assets/icons/crown.svg", "image": "Images/csll of duty mobile.png", "desc": "Ultimate OP mod menu for Call of Duty Mobile with all features unlocked and maximum performance." },
-
-		{ "id": "tiktok-followers-1k", "title": "TikTok Followers - 1K", "price": 9.99, "category": "tiktok", "icon": "assets/icons/rocket.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 1,000 high-quality TikTok followers. Real accounts, instant delivery, and guaranteed retention." },
-		{ "id": "tiktok-followers-5k", "title": "TikTok Followers - 5K", "price": 39.99, "category": "tiktok", "icon": "assets/icons/rocket.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 5,000 high-quality TikTok followers. Real accounts, instant delivery, and guaranteed retention." },
-		{ "id": "tiktok-followers-10k", "title": "TikTok Followers - 10K", "price": 69.99, "category": "tiktok", "icon": "assets/icons/rocket.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 10,000 high-quality TikTok followers. Real accounts, instant delivery, and guaranteed retention." },
-		{ "id": "tiktok-account-us-1k", "title": "TikTok Account (US) - 1K Followers", "price": 11.99, "category": "tiktok", "icon": "assets/icons/shield.svg", "image": "assets/shop/tiktok.svg", "desc": "US TikTok account with 1,000 followers. Ready-made account for instant growth." },
-		{ "id": "tiktok-account-us-5k", "title": "TikTok Account (US) - 5K Followers", "price": 39.99, "category": "tiktok", "icon": "assets/icons/shield.svg", "image": "assets/shop/tiktok.svg", "desc": "US TikTok account with 5,000 followers. Strong starter profile for creators and businesses." },
-		{ "id": "tiktok-account-us-10k", "title": "TikTok Account (US) - 10K Followers", "price": 61.99, "category": "tiktok", "icon": "assets/icons/shield.svg", "image": "assets/shop/tiktok.svg", "desc": "US TikTok account with 10,000 followers. Established account with solid audience." },
-		{ "id": "tiktok-account-us-verified-10k", "title": "TikTok Account (US, Verified) - 10K Followers", "price": 79.99, "category": "tiktok", "icon": "assets/icons/crown.svg", "image": "assets/shop/tiktok.svg", "desc": "Verified US TikTok account with 10,000 followers. Premium profile for serious brands and influencers." },
-		{ "id": "tiktok-views-10k", "title": "TikTok Views - 10K", "price": 4.99, "category": "tiktok", "icon": "assets/icons/bolt.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 10,000 TikTok views on your videos. High-quality views, fast delivery, and organic engagement." },
-		{ "id": "tiktok-views-50k", "title": "TikTok Views - 50K", "price": 19.99, "category": "tiktok", "icon": "assets/icons/bolt.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 50,000 TikTok views on your videos. High-quality views, fast delivery, and organic engagement." },
-		{ "id": "tiktok-views-100k", "title": "TikTok Views - 100K", "price": 34.99, "category": "tiktok", "icon": "assets/icons/bolt.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 100,000 TikTok views on your videos. High-quality views, fast delivery, and organic engagement." },
-		{ "id": "tiktok-likes-5k", "title": "TikTok Likes - 5K", "price": 9.99, "category": "tiktok", "icon": "assets/icons/crown.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 5,000 TikTok likes on your videos. Real engagement, instant delivery, and safe service." },
-		{ "id": "tiktok-likes-10k", "title": "TikTok Likes - 10K", "price": 17.99, "category": "tiktok", "icon": "assets/icons/crown.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 10,000 TikTok likes on your videos. Real engagement, instant delivery, and safe service." },
-		{ "id": "tiktok-shares-1k", "title": "TikTok Shares - 1K", "price": 7.99, "category": "tiktok", "icon": "assets/icons/shield.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 1,000 TikTok shares on your videos. Boost your content visibility and reach more audiences." },
-		{ "id": "tiktok-shares-5k", "title": "TikTok Shares - 5K", "price": 34.99, "category": "tiktok", "icon": "assets/icons/shield.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 5,000 TikTok shares on your videos. Boost your content visibility and reach more audiences." },
-		{ "id": "tiktok-comments-100", "title": "TikTok Comments - 100", "price": 12.99, "category": "tiktok", "icon": "assets/icons/rocket.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 100 real TikTok comments on your videos. Custom comments available, authentic engagement." },
-		{ "id": "tiktok-comments-500", "title": "TikTok Comments - 500", "price": 49.99, "category": "tiktok", "icon": "assets/icons/rocket.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 500 real TikTok comments on your videos. Custom comments available, authentic engagement." },
-		{ "id": "tiktok-live-viewers-1k", "title": "TikTok Live Viewers - 1K", "price": 14.99, "category": "tiktok", "icon": "assets/icons/bolt.svg", "image": "assets/shop/tiktok.svg", "desc": "Get 1,000 live viewers for your TikTok live streams. Boost your stream visibility and engagement." },
-
-		{ "id": "fb-account-us-1", "title": "Aged Facebook Account - US (1 Account)", "price": 12.99, "category": "facebook", "icon": "assets/icons/shield.svg", "image": "assets/shop/facebook.svg", "desc": "Premium aged Facebook account from United States. Fully verified, ready to use, includes email access." },
-		{ "id": "fb-account-us-5", "title": "Aged Facebook Account - US (5 Accounts)", "price": 54.99, "category": "facebook", "icon": "assets/icons/shield.svg", "image": "assets/shop/facebook.svg", "desc": "Bundle of 5 premium aged Facebook accounts from United States. Fully verified, ready to use, includes email access." },
-		{ "id": "fb-account-us-10", "title": "Aged Facebook Account - US (10 Accounts)", "price": 99.99, "category": "facebook", "icon": "assets/icons/shield.svg", "image": "assets/shop/facebook.svg", "desc": "Bundle of 10 premium aged Facebook accounts from United States. Fully verified, ready to use, includes email access." },
-		{ "id": "fb-account-uk-1", "title": "Aged Facebook Account - UK (1 Account)", "price": 12.99, "category": "facebook", "icon": "assets/icons/shield.svg", "image": "assets/shop/facebook.svg", "desc": "Premium aged Facebook account from United Kingdom. Fully verified, ready to use, includes email access." },
-		{ "id": "fb-account-uk-5", "title": "Aged Facebook Account - UK (5 Accounts)", "price": 54.99, "category": "facebook", "icon": "assets/icons/shield.svg", "image": "assets/shop/facebook.svg", "desc": "Bundle of 5 premium aged Facebook accounts from United Kingdom. Fully verified, ready to use, includes email access." },
-		{ "id": "fb-account-uk-10", "title": "Aged Facebook Account - UK (10 Accounts)", "price": 99.99, "category": "facebook", "icon": "assets/icons/shield.svg", "image": "assets/shop/facebook.svg", "desc": "Bundle of 10 premium aged Facebook accounts from United Kingdom. Fully verified, ready to use, includes email access." },
-		{ "id": "fb-page-likes-1k", "title": "Facebook Page Likes - 1K", "price": 19.99, "category": "facebook", "icon": "assets/icons/rocket.svg", "image": "assets/shop/facebook.svg", "desc": "Get 1,000 real Facebook page likes. High-quality accounts, organic engagement, and guaranteed retention." },
-		{ "id": "fb-page-likes-5k", "title": "Facebook Page Likes - 5K", "price": 79.99, "category": "facebook", "icon": "assets/icons/rocket.svg", "image": "assets/shop/facebook.svg", "desc": "Get 5,000 real Facebook page likes. High-quality accounts, organic engagement, and guaranteed retention." },
-		{ "id": "fb-page-likes-10k", "title": "Facebook Page Likes - 10K", "price": 149.99, "category": "facebook", "icon": "assets/icons/rocket.svg", "image": "assets/shop/facebook.svg", "desc": "Get 10,000 real Facebook page likes. High-quality accounts, organic engagement, and guaranteed retention." },
-
-		{ "id": "service-full-pc-optimization", "title": "Full PC Optimization", "price": 99.99, "pricing": { "onetime": 99.99 }, "category": "services", "icon": "assets/icons/rocket.svg", "image": "assets/shop/premium.svg", "desc": "Complete PC optimization service. Boost performance, clean registry, optimize settings, and maximize your system's potential. One-time service." },
-		{ "id": "service-fivem-optimization", "title": "FiveM Optimization", "price": 49.99, "pricing": { "onetime": 49.99 }, "category": "services", "icon": "assets/icons/shield.svg", "image": "Images/Fivem.png", "desc": "Professional FiveM server optimization service. Improve server performance, reduce lag, optimize resources. One-time service." }
+		{
+			"id": "bo6-wz4-internal",
+			"title": "BO6/WZ4 Internal",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "call-of-duty",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Call of duty.png",
+			"desc": "INTERNAL CHEAT for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, UNDETECTED, V.I.P tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "internal",
+			"features": [
+				"Undetected build",
+				"Instant key delivery"
+			],
+			"featured": true
+		},
+		{
+			"id": "bo6-wz4-external",
+			"title": "BO6/WZ4 External",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "call-of-duty",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/Call of duty.png",
+			"desc": "EXTERNAL CHEAT for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, includes +SPOOFER, PREMIUM tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"HWID spoofer",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "bo6-wz4-external-v2",
+			"title": "BO6/WZ4 External V2",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "call-of-duty",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/Call of duty.png",
+			"desc": "EXTERNAL CHEAT for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, UNDETECTED, STANDARD tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Undetected build",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "bo6-wz4-unlock-all-v2",
+			"title": "BO6/WZ4 Unlock All V2",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "call-of-duty",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Call of duty.png",
+			"desc": "UNLOCK ALL for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, ONE-CLICK, STANDARD tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Unlock all",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "bo6-wz4-unlock-all",
+			"title": "BO6/WZ4 Unlock All",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "call-of-duty",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Call of duty.png",
+			"desc": "UNLOCK ALL for WARZONE CALL OF DUTY BLACK OPS 6. WIN10/11 compatible, ONE-CLICK, PREMIUM tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Unlock all",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-eulen-cheats",
+			"title": "Eulen Cheats",
+			"price": 19.99,
+			"pricing": {
+				"monthly": 19.99,
+				"lifetime": 69.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/eulen clear.jpg",
+			"desc": "Premium FiveM cheat menu with advanced features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": true
+		},
+		{
+			"id": "fivem-hx-cheats-spoofer",
+			"title": "HX Cheats + Spoofer",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/hx cheats.jpeg",
+			"desc": "PVP cheat internal with integrated spoofer for FiveM.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "internal",
+			"features": [
+				"HWID spoofer",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-susano",
+			"title": "Susano",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/susano.png",
+			"desc": "Advanced FiveM cheat solution.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": true
+		},
+		{
+			"id": "fivem-tz-project",
+			"title": "TZ Project",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/tz projects.jpeg",
+			"desc": "Professional FiveM project solution.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-account-generator",
+			"title": "Account Generator",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/Account Generator.svg",
+			"desc": "Generate FiveM accounts automatically.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-external-pvp",
+			"title": "External PvP",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/External PvP.svg",
+			"desc": "External PvP cheat for FiveM servers.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-redengine-spoofer",
+			"title": "redENGINE Spoofer",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/redENGINE Spoofer.svg",
+			"desc": "Hardware ID spoofer for FiveM using redENGINE.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"HWID spoofer",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-macho",
+			"title": "Macho",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Macho cheats.jpeg",
+			"desc": "Premium FiveM cheat menu solution.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-redengine-executor",
+			"title": "redENGINE Executor",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/redENGINE Executor.svg",
+			"desc": "Script executor for FiveM using redENGINE technology.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Script executor",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-lumia-lua-menu",
+			"title": "Lumia Lua Menu",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Lumia menu.jpeg",
+			"desc": "Lua menu system for FiveM servers.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Lua menu",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-phaze-lua-menu",
+			"title": "Phaze Lua Menu",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Phaze menu.jpeg",
+			"desc": "Advanced Lua menu system for FiveM.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Lua menu",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-vortex-lua-menu",
+			"title": "Vortex Lua Menu",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/Vortex Lua Menu.svg",
+			"desc": "Premium Lua menu solution for FiveM.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Lua menu",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-money-spawn-v2",
+			"title": "Money Spawn V2",
+			"price": 59.99,
+			"pricing": {
+				"lifetime": 59.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Fivem.png",
+			"desc": "Spawn money in any FiveM server. Works on all servers with easy-to-use interface.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Money tools",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "fivem-unban",
+			"title": "Fivem unban",
+			"price": 49.99,
+			"pricing": {
+				"onetime": 49.99,
+				"lifetime": 79.99
+			},
+			"category": "fivem",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/Fivem.png",
+			"desc": "Get unbanned from FiveM servers. One-time purchase or lifetime access available.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "val-vip",
+			"title": "Valorant VIP",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "valorant",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Valorant.png",
+			"desc": "VALORANT CHEAT INTERNAL. EXPLOITS, WIN10/11, VIP tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "internal",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": true
+		},
+		{
+			"id": "val-premium",
+			"title": "Valorant Premium",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "valorant",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Valorant.png",
+			"desc": "VALORANT CHEAT EXTERNAL. +SKINCHANGER, AIMBOT, ESP..., PREMIUM tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Aimbot",
+				"ESP / wallhack",
+				"Skin changer",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "val-standard",
+			"title": "Valorant Standard",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "valorant",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/Valorant.png",
+			"desc": "VALORANT CHEAT INTERNAL. UNDETECTED, AIMBOT, ESP..., STANDARD tier.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "internal",
+			"features": [
+				"Aimbot",
+				"ESP / wallhack",
+				"Undetected build",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "rbx-executor-basic",
+			"title": "Roblox Executor - Basic",
+			"price": 15,
+			"category": "roblox",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/Roblox.png",
+			"desc": "Basic Roblox script executor.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Script executor",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "rbx-executor-premium",
+			"title": "Roblox Executor - Premium",
+			"price": 30,
+			"category": "roblox",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Roblox.png",
+			"desc": "Premium Roblox executor with bypasses.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Script executor",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "rbx-scripts-pack",
+			"title": "Roblox Scripts Pack",
+			"price": 20,
+			"category": "roblox",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Roblox.png",
+			"desc": "Collection of premium Roblox scripts.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "fn-vip",
+			"title": "Fortnite VIP",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fortnite",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/Fortnite.jpg",
+			"desc": "Premium Fortnite cheat with VIP features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": true
+		},
+		{
+			"id": "fn-premium",
+			"title": "Fortnite Premium",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fortnite",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Fortnite.jpg",
+			"desc": "Advanced Fortnite cheat with premium features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "fn-standard",
+			"title": "Fortnite Standard",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "fortnite",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/Fortnite.jpg",
+			"desc": "Standard Fortnite cheat with essential features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "r6-cheat-basic",
+			"title": "Rainbow Six Cheat - Basic",
+			"price": 35,
+			"category": "rainbow-six",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/rainbow six.png",
+			"desc": "Basic Rainbow Six cheat with essential features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "r6-cheat-premium",
+			"title": "Rainbow Six Cheat - Premium",
+			"price": 60,
+			"category": "rainbow-six",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/rainbow six.png",
+			"desc": "Premium Rainbow Six cheat with advanced features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "r6-spoofer",
+			"title": "Rainbow Six Spoofer",
+			"price": 30,
+			"category": "rainbow-six",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/rainbow six.png",
+			"desc": "Hardware ID spoofer for Rainbow Six.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"HWID spoofer",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "r6-boost",
+			"title": "Rainbow Six Rank Boost",
+			"price": 40,
+			"category": "rainbow-six",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/rainbow six.png",
+			"desc": "Professional rank boosting service.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "gta5-online-mod-menu",
+			"title": "GTA Online Mod Menu",
+			"price": 44.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "gta5",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/GTA V.jpg",
+			"desc": "Complete GTA Online mod menu with lifetime access.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "premium-gamerleech-reselling",
+			"title": "GamerLeech Reselling",
+			"price": 44.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "premium",
+			"icon": "assets/icons/crown.svg",
+			"image": "assets/shop/premium.svg",
+			"desc": "Reselling service with lifetime access.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "premium-pc-check-bypass",
+			"title": "PC Check Bypass",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "premium",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/premium.svg",
+			"desc": "Bypass PC checks with premium features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "cs2-cheat-basic",
+			"title": "CS2 Cheat - Basic",
+			"price": 30,
+			"category": "cs2",
+			"icon": "assets/icons/bolt.svg",
+			"image": "Images/CSGO.jpg",
+			"desc": "Basic CS2 cheat with essential features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "cs2-cheat-premium",
+			"title": "CS2 Cheat - Premium",
+			"price": 55,
+			"category": "cs2",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/CSGO.jpg",
+			"desc": "Premium CS2 cheat with advanced features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": true
+		},
+		{
+			"id": "cs2-spoofer",
+			"title": "CS2 Spoofer",
+			"price": 25,
+			"category": "cs2",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/CSGO.jpg",
+			"desc": "Hardware ID spoofer for CS2.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"HWID spoofer",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "cs2-boost",
+			"title": "CS2 Rank Boost",
+			"price": 40,
+			"category": "cs2",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/CSGO.jpg",
+			"desc": "Professional rank boosting service.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "apex-legends",
+			"title": "Apex Legends",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "apex",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Apex.png",
+			"desc": "Premium Apex Legends cheat with advanced features.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "codm-dragon-menu",
+			"title": "Dragon Mod Menu",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "cod-mobile",
+			"icon": "assets/icons/rocket.svg",
+			"image": "Images/Dragon Mod Menu.svg",
+			"desc": "Premium Dragon mod menu for Call of Duty Mobile with advanced features and undetected gameplay.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Undetected build",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "codm-starfire-menu",
+			"title": "Starfire Mod Menu",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "cod-mobile",
+			"icon": "assets/icons/shield.svg",
+			"image": "Images/Starfire Mod Menu.svg",
+			"desc": "Advanced Starfire mod menu for Call of Duty Mobile with premium features and safe gameplay.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "external",
+			"features": [
+				"Instant key delivery",
+				"Regular updates",
+				"Email support"
+			],
+			"featured": false
+		},
+		{
+			"id": "codm-op-menu",
+			"title": "OP Mod Menu",
+			"price": 9.99,
+			"pricing": {
+				"weekly": 9.99,
+				"monthly": 14.99,
+				"lifetime": 44.99
+			},
+			"category": "cod-mobile",
+			"icon": "assets/icons/crown.svg",
+			"image": "Images/OP Mod Menu.svg",
+			"desc": "Ultimate OP mod menu for Call of Duty Mobile with all features unlocked and maximum performance.",
+			"catalog": "cheats",
+			"status": "undetected",
+			"tier": "serials",
+			"features": [
+				"Unlock all",
+				"Instant key delivery"
+			],
+			"featured": false
+		},
+		{
+			"id": "tiktok-followers-1k",
+			"title": "TikTok Followers - 1K",
+			"price": 9.99,
+			"category": "tiktok",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 1,000 high-quality TikTok followers. Real accounts, instant delivery, and guaranteed retention.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-followers-5k",
+			"title": "TikTok Followers - 5K",
+			"price": 39.99,
+			"category": "tiktok",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 5,000 high-quality TikTok followers. Real accounts, instant delivery, and guaranteed retention.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-followers-10k",
+			"title": "TikTok Followers - 10K",
+			"price": 69.99,
+			"category": "tiktok",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 10,000 high-quality TikTok followers. Real accounts, instant delivery, and guaranteed retention.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-account-us-1k",
+			"title": "TikTok Account (US) - 1K Followers",
+			"price": 11.99,
+			"category": "tiktok",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "US TikTok account with 1,000 followers. Ready-made account for instant growth.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-account-us-5k",
+			"title": "TikTok Account (US) - 5K Followers",
+			"price": 39.99,
+			"category": "tiktok",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "US TikTok account with 5,000 followers. Strong starter profile for creators and businesses.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-account-us-10k",
+			"title": "TikTok Account (US) - 10K Followers",
+			"price": 61.99,
+			"category": "tiktok",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "US TikTok account with 10,000 followers. Established account with solid audience.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-account-us-verified-10k",
+			"title": "TikTok Account (US, Verified) - 10K Followers",
+			"price": 79.99,
+			"category": "tiktok",
+			"icon": "assets/icons/crown.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Verified US TikTok account with 10,000 followers. Premium profile for serious brands and influencers.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-views-10k",
+			"title": "TikTok Views - 10K",
+			"price": 4.99,
+			"category": "tiktok",
+			"icon": "assets/icons/bolt.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 10,000 TikTok views on your videos. High-quality views, fast delivery, and organic engagement.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-views-50k",
+			"title": "TikTok Views - 50K",
+			"price": 19.99,
+			"category": "tiktok",
+			"icon": "assets/icons/bolt.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 50,000 TikTok views on your videos. High-quality views, fast delivery, and organic engagement.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-views-100k",
+			"title": "TikTok Views - 100K",
+			"price": 34.99,
+			"category": "tiktok",
+			"icon": "assets/icons/bolt.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 100,000 TikTok views on your videos. High-quality views, fast delivery, and organic engagement.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-likes-5k",
+			"title": "TikTok Likes - 5K",
+			"price": 9.99,
+			"category": "tiktok",
+			"icon": "assets/icons/crown.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 5,000 TikTok likes on your videos. Real engagement, instant delivery, and safe service.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-likes-10k",
+			"title": "TikTok Likes - 10K",
+			"price": 17.99,
+			"category": "tiktok",
+			"icon": "assets/icons/crown.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 10,000 TikTok likes on your videos. Real engagement, instant delivery, and safe service.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-shares-1k",
+			"title": "TikTok Shares - 1K",
+			"price": 7.99,
+			"category": "tiktok",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 1,000 TikTok shares on your videos. Boost your content visibility and reach more audiences.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-shares-5k",
+			"title": "TikTok Shares - 5K",
+			"price": 34.99,
+			"category": "tiktok",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 5,000 TikTok shares on your videos. Boost your content visibility and reach more audiences.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-comments-100",
+			"title": "TikTok Comments - 100",
+			"price": 12.99,
+			"category": "tiktok",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 100 real TikTok comments on your videos. Custom comments available, authentic engagement.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-comments-500",
+			"title": "TikTok Comments - 500",
+			"price": 49.99,
+			"category": "tiktok",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 500 real TikTok comments on your videos. Custom comments available, authentic engagement.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "tiktok-live-viewers-1k",
+			"title": "TikTok Live Viewers - 1K",
+			"price": 14.99,
+			"category": "tiktok",
+			"icon": "assets/icons/bolt.svg",
+			"image": "assets/shop/tiktok.svg",
+			"desc": "Get 1,000 live viewers for your TikTok live streams. Boost your stream visibility and engagement.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-account-us-1",
+			"title": "Aged Facebook Account - US (1 Account)",
+			"price": 12.99,
+			"category": "facebook",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Premium aged Facebook account from United States. Fully verified, ready to use, includes email access.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-account-us-5",
+			"title": "Aged Facebook Account - US (5 Accounts)",
+			"price": 54.99,
+			"category": "facebook",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Bundle of 5 premium aged Facebook accounts from United States. Fully verified, ready to use, includes email access.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-account-us-10",
+			"title": "Aged Facebook Account - US (10 Accounts)",
+			"price": 99.99,
+			"category": "facebook",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Bundle of 10 premium aged Facebook accounts from United States. Fully verified, ready to use, includes email access.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-account-uk-1",
+			"title": "Aged Facebook Account - UK (1 Account)",
+			"price": 12.99,
+			"category": "facebook",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Premium aged Facebook account from United Kingdom. Fully verified, ready to use, includes email access.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-account-uk-5",
+			"title": "Aged Facebook Account - UK (5 Accounts)",
+			"price": 54.99,
+			"category": "facebook",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Bundle of 5 premium aged Facebook accounts from United Kingdom. Fully verified, ready to use, includes email access.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-account-uk-10",
+			"title": "Aged Facebook Account - UK (10 Accounts)",
+			"price": 99.99,
+			"category": "facebook",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Bundle of 10 premium aged Facebook accounts from United Kingdom. Fully verified, ready to use, includes email access.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-page-likes-1k",
+			"title": "Facebook Page Likes - 1K",
+			"price": 19.99,
+			"category": "facebook",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Get 1,000 real Facebook page likes. High-quality accounts, organic engagement, and guaranteed retention.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-page-likes-5k",
+			"title": "Facebook Page Likes - 5K",
+			"price": 79.99,
+			"category": "facebook",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Get 5,000 real Facebook page likes. High-quality accounts, organic engagement, and guaranteed retention.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "fb-page-likes-10k",
+			"title": "Facebook Page Likes - 10K",
+			"price": 149.99,
+			"category": "facebook",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/facebook.svg",
+			"desc": "Get 10,000 real Facebook page likes. High-quality accounts, organic engagement, and guaranteed retention.",
+			"catalog": "social",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"Real engagement",
+				"Fast delivery",
+				"Email support"
+			]
+		},
+		{
+			"id": "service-full-pc-optimization",
+			"title": "Full PC Optimization",
+			"price": 99.99,
+			"pricing": {
+				"onetime": 99.99
+			},
+			"category": "services",
+			"icon": "assets/icons/rocket.svg",
+			"image": "assets/shop/services.svg",
+			"desc": "Complete PC optimization service. Boost performance, clean registry, optimize settings, and maximize your system's potential. One-time service.",
+			"catalog": "services",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"One-time service",
+				"Expert setup",
+				"Email support"
+			]
+		},
+		{
+			"id": "service-fivem-optimization",
+			"title": "FiveM Optimization",
+			"price": 49.99,
+			"pricing": {
+				"onetime": 49.99
+			},
+			"category": "services",
+			"icon": "assets/icons/shield.svg",
+			"image": "assets/shop/services.svg",
+			"desc": "Professional FiveM server optimization service. Improve server performance, reduce lag, optimize resources. One-time service.",
+			"catalog": "services",
+			"status": "available",
+			"tier": "service",
+			"features": [
+				"One-time service",
+				"Expert setup",
+				"Email support"
+			]
+		}
 	]
 }

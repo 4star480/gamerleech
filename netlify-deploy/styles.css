@@ -1,19 +1,24 @@
-/* Theme — GamerLeech v2 design tokens */
+/* Theme — GamerLeech v3 (Synapse-style, purple/cyan palette) */
 :root {
-	--bg: #060a06;
-	--bg-alt: #0b110b;
-	--panel: #0e150e;
-	--panel-elevated: #121a12;
-	--text: #eef8ee;
-	--muted: #9bc49b;
-	--green: #2ef47a;
-	--green-600: #1fd866;
-	--green-700: #18b857;
-	--green-dim: rgba(46, 244, 122, 0.12);
-	--border: #1a2a1a;
-	--border-strong: #254025;
+	--bg: #07060e;
+	--bg-alt: #0c0a14;
+	--panel: #100e18;
+	--panel-elevated: #161322;
+	--text: #f0eef8;
+	--muted: #a89bc4;
+	--green: #a855f7;
+	--green-600: #9333ea;
+	--green-700: #7e22ce;
+	--green-dim: rgba(168, 85, 247, 0.14);
+	--cyan: #22d3ee;
+	--cyan-dim: rgba(34, 211, 238, 0.12);
+	--border: #221e30;
+	--border-strong: #322a48;
 	--shadow: 0 10px 30px rgba(0,0,0,.45);
-	--shadow-glow: 0 0 40px rgba(46, 244, 122, 0.22);
+	--shadow-glow: 0 0 40px rgba(168, 85, 247, 0.24);
+	--status-ok: #34d399;
+	--status-warn: #fbbf24;
+	--status-off: #f87171;
 	--radius-sm: 10px;
 	--radius-md: 14px;
 	--radius-lg: 18px;
@@ -37,8 +42,8 @@ body {
 	margin: 0;
 	font-family: var(--font-display);
 	background:
-		radial-gradient(900px 500px at 85% -5%, rgba(46, 244, 122, 0.07), transparent 60%),
-		radial-gradient(600px 400px at 10% 100%, rgba(46, 244, 122, 0.04), transparent),
+		radial-gradient(900px 500px at 85% -5%, rgba(168, 85, 247, 0.09), transparent 60%),
+		radial-gradient(600px 400px at 10% 100%, rgba(34, 211, 238, 0.05), transparent),
 		var(--bg);
 	color: var(--text);
 	line-height: 1.6;

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="theme-color" content="#07060e">
+	<title>Browse — GamerLeech Marketplace</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="synapse-ui.css">
+	<link rel="icon" href="assets/logo.svg">
+	<script src="config.js"></script>
+</head>
+<body class="has-synapse-tabbar">
+	<div id="live-ticker" class="live-ticker"></div>
+	<header class="synapse-header">
+		<div class="synapse-header-inner">
+			<a href="index.html" class="synapse-brand">
+				<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
+				<span class="synapse-brand-text"><span class="synapse-brand-name">GamerLeech</span><span class="synapse-brand-tag">Marketplace</span></span>
+			</a>
+			<div class="synapse-search-wrap">
+				<form class="synapse-search-glow" data-synapse-search>
+					<div class="synapse-search-inner"><span aria-hidden="true">🔍</span><input type="search" name="q" placeholder="Search offers…"></div>
+				</form>
+			</div>
+			<nav class="synapse-nav">
+				<a href="shop.html">Cheats</a>
+				<a href="browse.html" class="active">Marketplace</a>
+				<a href="games.html">All games</a>
+				<a href="sell.html">Sell</a>
+			</nav>
+			<div class="synapse-header-actions">
+				<a href="wishlist.html" title="Wishlist">♥</a>
+				<a href="checkout.html" title="Cart">🛒</a>
+			</div>
+			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
+				<span></span><span></span><span></span>
+			</button>
+		</div>
+	</header>
+	<main class="synapse-page">
+		<div class="synapse-section">
+			<a href="index.html" class="synapse-link">← Home</a>
+			<h1 id="browse-title" style="margin-top:16px">Browse marketplace</h1>
+			<p id="browse-sub" style="color:var(--syn-muted);font-size:14px;margin-top:8px"></p>
+			<div id="browse-filters" class="synapse-filters"></div>
+			<div id="browse-sort" class="synapse-filters" style="margin-top:0"></div>
+			<div id="browse-results" style="margin-top:24px"></div>
+			<div id="load-more-wrap" style="text-align:center;margin-top:32px" hidden>
+				<p id="load-more-count" style="font-size:13px;color:var(--syn-muted);margin-bottom:12px"></p>
+				<button type="button" id="load-more-btn" class="synapse-btn-outline">Load more offers</button>
+			</div>
+			<div class="synapse-cta" style="margin-top:48px">
+				<h2>Looking for cheats?</h2>
+				<p>GamerLeech cheats and growth services live in our dedicated shop.</p>
+				<a href="shop.html" class="synapse-btn-primary" style="margin-top:16px;display:inline-block">Open cheats shop</a>
+			</div>
+		</div>
+	</main>
+	<footer class="synapse-footer">
+		<div class="synapse-footer-inner">
+			<div class="synapse-footer-bottom" style="border:0;margin:0;padding:0">
+				<p>© <span id="year"></span> GamerLeech</p>
+				<a href="index.html" class="synapse-link">Back to home</a>
+			</div>
+		</div>
+	</footer>
+	<nav class="synapse-tabbar"><div class="synapse-tabbar-inner">
+		<a href="index.html"><span class="synapse-tabbar-icon">⌂</span>Home</a>
+		<a href="shop.html"><span class="synapse-tabbar-icon">⚡</span>Cheats</a>
+		<a href="browse.html"><span class="synapse-tabbar-icon">◎</span>Browse</a>
+		<a href="games.html"><span class="synapse-tabbar-icon">▦</span>Games</a>
+		<a href="wishlist.html"><span class="synapse-tabbar-icon">♥</span>Saved</a>
+	</div></nav>
+	<script src="wishlist.js"></script>
+	<script src="chrome.js"></script>
+	<script src="search-suggest.js"></script>
+	<script src="site.js"></script>
+	<script src="browse-app.js"></script>
+	<script>document.getElementById('year').textContent = new Date().getFullYear(); GL_CHROME?.initMobileTabbar?.(); GL_CHROME?.initSearch?.(); GL_CHROME?.loadMarketplace().then(d => d && GL_CHROME.renderTicker(d.ticker));</script>
+</body>
+</html>

@@ -1,11 +1,1 @@
-# Netlify redirects file
-/*    /index.html   200
-
-
-
-
-
-
-
-
-
+# Multi-page static site — no SPA catch-all (was breaking shop/checkout routes)

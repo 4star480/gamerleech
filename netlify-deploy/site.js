@@ -74,5 +74,8 @@
 	initDock();
 	initPageEnter();
 	initEmailJs();
+	if (window.GL_CHROME) {
+		GL_CHROME.injectSynapseChrome();
+	}
 	window.GL_closeNav = closeNav;
 })();

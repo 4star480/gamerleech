@@ -1,36 +1,84 @@
-# GamerLeech
+# GamerLeech - Netlify Deployment
 
-Premium gaming services storefront — static site deployed via **Netlify** from this repo.
+This folder contains all the files needed to deploy the GamerLeech website to Netlify.
 
-## Live site
+## 📦 Contents
 
-https://gamerleech.netlify.app
+- **HTML Files**: `index.html`, `shop.html`, `checkout.html`
+- **Styles**: `styles.css`
+- **Scripts**: `script.js`
+- **Data**: `data/products.json`
+- **Assets**: `assets/` folder (icons, logos, illustrations)
+- **Images**: `Images/` folder (product images, barcodes)
+- **Configuration**: `netlify.toml` (Netlify deployment settings)
+- **Redirects**: `_redirects` (for SPA routing)
 
-## Structure
+## 🚀 How to Deploy to Netlify
 
-| Path | Purpose |
-|------|---------|
-| `netlify-deploy/` | **Production site** (HTML, CSS, JS, assets) — Netlify publish directory |
-| `docs/` | Audit, design system, changelog |
-| `tools/` | Local sync scripts |
+### Option 1: Drag & Drop (Easiest)
+1. Go to [Netlify](https://app.netlify.com/)
+2. Log in or create an account
+3. Drag and drop this entire `netlify-deploy` folder onto the Netlify dashboard
+4. Your site will be deployed automatically!
 
-## Netlify (GitHub auto-deploy)
+### Option 2: Git Integration
+1. Create a new repository on GitHub/GitLab
+2. Upload the contents of this folder to the repository
+3. In Netlify, click "New site from Git"
+4. Connect your repository
+5. Set the publish directory to `.` (root)
+6. Deploy!
 
-1. Connect this repo in [Netlify](https://app.netlify.com/) → **Add new site** → **Import from Git**
-2. Settings (should auto-detect from root `netlify.toml`):
-   - **Build command:** `echo 'Static site — no build step'`
-   - **Publish directory:** `netlify-deploy`
-3. Deploy — every push to `main` rebuilds the site.
-
-## Local preview
-
-Open `netlify-deploy/index.html` in a browser, or:
-
+### Option 3: Netlify CLI
 ```bash
-npx serve netlify-deploy
+# Install Netlify CLI (if not already installed)
+npm install -g netlify-cli
+
+# Navigate to this folder
+cd netlify-deploy
+
+# Login to Netlify
+netlify login
+
+# Deploy
+netlify deploy --prod
 ```
 
-## Support
+## ⚙️ Configuration
 
-- Discord: https://discord.gg/EDhZwqxH9
-- Email: gamerleech2@gmail.com
+The `netlify.toml` file is already configured with:
+- ✅ Security headers
+- ✅ Cache optimization
+- ✅ SPA routing redirects
+- ✅ No build step required (static site)
+
+## 📝 Notes
+
+- The site is fully static and requires no build process
+- All images and assets are included
+- EmailJS integration is configured (you may need to set up your EmailJS account)
+- The site uses client-side JavaScript for all functionality
+
+## 🔗 After Deployment
+
+Once deployed, Netlify will provide you with:
+- A unique URL (e.g., `your-site.netlify.app`)
+- Option to add a custom domain
+- SSL certificate (automatic)
+- CDN distribution (automatic)
+
+## ✨ Features Included
+
+- ✅ Shop page with product listings
+- ✅ Shopping cart functionality
+- ✅ Checkout with crypto payment options
+- ✅ Contact form
+- ✅ Responsive design
+- ✅ All product images and logos
+
+---
+
+**Ready to deploy!** Just drag this folder to Netlify or use one of the methods above.
+
+
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240">
+  <rect width="400" height="240" fill="#0f1420"/>
+  <text x="200" y="130" text-anchor="middle" font-size="36" fill="#f5a623" font-family="system-ui,sans-serif" font-weight="900">GT</text>
+  <circle cx="200" cy="175" r="28" fill="#ff0000" opacity="0.9"/>
+  <polygon points="192,162 192,188 214,175" fill="white"/>
+</svg>

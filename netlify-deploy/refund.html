@@ -3,41 +3,41 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="#060a06">
+	<meta name="theme-color" content="#07060e">
 	<title>Refund Policy — GamerLeech</title>
 	<meta name="description" content="GamerLeech Refund Policy">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="components.css">
+	<link rel="stylesheet" href="synapse-ui.css">
 	<link rel="stylesheet" href="legal.css">
 	<link rel="icon" href="assets/logo.svg">
 	<script src="config.js"></script>
 </head>
-<body class="has-dock">
-	<header class="site-header">
-		<div class="container header-inner">
-			<a href="index.html" class="brand">
-				<img src="assets/logo.svg" alt="GamerLeech" class="brand-logo">
-				<span class="brand-text">GamerLeech</span>
+<body class="has-synapse-tabbar">
+	<header class="synapse-header">
+		<div class="synapse-header-inner">
+			<a href="index.html" class="synapse-brand">
+				<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
+				<span class="synapse-brand-text"><span class="synapse-brand-name">GamerLeech</span><span class="synapse-brand-tag">Legal</span></span>
 			</a>
-			<nav class="nav" id="primary-nav">
-				<a href="shop.html">Shop</a>
-				<a href="index.html#pricing">Pricing</a>
-				<a href="index.html#faq">FAQ</a>
-				<a href="shop.html" class="btn btn-primary">Browse Shop</a>
+			<nav class="synapse-nav">
+				<a href="shop.html">Cheats</a>
+				<a href="browse.html">Marketplace</a>
+				<a href="games.html">All games</a>
 			</nav>
-			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
-				<span></span><span></span><span></span>
-			</button>
+			<div class="synapse-header-actions">
+				<a href="checkout.html" title="Cheats cart">🛒</a>
+			</div>
+			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span><span></span></button>
 		</div>
 	</header>
 
-	<main class="legal-page">
-		<div class="container legal-prose">
-			<a href="index.html" class="back-link">← Back to home</a>
-			<h1>Refund Policy</h1>
+	<main class="synapse-page legal-page">
+		<div class="synapse-section legal-prose">
+			<a href="index.html" class="synapse-link">← Home</a>
+			<h1 style="margin-top:16px">Refund Policy</h1>
 			<p class="legal-updated">Last updated: June 8, 2026</p>
 
 			<p>We want you satisfied with your purchase. Because our products are digital and delivered instantly, refunds are limited as described below.</p>
@@ -77,33 +77,15 @@
 		</div>
 	</main>
 
-	<footer class="site-footer">
-		<div class="container footer-grid">
-			<div class="footer-brand">
-				<img src="assets/logo.svg" alt="GamerLeech" class="brand-logo" loading="lazy">
-				<p>Premium gaming cheats and services.</p>
-			</div>
-			<div class="footer-col">
-				<h4>Legal</h4>
-				<a href="terms.html">Terms of Service</a>
-				<a href="refund.html">Refund Policy</a>
-			</div>
-			<div class="footer-col">
-				<h4>Support</h4>
-				<a href="mailto:gamerleech2@gmail.com">Email</a>
-			</div>
-			<p class="legal">© <span id="year"></span> GamerLeech. All rights reserved.</p>
-		</div>
-	</footer>
-
-	<nav class="mobile-dock" aria-label="Mobile navigation">
-		<div class="mobile-dock-inner">
-			<a href="index.html" class="dock-item">Home</a>
-			<a href="shop.html" class="dock-item">Shop</a>
-		</div>
-	</nav>
-
+	<nav class="synapse-tabbar"><div class="synapse-tabbar-inner">
+		<a href="index.html"><span class="synapse-tabbar-icon">⌂</span>Home</a>
+		<a href="shop.html"><span class="synapse-tabbar-icon">⚡</span>Cheats</a>
+		<a href="browse.html"><span class="synapse-tabbar-icon">◎</span>Browse</a>
+		<a href="games.html"><span class="synapse-tabbar-icon">▦</span>Games</a>
+		<a href="wishlist.html"><span class="synapse-tabbar-icon">♥</span>Saved</a>
+	</div></nav>
+	<script src="chrome.js"></script>
 	<script src="site.js"></script>
-	<script src="script.js"></script>
+	<script>GL_CHROME?.initMobileTabbar?.();</script>
 </body>
 </html>

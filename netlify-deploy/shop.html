@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="#060a06">
+	<meta name="theme-color" content="#07060e">
 	<title>GamerLeech Shop — Premium Gaming Cheats & Services</title>
 	<meta name="description" content="Browse premium gaming cheats for Call of Duty, Valorant, Fortnite, FiveM, Roblox, and more. Undetected cheats with weekly, monthly, and lifetime options.">
 	<meta name="keywords" content="gaming cheats, call of duty cheats, valorant cheats, fortnite cheats, fivem cheats, roblox executor">
@@ -12,46 +12,44 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="synapse-ui.css">
 	<link rel="stylesheet" href="components.css">
-	<link rel="stylesheet" href="cart-ui.css?v=3">
+	<link rel="stylesheet" href="shop-premium.css?v=1">
+	<link rel="stylesheet" href="cart-ui.css?v=4">
 	<link rel="stylesheet" href="mobile-shop.css">
 	<link rel="icon" href="assets/logo.svg">
+	<script src="config.js"></script>
 </head>
-<body class="has-dock shop-page">
-	<div class="trust-strip" role="region" aria-label="Store highlights">
-		<span><span class="dot" aria-hidden="true"></span> Undetected builds</span>
-		<span><span class="dot" aria-hidden="true"></span> Instant keys</span>
-		<span><span class="dot" aria-hidden="true"></span> Secure crypto</span>
-	</div>
-	<header class="site-header">
-		<div class="container header-inner">
-			<a href="index.html" class="brand">
-				<img src="assets/logo.svg" alt="GamerLeech" class="brand-logo">
-				<span class="brand-text">GamerLeech</span>
+<body class="has-synapse-tabbar shop-page">
+	<div id="live-ticker" class="live-ticker"></div>
+	<header class="synapse-header">
+		<div class="synapse-header-inner">
+			<a href="index.html" class="synapse-brand">
+				<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
+				<span class="synapse-brand-text"><span class="synapse-brand-name">GamerLeech</span><span class="synapse-brand-tag">Cheats</span></span>
 			</a>
-			<nav class="nav" id="primary-nav">
-				<a aria-current="page" href="shop.html">Shop</a>
-				<a href="index.html#pricing">Pricing</a>
-				<a href="index.html#faq">FAQ</a>
-				<a href="index.html#contact" class="btn btn-primary">Get Started</a>
+			<nav class="synapse-nav">
+				<a href="shop.html" class="active">Cheats</a>
+				<a href="browse.html">Marketplace</a>
+				<a href="games.html">All games</a>
+				<a href="status.html">Status</a>
 			</nav>
+			<div class="synapse-header-actions">
+				<a href="wishlist.html">♥</a>
+				<button type="button" class="cart-button" id="cart-button" aria-label="Open cart" style="background:none;border:0;color:var(--syn-muted);font:inherit;cursor:pointer">🛒 <span class="cart-count" id="cart-count">0</span></button>
+			</div>
 			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
 				<span></span><span></span><span></span>
 			</button>
-			<div class="header-actions">
-			<button class="cart-button" id="cart-button" aria-label="Open cart">
-				<span>Cart</span>
-				<span class="cart-count" id="cart-count">0</span>
-			</button>
-			</div>
 		</div>
 	</header>
 
 	<main>
 		<section class="shop-hero">
 			<div class="container">
-				<a href="shop.html" id="back-link" class="back-link" style="display: none;">← Back to Categories</a>
-				<h1 id="page-title">Shop Services</h1>
+				<a href="shop.html" id="back-link" class="back-link" style="display: none;">← Back</a>
+				<nav class="catalog-tabs" id="catalog-tabs" aria-label="Shop sections"></nav>
+				<h1 id="page-title">Gaming Cheats</h1>
 				<p class="muted" id="page-subtitle">Curated services designed for fast results. Add items to your cart and request a proposal.</p>
 				<div class="shop-controls" id="shop-controls" style="display: none;">
 					<input id="search-input" type="search" placeholder="Search services" aria-label="Search services">
@@ -61,8 +59,30 @@
 
 		<section class="section">
 			<div class="container">
-				<div class="category-grid" id="category-grid"></div>
-				<div class="product-grid" id="product-grid" style="display: none;"></div>
+				<div class="shop-layout" id="shop-layout">
+					<aside class="shop-sidebar" id="shop-sidebar" aria-label="Category filters">
+						<div class="filter-group">
+							<h3>Categories</h3>
+							<div class="filter-list" id="sidebar-filters"></div>
+						</div>
+						<div class="filter-group">
+							<h3>Quick links</h3>
+							<div class="filter-list">
+								<a href="status.html" class="filter-btn" style="text-decoration:none">Live status</a>
+								<a href="checkout.html" class="filter-btn" style="text-decoration:none">Checkout</a>
+							</div>
+						</div>
+					</aside>
+					<div class="shop-main">
+						<div class="tier-chips" id="tier-chips" aria-label="Product type filters"></div>
+						<div class="featured-strip" id="featured-strip">
+							<h2>Featured builds</h2>
+							<div class="featured-grid" id="featured-grid"></div>
+						</div>
+						<div class="category-grid" id="category-grid"></div>
+						<div class="product-grid" id="product-grid" style="display: none;"></div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -84,41 +104,25 @@
 	<div class="cart-backdrop" id="cart-backdrop" hidden></div>
 	<div class="cart-toast" id="cart-toast" role="status" aria-live="polite"></div>
 
-	<footer class="site-footer">
-		<div class="container footer-grid">
-			<div class="footer-brand">
-				<img src="assets/logo.svg" alt="GamerLeech" class="brand-logo" loading="lazy">
-				<p>Premium gaming cheats and services. Built for competitive players who demand the best.</p>
+	<footer class="synapse-footer">
+		<div class="synapse-footer-inner">
+			<div class="synapse-footer-bottom" style="border:0;margin:0;padding:0">
+				<p>© <span id="year"></span> GamerLeech</p>
+				<div>
+					<a href="browse.html" class="synapse-link">Marketplace</a>
+					<a href="terms.html" style="color:var(--syn-muted);margin-left:16px;text-decoration:none">Terms</a>
+				</div>
 			</div>
-			<div class="footer-col">
-				<h4>Store</h4>
-				<a href="shop.html">Browse shop</a>
-				<a href="index.html#pricing">Pricing</a>
-				<a href="checkout.html">Checkout</a>
-			</div>
-			<div class="footer-col">
-				<h4>Support</h4>
-				<a href="index.html#faq">FAQ</a>
-				<a href="index.html#contact">Contact</a>
-				<a href="mailto:gamerleech2@gmail.com">gamerleech2@gmail.com</a>
-			</div>
-			<div class="footer-col">
-				<h4>Legal</h4>
-				<a href="terms.html">Terms of Service</a>
-				<a href="refund.html">Refund Policy</a>
-			</div>
-			<p class="legal">© <span id="year"></span> GamerLeech. All rights reserved.</p>
 		</div>
 	</footer>
 
-	<nav class="mobile-dock" aria-label="Mobile navigation">
-		<div class="mobile-dock-inner">
-			<a href="index.html" class="dock-item">Home</a>
-			<a href="shop.html" class="dock-item">Shop</a>
-			<button type="button" class="dock-item dock-cart-wrap" id="dock-cart-btn" aria-label="Open cart">
-				<span class="dock-cart-count" id="dock-cart-count">0</span>
-				Cart
-			</button>
+	<nav class="synapse-tabbar" aria-label="Mobile navigation">
+		<div class="synapse-tabbar-inner">
+			<a href="index.html"><span class="synapse-tabbar-icon">⌂</span>Home</a>
+			<a href="shop.html"><span class="synapse-tabbar-icon">⚡</span>Cheats</a>
+			<a href="browse.html"><span class="synapse-tabbar-icon">◎</span>Browse</a>
+			<a href="games.html"><span class="synapse-tabbar-icon">▦</span>Games</a>
+			<a href="wishlist.html"><span class="synapse-tabbar-icon">♥</span>Saved</a>
 		</div>
 	</nav>
 
@@ -126,509 +130,32 @@
 		<button type="button" class="btn btn-primary" id="checkout-btn-fixed">Proceed to Checkout</button>
 	</div>
 
+	<div class="product-modal" id="product-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+		<div class="product-modal-backdrop" data-close-modal></div>
+		<div class="product-modal-panel">
+			<button type="button" class="icon-btn product-modal-close" data-close-modal aria-label="Close">✕</button>
+			<div class="modal-hero">
+				<img src="" alt="">
+				<div class="modal-meta">
+					<div class="modal-badges product-badges"></div>
+					<h2 id="modal-product-title"></h2>
+					<p class="modal-desc"></p>
+				</div>
+			</div>
+			<h3>Features</h3>
+			<div class="feature-grid"></div>
+			<div class="modal-pricing"></div>
+		</div>
+	</div>
+
 	<script src="cart.js"></script>
+	<script src="shop-images.js"></script>
+	<script src="wishlist.js"></script>
+	<script src="chrome.js"></script>
 	<script src="site.js"></script>
 	<script src="script.js"></script>
-	<script>
-		// Load products from JSON so you can paste exact items
-		let PRODUCTS = [];
-		const CATEGORY_NAMES = {
-			'call-of-duty': 'Call of Duty',
-			'cod-mobile': 'Call of Duty Mobile',
-			'fivem': 'FiveM',
-			'valorant': 'Valorant',
-			'roblox': 'Roblox',
-			'fortnite': 'Fortnite',
-			'rainbow-six': 'Rainbow Six',
-			'tiktok': 'TikTok',
-			'facebook': 'Facebook',
-			'gta5': 'GTA V',
-			'premium': 'Premium Products',
-			'cs2': 'Counter-Strike 2',
-			'apex': 'Apex Legends',
-			'services': 'Services'
-		};
-
-		const categoryGrid = document.getElementById('category-grid');
-		const productGrid = document.getElementById('product-grid');
-		const searchEl = document.getElementById('search-input');
-		const shopControls = document.getElementById('shop-controls');
-		const pageTitle = document.getElementById('page-title');
-		const pageSubtitle = document.getElementById('page-subtitle');
-		const backLink = document.getElementById('back-link');
-
-		function getCategoryFromURL() {
-			const params = new URLSearchParams(window.location.search);
-			return params.get('category') || null;
-		}
-
-		function renderCategories(categories) {
-			const fallback = 'assets/shop/fallback.svg';
-			categoryGrid.innerHTML = categories.map(cat => {
-				const count = PRODUCTS.filter(p => p.category === cat).length;
-				const name = CATEGORY_NAMES[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
-				const firstProduct = PRODUCTS.find(p => p.category === cat);
-				const image = firstProduct?.image || `assets/shop/${cat}.svg`;
-				return `
-				<a href="shop.html?category=${cat}" class="category-card">
-					<img src="${image}" alt="" class="cat-img" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">
-					<div class="cat-info">
-						<h3>${name}</h3>
-						<p class="muted">${count} products</p>
-					</div>
-				</a>`;
-			}).join('');
-			if (typeof window.GL_markLazyImages === 'function') window.GL_markLazyImages(categoryGrid);
-		}
-
-		function renderProducts(list) {
-			const fallback = 'assets/shop/fallback.svg';
-			productGrid.innerHTML = list.length ? list.map(p => {
-				const initial = p.image || `assets/shop/${p.category}.svg`;
-				const hasPricing = p.pricing && typeof p.pricing === 'object';
-				
-				if (hasPricing) {
-					const pricing = p.pricing;
-					const tabs = [];
-					const tabOrder = ['daily', 'weekly', 'monthly', 'onetime', 'lifetime'];
-					let defaultPeriod = null;
-					let defaultPrice = null;
-					
-					// Determine default period (prefer daily, then monthly, then weekly, then onetime, then lifetime)
-					if (pricing.daily !== undefined) {
-						defaultPeriod = 'daily';
-						defaultPrice = pricing.daily;
-					} else if (pricing.monthly !== undefined) {
-						defaultPeriod = 'monthly';
-						defaultPrice = pricing.monthly;
-					} else if (pricing.weekly !== undefined) {
-						defaultPeriod = 'weekly';
-						defaultPrice = pricing.weekly;
-					} else if (pricing.onetime !== undefined) {
-						defaultPeriod = 'onetime';
-						defaultPrice = pricing.onetime;
-					} else if (pricing.lifetime !== undefined) {
-						defaultPeriod = 'lifetime';
-						defaultPrice = pricing.lifetime;
-					}
-					
-					// Build tabs dynamically
-					const allOptions = [];
-					tabOrder.forEach(period => {
-						if (pricing[period] !== undefined) {
-							const isActive = period === defaultPeriod;
-							const label = period === 'daily' ? 'Day' : period === 'weekly' ? 'Week' : period === 'monthly' ? 'Month' : period === 'onetime' ? 'One-Time' : 'Lifetime';
-							tabs.push(`<button class="pricing-tab${isActive ? ' active' : ''}" data-period="${period}" data-price="${pricing[period]}">${label}</button>`);
-							allOptions.push({ period, label, price: pricing[period], isActive });
-						}
-					});
-					
-					const defaultLabel = allOptions.find(o => o.period === defaultPeriod)?.label || 'Select';
-					
-					return `
-					<article class="product-frame" data-id="${p.id}">
-						<div class="product-frame-inner">
-							<div class="product-header">
-								<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" onerror="this.onerror=null; this.src='${fallback}';">
-								<div class="p-icon"><img src="${p.icon}" alt=""></div>
-							</div>
-							<div class="product-content">
-								<div class="p-body">
-									<h3>${p.title}</h3>
-									<p class="muted">${p.desc}</p>
-								</div>
-								<div class="pricing-section">
-									<div class="pricing-tabs" data-product-id="${p.id}">
-										${tabs.join('')}
-									</div>
-									<div class="pricing-selector-mobile" data-product-id="${p.id}">
-										<button class="pricing-selector-btn" data-product-id="${p.id}" type="button">
-											<span class="pricing-selector-label">${defaultLabel}</span>
-											<span class="pricing-selector-price">$${defaultPrice.toFixed(2)}</span>
-											<svg class="pricing-selector-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-												<path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-										</button>
-										<div class="pricing-options-dropdown" data-product-id="${p.id}">
-											${allOptions.map(opt => `
-												<button class="pricing-option${opt.isActive ? ' active' : ''}" data-period="${opt.period}" data-price="${opt.price}" data-product-id="${p.id}" type="button">
-													<span class="pricing-option-label">${opt.label}</span>
-													<span class="pricing-option-price">$${opt.price.toFixed(2)}</span>
-												</button>
-											`).join('')}
-										</div>
-									</div>
-								</div>
-								<div class="p-footer">
-									<div class="price-display">
-										<span class="price-label">Price:</span>
-										<span class="p-price" data-product-id="${p.id}">$${defaultPrice.toFixed(2)}</span>
-									</div>
-									<button class="btn btn-outline add-to-cart" data-id="${p.id}" data-period="${defaultPeriod}" data-price="${defaultPrice}">Add to cart</button>
-								</div>
-							</div>
-						</div>
-					</article>`;
-				} else {
-					return `
-					<article class="product-frame" data-id="${p.id}">
-						<div class="product-frame-inner">
-							<div class="product-header">
-								<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" onerror="this.onerror=null; this.src='${fallback}';">
-								<div class="p-icon"><img src="${p.icon}" alt=""></div>
-							</div>
-							<div class="product-content">
-								<div class="p-body">
-									<h3>${p.title}</h3>
-									<p class="muted">${p.desc}</p>
-								</div>
-								<div class="p-footer">
-									<div class="price-display">
-										<span class="price-label">Price:</span>
-										<span class="p-price">$${Number(p.price || 0).toFixed(2)}</span>
-									</div>
-									<button class="btn btn-outline add-to-cart" data-id="${p.id}">Add to cart</button>
-								</div>
-							</div>
-						</div>
-					</article>`;
-				}
-			}).join('') : '<p class="muted" style="grid-column:1/-1;text-align:center;padding:32px 0">No products match your search.</p>';
-		}
-
-		function showCategoryView(category) {
-			const filtered = PRODUCTS.filter(p => p.category === category);
-			const name = CATEGORY_NAMES[category] || category;
-			pageTitle.textContent = name;
-			pageSubtitle.textContent = `${filtered.length} products available`;
-			shopControls.style.display = 'flex';
-			backLink.style.display = 'inline-block';
-			categoryGrid.style.display = 'none';
-			productGrid.style.display = 'grid';
-			renderProducts(filtered);
-		}
-
-		function showMainView(categories) {
-			pageTitle.textContent = 'Shop Services';
-			pageSubtitle.textContent = 'Curated services designed for fast results. Add items to your cart and request a proposal.';
-			shopControls.style.display = 'none';
-			backLink.style.display = 'none';
-			categoryGrid.style.display = 'grid';
-			productGrid.style.display = 'none';
-			renderCategories(categories);
-		}
-
-		function applyFilters() {
-			const q = searchEl.value.toLowerCase().trim();
-			const cat = getCategoryFromURL();
-			const filtered = PRODUCTS.filter(p => {
-				const matchCat = !cat || p.category === cat;
-				const matchText = !q || p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
-				return matchCat && matchText;
-			});
-			renderProducts(filtered);
-		}
-
-		searchEl.addEventListener('input', applyFilters);
-
-		// Fetch external catalog, fallback to inline JSON when using file://
-		fetch('data/products.json')
-			.then((r) => { if (!r.ok) throw new Error('catalog'); return r.json(); })
-			.then(useCatalog)
-			.catch(() => {
-				categoryGrid.innerHTML = '<p class="muted">Could not load the shop catalog. Please refresh or email gamerleech2@gmail.com.</p>';
-				productGrid.innerHTML = '';
-			});
-
-		function useCatalog(data) {
-			PRODUCTS = Array.isArray(data.products) ? data.products : [];
-			const categories = Array.isArray(data.categories) ? data.categories : [];
-			
-			const category = getCategoryFromURL();
-			if (category) {
-				showCategoryView(category);
-			} else {
-				showMainView(categories);
-			}
-		}
-
-		// Cart (shared GLCart module)
-		const drawer = document.getElementById('cart-drawer');
-		const drawerBtn = document.getElementById('cart-button');
-		const drawerClose = document.getElementById('cart-close');
-		const drawerBackdrop = document.getElementById('cart-backdrop');
-		const cartItemsEl = document.getElementById('cart-items');
-		const cartCountEl = document.getElementById('cart-count');
-		const cartTotalEl = document.getElementById('cart-total');
-		const checkoutBtn = document.getElementById('checkout-btn');
-		const checkoutBtnFixed = document.getElementById('checkout-btn-fixed');
-		const cartPayBar = document.getElementById('cart-pay-bar');
-		const cartToast = document.getElementById('cart-toast');
-		let toastTimer;
-
-		function showToast(msg) {
-			if (!cartToast) return;
-			cartToast.textContent = msg;
-			cartToast.classList.add('show');
-			clearTimeout(toastTimer);
-			toastTimer = setTimeout(() => cartToast.classList.remove('show'), 2200);
-		}
-
-		let cartTriggerEl = null;
-
-		function goCheckout() {
-			if (GLCart.count() === 0) {
-				showToast('Add items before checkout');
-				return;
-			}
-			window.location.href = 'checkout.html';
-		}
-
-		function openCart() {
-			cartTriggerEl = document.activeElement;
-			drawer.setAttribute('aria-hidden', 'false');
-			drawerBackdrop.hidden = false;
-			document.body.classList.add('cart-open');
-			if (cartPayBar) cartPayBar.hidden = false;
-			drawerClose?.focus();
-		}
-
-		function closeCart() {
-			drawer.setAttribute('aria-hidden', 'true');
-			drawerBackdrop.hidden = true;
-			document.body.classList.remove('cart-open');
-			if (cartPayBar) cartPayBar.hidden = true;
-			if (cartTriggerEl && typeof cartTriggerEl.focus === 'function') cartTriggerEl.focus();
-		}
-
-		function updateCartUI() {
-			const cart = GLCart.get();
-			if (!cart.length) {
-				cartItemsEl.innerHTML = `
-					<div class="cart-empty">
-						<p>Your cart is empty.</p>
-						<button type="button" class="btn btn-outline" id="cart-browse-btn">Browse products</button>
-					</div>`;
-				document.getElementById('cart-browse-btn')?.addEventListener('click', closeCart);
-			} else {
-				cartItemsEl.innerHTML = cart.map((item) => {
-					const cid = item.cartId || item.id;
-					const icon = item.icon || 'assets/icons/bolt.svg';
-					const line = (item.price * item.qty).toFixed(2);
-					return `
-					<div class="cart-item">
-						<div class="ci-left">
-							<img class="cart-thumb" src="${icon}" alt="" width="44" height="44" decoding="async"/>
-							<div>
-								<strong>${item.title}</strong>
-								<p class="muted">$${item.price.toFixed(2)} × ${item.qty}</p>
-								<span class="line-total">$${line}</span>
-							</div>
-						</div>
-						<div class="ci-right">
-							<button type="button" class="icon-btn" data-action="dec" data-cart-id="${cid}" aria-label="Decrease quantity">−</button>
-							<button type="button" class="icon-btn" data-action="inc" data-cart-id="${cid}" aria-label="Increase quantity">+</button>
-							<button type="button" class="icon-btn" data-action="remove" data-cart-id="${cid}" aria-label="Remove item">✕</button>
-						</div>
-					</div>`;
-				}).join('');
-			}
-
-			const total = GLCart.total(cart);
-			const count = GLCart.count(cart);
-			cartTotalEl.textContent = `$${total.toFixed(2)}`;
-			cartCountEl.textContent = String(count);
-			const dockCount = document.getElementById('dock-cart-count');
-			if (dockCount) dockCount.textContent = String(count);
-
-			if (checkoutBtn) {
-				const empty = count === 0;
-				const label = empty ? 'Add items to checkout' : `Proceed to Checkout — $${total.toFixed(2)}`;
-				checkoutBtn.disabled = empty;
-				checkoutBtn.textContent = label;
-			}
-			if (checkoutBtnFixed) {
-				const empty = count === 0;
-				checkoutBtnFixed.disabled = empty;
-				checkoutBtnFixed.textContent = empty ? 'Add items to checkout' : `Proceed to Checkout — $${total.toFixed(2)}`;
-			}
-		}
-
-		function addToCart(id, period = null, price = null) {
-			const prod = PRODUCTS.find((p) => p.id === id);
-			if (!prod) return;
-			GLCart.add(prod, period, price ? parseFloat(price) : null);
-			updateCartUI();
-			openCart();
-			showToast(`${prod.title} added to cart`);
-		}
-
-		window.addEventListener('gl-cart-updated', updateCartUI);
-
-		// Delegate product add-to-cart
-		productGrid.addEventListener('click', (e) => {
-			const t = e.target;
-			if (t.matches('.add-to-cart')) {
-				const id = t.getAttribute('data-id');
-				const period = t.getAttribute('data-period');
-				const price = t.getAttribute('data-price');
-				addToCart(id, period, price ? parseFloat(price) : null);
-			}
-		});
-
-		// Delegate pricing tab clicks (desktop)
-		productGrid.addEventListener('click', (e) => {
-			const tab = e.target.closest('.pricing-tab');
-			if (!tab) return;
-			
-			const tabs = tab.closest('.pricing-tabs');
-			if (!tabs) return;
-			
-			const productId = tabs.getAttribute('data-product-id');
-			const period = tab.getAttribute('data-period');
-			const price = parseFloat(tab.getAttribute('data-price'));
-			
-			// Update active tab
-			tabs.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
-			tab.classList.add('active');
-			
-			// Update price display
-			const priceEl = document.querySelector(`.p-price[data-product-id="${productId}"]`);
-			if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
-			
-			// Update add to cart button
-			const addBtn = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
-			if (addBtn) {
-				addBtn.setAttribute('data-period', period);
-				addBtn.setAttribute('data-price', price);
-			}
-			
-			// Also update mobile selector if it exists
-			updateMobileSelector(productId, period, price);
-		});
-		
-		// Mobile pricing selector handlers
-		function updateMobileSelector(productId, period, price) {
-			const selector = document.querySelector(`.pricing-selector-mobile[data-product-id="${productId}"]`);
-			if (!selector) return;
-			
-			const labelEl = selector.querySelector('.pricing-selector-label');
-			const priceEl = selector.querySelector('.pricing-selector-price');
-			const periodLabels = { daily: 'Day', weekly: 'Week', monthly: 'Month', onetime: 'One-Time', lifetime: 'Lifetime' };
-			
-			if (labelEl) labelEl.textContent = periodLabels[period] || period;
-			if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
-			
-			// Update active option in dropdown
-			const options = selector.querySelectorAll('.pricing-option');
-			options.forEach(opt => {
-				if (opt.getAttribute('data-period') === period) {
-					opt.classList.add('active');
-				} else {
-					opt.classList.remove('active');
-				}
-			});
-		}
-		
-		// Handle mobile pricing selector button clicks
-		productGrid.addEventListener('click', (e) => {
-			const btn = e.target.closest('.pricing-selector-btn');
-			if (btn) {
-				e.stopPropagation();
-				e.preventDefault();
-				const productId = btn.getAttribute('data-product-id');
-				const dropdown = document.querySelector(`.pricing-options-dropdown[data-product-id="${productId}"]`);
-				const selector = btn.closest('.pricing-selector-mobile');
-				
-				if (dropdown && selector) {
-					const isOpen = selector.classList.contains('open');
-					// Close all other dropdowns
-					document.querySelectorAll('.pricing-selector-mobile').forEach(s => {
-						if (s !== selector) s.classList.remove('open');
-					});
-					// Toggle current dropdown
-					selector.classList.toggle('open', !isOpen);
-				}
-				return;
-			}
-			
-			// Handle pricing option clicks
-			const option = e.target.closest('.pricing-option');
-			if (option) {
-				e.stopPropagation();
-				e.preventDefault();
-				const productId = option.getAttribute('data-product-id');
-				const period = option.getAttribute('data-period');
-				const price = parseFloat(option.getAttribute('data-price'));
-				
-				// Update mobile selector
-				updateMobileSelector(productId, period, price);
-				
-				// Update price display
-				const priceEl = document.querySelector(`.p-price[data-product-id="${productId}"]`);
-				if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
-				
-				// Update add to cart button
-				const addBtn = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
-				if (addBtn) {
-					addBtn.setAttribute('data-period', period);
-					addBtn.setAttribute('data-price', price);
-				}
-				
-				// Update desktop tabs if they exist
-				const tabs = document.querySelector(`.pricing-tabs[data-product-id="${productId}"]`);
-				if (tabs) {
-					tabs.querySelectorAll('.pricing-tab').forEach(t => {
-						if (t.getAttribute('data-period') === period) {
-							t.classList.add('active');
-						} else {
-							t.classList.remove('active');
-						}
-					});
-				}
-				
-				// Close dropdown
-				const selector = option.closest('.pricing-selector-mobile');
-				if (selector) selector.classList.remove('open');
-			}
-		});
-		
-		// Close dropdowns when clicking outside
-		document.addEventListener('click', (e) => {
-			if (!e.target.closest('.pricing-selector-mobile')) {
-				document.querySelectorAll('.pricing-selector-mobile').forEach(s => s.classList.remove('open'));
-			}
-		});
-
-		// Drawer controls
-		drawerBtn.addEventListener('click', openCart);
-		const dockCartBtn = document.getElementById('dock-cart-btn');
-		if (dockCartBtn) dockCartBtn.addEventListener('click', openCart);
-		drawerClose.addEventListener('click', closeCart);
-		drawerBackdrop.addEventListener('click', closeCart);
-
-		// Cart actions
-		cartItemsEl.addEventListener('click', (e) => {
-			const btn = e.target.closest('button');
-			if (!btn) return;
-			const cartId = btn.getAttribute('data-cart-id');
-			const action = btn.getAttribute('data-action');
-			if (!cartId || !action) return;
-			if (action === 'inc') GLCart.inc(cartId);
-			else if (action === 'dec') GLCart.dec(cartId);
-			else if (action === 'remove') GLCart.remove(cartId);
-			updateCartUI();
-		});
-
-		checkoutBtn?.addEventListener('click', goCheckout);
-		checkoutBtnFixed?.addEventListener('click', goCheckout);
-
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') closeCart();
-		});
-
-		updateCartUI();
-	</script>
+	<script src="shop-app.js?v=2"></script>
+	<script>GL_CHROME?.loadMarketplace().then(d => d && GL_CHROME.renderTicker(d.ticker));</script>
 </body>
 </html>
 

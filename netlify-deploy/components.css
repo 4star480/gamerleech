@@ -6,7 +6,7 @@
 	justify-content: center;
 	gap: 10px 20px;
 	padding: 10px 16px;
-	background: linear-gradient(90deg, rgba(46,244,122,.06), rgba(46,244,122,.02), rgba(46,244,122,.06));
+	background: linear-gradient(90deg, rgba(168,85,247,.08), rgba(34,211,238,.04), rgba(168,85,247,.08));
 	border-bottom: 1px solid var(--border);
 	font-size: 0.8125rem;
 	font-weight: 600;
@@ -29,7 +29,7 @@ main.page-enter { animation: gl-page-enter 0.45s var(--ease-out, ease-out) both;
 	display: none;
 	position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
 	padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
-	background: rgba(6, 10, 6, 0.92);
+	background: rgba(7, 6, 14, 0.92);
 	border-top: 1px solid var(--border-strong, #254025);
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
@@ -42,7 +42,7 @@ main.page-enter { animation: gl-page-enter 0.45s var(--ease-out, ease-out) both;
 	transition: color 0.2s, background 0.2s; -webkit-tap-highlight-color: transparent;
 	border: none; background: transparent; cursor: pointer; font-family: inherit;
 }
-.dock-item.active, .dock-item:hover { color: var(--green); background: rgba(46,244,122,.12); }
+.dock-item.active, .dock-item:hover { color: var(--green); background: rgba(168,85,247,.14); }
 .dock-cart-wrap { position: relative; display: flex; flex-direction: column; align-items: center; }
 .dock-cart-count {
 	position: absolute; top: 0; right: calc(50% - 26px);

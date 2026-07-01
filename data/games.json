@@ -1,0 +1,2113 @@
+{
+  "games": [
+    {
+      "slug": "2moons",
+      "name": "2Moons",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "7ds-grand-cross",
+      "name": "7DS: Grand Cross",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "8-ball-pool",
+      "name": "8 Ball Pool",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "9dragons",
+      "name": "9Dragons",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.71
+    },
+    {
+      "slug": "aion",
+      "name": "Aion",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "aion-classic",
+      "name": "Aion Classic",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "albion-online",
+      "name": "Albion Online",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "alice-fiction",
+      "name": "Alice Fiction",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "alliance-of-valiant-arms",
+      "name": "Alliance of Valiant Arms",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "animal-crossing-new-horizons",
+      "name": "Animal Crossing: New Horizons",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.95
+    },
+    {
+      "slug": "anno-1800",
+      "name": "Anno 1800",
+      "emoji": "\ud83c\udfb2",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#4f46e5",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.74
+    },
+    {
+      "slug": "apex-legends",
+      "name": "Apex Legends",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Coins, accounts & rank boost",
+      "bannerFrom": "#da2929",
+      "bannerTo": "#1a1020",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "archeage",
+      "name": "ArcheAge",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "archeage-unchained",
+      "name": "ArcheAge Unchained",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "ark-survival-evolved",
+      "name": "Ark: Survival Evolved",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.71
+    },
+    {
+      "slug": "arknights",
+      "name": "Arknights",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "art-of-war-legions",
+      "name": "Art of War: Legions",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.86
+    },
+    {
+      "slug": "asphalt-9-legends",
+      "name": "Asphalt 9: Legends",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.86
+    },
+    {
+      "slug": "assetto-corsa",
+      "name": "Assetto Corsa",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.7
+    },
+    {
+      "slug": "astellia-online",
+      "name": "Astellia Online",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "aura-kingdom",
+      "name": "Aura Kingdom",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 16,
+      "avgRating": 4.95
+    },
+    {
+      "slug": "avakin-life",
+      "name": "Avakin Life",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "azur-lane",
+      "name": "Azur Lane",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "battlefield-2042",
+      "name": "Battlefield 2042",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "battlefield-v",
+      "name": "Battlefield V",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "binary-gods",
+      "name": "Binary Gods",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "black-desert-online",
+      "name": "Black Desert Online",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Silver, pearls & lifeskills",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "blade-and-soul",
+      "name": "Blade & Soul",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.82
+    },
+    {
+      "slug": "bless-unleashed",
+      "name": "Bless Unleashed",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "bloodline-last-royal-vampire",
+      "name": "Bloodline: Last Royal Vampire",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "blue-archive",
+      "name": "Blue Archive",
+      "emoji": "\ud83d\udee1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#166534",
+      "bannerTo": "#052e16",
+      "listingCount": 16,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "boom-beach",
+      "name": "Boom Beach",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "brawl-stars",
+      "name": "Brawl Stars",
+      "emoji": "\u2b50",
+      "tagline": "Gems, accounts & Brawlpass",
+      "bannerFrom": "#facc15",
+      "bannerTo": "#7c2d12",
+      "listingCount": 16,
+      "avgRating": 4.74
+    },
+    {
+      "slug": "cabal-online",
+      "name": "Cabal Online",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "call-of-duty",
+      "name": "Call of Duty",
+      "emoji": "\ud83c\udf96\ufe0f",
+      "tagline": "CP, accounts & camos",
+      "bannerFrom": "#b8860b",
+      "bannerTo": "#1a1a1a",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "call-of-duty-mobile",
+      "name": "Call of Duty: Mobile",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#b91c1c",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "call-of-duty-modern-warfare-ii",
+      "name": "Call of Duty: Modern Warfare II",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "call-of-duty-warzone-2-0",
+      "name": "Call of Duty: Warzone 2.0",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "candy-crush-saga",
+      "name": "Candy Crush Saga",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "clash-of-clans",
+      "name": "Clash of Clans",
+      "emoji": "\ud83c\udff0",
+      "tagline": "Gems, accounts & boosting",
+      "bannerFrom": "#4ade80",
+      "bannerTo": "#14532d",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "clash-royale",
+      "name": "Clash Royale",
+      "emoji": "\ud83c\udfb2",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#4f46e5",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "closers",
+      "name": "Closers",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "conquer-online",
+      "name": "Conquer Online",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "cookie-run-kingdom",
+      "name": "Cookie Run: Kingdom",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.98
+    },
+    {
+      "slug": "critical-ops",
+      "name": "Critical Ops",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "crossfire",
+      "name": "Crossfire",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 16,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "cs2",
+      "name": "CS2",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Skins, accounts & boosting",
+      "bannerFrom": "#de9b35",
+      "bannerTo": "#1b2838",
+      "listingCount": 16,
+      "avgRating": 4.94
+    },
+    {
+      "slug": "dark-age-of-camelot",
+      "name": "Dark Age of Camelot",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 16,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "darkest-dungeon",
+      "name": "Darkest Dungeon",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "dayz",
+      "name": "DayZ",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "dead-by-daylight",
+      "name": "Dead by Daylight",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "destiny-2",
+      "name": "Destiny 2",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "diablo-4",
+      "name": "Diablo 4",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Gold, items & power leveling",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#1a0505",
+      "listingCount": 16,
+      "avgRating": 4.94
+    },
+    {
+      "slug": "diablo-ii-resurrected",
+      "name": "Diablo II: Resurrected",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "diablo-iii",
+      "name": "Diablo III",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "diablo-immortal",
+      "name": "Diablo Immortal",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "digimon-masters-online",
+      "name": "Digimon Masters Online",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "dislyte",
+      "name": "Dislyte",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "disney-mirrorverse",
+      "name": "Disney Mirrorverse",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "dofus",
+      "name": "DOFUS",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "dofus-touch",
+      "name": "DOFUS Touch",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "dota-2",
+      "name": "Dota 2",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "Items, MMR boost & coaching",
+      "bannerFrom": "#b8242a",
+      "bannerTo": "#1a1020",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "dragon-ball-legends",
+      "name": "Dragon Ball Legends",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "dragon-ball-z-dokkan-battle",
+      "name": "Dragon Ball Z Dokkan Battle",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 16,
+      "avgRating": 4.98
+    },
+    {
+      "slug": "dragon-nest",
+      "name": "Dragon Nest",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "dragon-raja",
+      "name": "Dragon Raja",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "dungeon-fighter-online",
+      "name": "Dungeon Fighter Online",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "echoes-of-mana",
+      "name": "Echoes of Mana",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "elder-scrolls-online",
+      "name": "Elder Scrolls Online",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "elsword",
+      "name": "Elsword",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.82
+    },
+    {
+      "slug": "empire-four-kingdoms",
+      "name": "Empire: Four Kingdoms",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "enlisted",
+      "name": "Enlisted",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#b91c1c",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "epic-seven",
+      "name": "Epic Seven",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "escape-from-tarkov",
+      "name": "Escape From Tarkov",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Rubles, keys & carries",
+      "bannerFrom": "#78716c",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "eternal-return",
+      "name": "Eternal Return",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "eve-online",
+      "name": "EVE Online",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 16,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "everquest",
+      "name": "EverQuest",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "everquest-ii",
+      "name": "EverQuest II",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "fallout-76",
+      "name": "Fallout 76",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "family-island",
+      "name": "Family Island",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "fantasy-westward-journey",
+      "name": "Fantasy Westward Journey",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "fifa-23",
+      "name": "FIFA 23",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "fifa-mobile",
+      "name": "FIFA Mobile",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "final-fantasy-xi",
+      "name": "Final Fantasy XI",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "final-fantasy-xiv",
+      "name": "Final Fantasy XIV",
+      "emoji": "\ud83c\udf19",
+      "tagline": "Gil, accounts & boosting",
+      "bannerFrom": "#3b82f6",
+      "bannerTo": "#1e3a5f",
+      "listingCount": 16,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "fire-emblem-heroes",
+      "name": "Fire Emblem Heroes",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.72
+    },
+    {
+      "slug": "flyff-universe",
+      "name": "Flyff Universe",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "for-honor",
+      "name": "For Honor",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 16,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "fortnite",
+      "name": "Fortnite",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "V-Bucks, skins & accounts",
+      "bannerFrom": "#7c3aed",
+      "bannerTo": "#1e1040",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "forza-horizon-5",
+      "name": "Forza Horizon 5",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "free-fire",
+      "name": "Free Fire",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "game-of-thrones-winter-is-coming",
+      "name": "Game of Thrones: Winter is Coming",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "genshin-impact",
+      "name": "Genshin Impact",
+      "emoji": "\u2728",
+      "tagline": "Primogems, accounts & resin",
+      "bannerFrom": "#4fc3f7",
+      "bannerTo": "#1a237e",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "ghost-recon-breakpoint",
+      "name": "Ghost Recon Breakpoint",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.71
+    },
+    {
+      "slug": "gods-unchained",
+      "name": "Gods Unchained",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "grand-chase",
+      "name": "Grand Chase",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "gta-v",
+      "name": "Grand Theft Auto V",
+      "emoji": "\ud83d\ude97",
+      "tagline": "Money, accounts & boosting",
+      "bannerFrom": "#2ecc71",
+      "bannerTo": "#1a3a2a",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "growtopia",
+      "name": "Growtopia",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#b91c1c",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.86
+    },
+    {
+      "slug": "guild-wars-2",
+      "name": "Guild Wars 2",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#b91c1c",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.96
+    },
+    {
+      "slug": "gwent-the-witcher-card-game",
+      "name": "Gwent: The Witcher Card Game",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 16,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "halo-infinite",
+      "name": "Halo Infinite",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 16,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "harry-potter-magic-awakened",
+      "name": "Harry Potter: Magic Awakened",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "hay-day",
+      "name": "Hay Day",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "hearthstone",
+      "name": "Hearthstone",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "heroes-of-the-storm",
+      "name": "Heroes of the Storm",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.82
+    },
+    {
+      "slug": "honkai-impact-3rd",
+      "name": "Honkai Impact 3rd",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "honkai-star-rail",
+      "name": "Honkai: Star Rail",
+      "emoji": "\ud83c\udf20",
+      "tagline": "Stellar Jade & accounts",
+      "bannerFrom": "#6366f1",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.98
+    },
+    {
+      "slug": "hunt-showdown",
+      "name": "Hunt: Showdown",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "identity-v",
+      "name": "Identity V",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "illuvium",
+      "name": "Illuvium",
+      "emoji": "\ud83d\udee1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#166534",
+      "bannerTo": "#052e16",
+      "listingCount": 16,
+      "avgRating": 4.970000000000001
+    },
+    {
+      "slug": "imvu",
+      "name": "IMVU",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "iron-sight",
+      "name": "Iron Sight",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.96
+    },
+    {
+      "slug": "jackal-squad",
+      "name": "Jackal Squad",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "knight-online",
+      "name": "Knight Online",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "knights-of-the-old-republic",
+      "name": "Knights of the Old Republic",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "last-day-on-earth-survival",
+      "name": "Last Day on Earth: Survival",
+      "emoji": "\ud83e\ude82",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#3f3f46",
+      "bannerTo": "#18181b",
+      "listingCount": 16,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "last-shelter-survival",
+      "name": "Last Shelter: Survival",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "league-of-legends",
+      "name": "League of Legends",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "RP, accounts & boosting",
+      "bannerFrom": "#c89b3c",
+      "bannerTo": "#1a2744",
+      "listingCount": 16,
+      "avgRating": 4.96
+    },
+    {
+      "slug": "league-of-legends-wild-rift",
+      "name": "League of Legends: Wild Rift",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "legend-of-online",
+      "name": "Legend of Online",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "lineage-2",
+      "name": "Lineage 2",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "lineage-2m",
+      "name": "Lineage 2M",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "lineage-m",
+      "name": "Lineage M",
+      "emoji": "\ud83d\udee1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#166534",
+      "bannerTo": "#052e16",
+      "listingCount": 16,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "lineage-w",
+      "name": "Lineage W",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "lords-mobile",
+      "name": "Lords Mobile",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "lost-ark",
+      "name": "Lost Ark",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "madden-nfl-23",
+      "name": "Madden NFL 23",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.72
+    },
+    {
+      "slug": "magic-the-gathering-arena",
+      "name": "Magic: The Gathering Arena",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 16,
+      "avgRating": 4.95
+    },
+    {
+      "slug": "maplestory",
+      "name": "MapleStory",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.98
+    },
+    {
+      "slug": "maplestory-m",
+      "name": "MapleStory M",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "marvel-contest-of-champions",
+      "name": "Marvel Contest of Champions",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "marvel-future-fight",
+      "name": "Marvel Future Fight",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.72
+    },
+    {
+      "slug": "marvel-snap",
+      "name": "Marvel Snap",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.74
+    },
+    {
+      "slug": "metin2",
+      "name": "Metin2",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "minecraft",
+      "name": "Minecraft",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Accounts, realms & Minecoins",
+      "bannerFrom": "#5d8c3e",
+      "bannerTo": "#2d4a1e",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "mobile-legends-adventure",
+      "name": "Mobile Legends: Adventure",
+      "emoji": "\ud83c\udfb2",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#4f46e5",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.74
+    },
+    {
+      "slug": "mobile-legends-bang-bang",
+      "name": "Mobile Legends: Bang Bang",
+      "emoji": "\ud83d\udcf1",
+      "tagline": "Diamonds & rank boost",
+      "bannerFrom": "#3b82f6",
+      "bannerTo": "#1e3a8a",
+      "listingCount": 16,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "monster-hunter-world",
+      "name": "Monster Hunter: World",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "mortal-kombat-mobile",
+      "name": "Mortal Kombat Mobile",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "mu-online",
+      "name": "MU Online",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "my-singing-monsters",
+      "name": "My Singing Monsters",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 16,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "nba-2k23",
+      "name": "NBA 2K23",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 16,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "new-world",
+      "name": "New World",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.970000000000001
+    },
+    {
+      "slug": "ni-no-kuni-cross-worlds",
+      "name": "Ni no Kuni: Cross Worlds",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "nier-recarnation",
+      "name": "NieR Re[in]carnation",
+      "emoji": "\ud83d\udee1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#166534",
+      "bannerTo": "#052e16",
+      "listingCount": 16,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "night-crows",
+      "name": "Night Crows",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 16,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "nostale",
+      "name": "Nostale",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 16,
+      "avgRating": 4.7
+    },
+    {
+      "slug": "old-school-runescape",
+      "name": "Old School RuneScape",
+      "emoji": "\ud83e\ude99",
+      "tagline": "Gold, accounts & power leveling",
+      "bannerFrom": "#c9a227",
+      "bannerTo": "#3d2b0a",
+      "listingCount": 16,
+      "avgRating": 4.970000000000001
+    },
+    {
+      "slug": "overwatch-2",
+      "name": "Overwatch 2",
+      "emoji": "\ud83d\udd2b",
+      "tagline": "Coins, skins & rank boost",
+      "bannerFrom": "#f99e1a",
+      "bannerTo": "#2a2040",
+      "listingCount": 16,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "paladins",
+      "name": "Paladins",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 16,
+      "avgRating": 4.86
+    },
+    {
+      "slug": "path-of-exile",
+      "name": "Path of Exile",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "path-of-exile-2",
+      "name": "Path of Exile 2",
+      "emoji": "\ud83d\udc80",
+      "tagline": "Currency, items & builds",
+      "bannerFrom": "#8b2500",
+      "bannerTo": "#1a0a04",
+      "listingCount": 16,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "perfect-world-mobile",
+      "name": "Perfect World Mobile",
+      "emoji": "\ud83d\udc09",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#dc2626",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "phantasy-star-online-2-new-genesis",
+      "name": "Phantasy Star Online 2: New Genesis",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 16,
+      "avgRating": 4.94
+    },
+    {
+      "slug": "pixel-gun-3d",
+      "name": "Pixel Gun 3D",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 16,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "pokemon-go",
+      "name": "Pokemon Go",
+      "emoji": "\ud83c\udfb2",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#4f46e5",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "pokemon-masters-ex",
+      "name": "Pokemon Masters EX",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "pokemon-unite",
+      "name": "Pokemon UNITE",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "project-sekai-colorful-stage",
+      "name": "Project Sekai Colorful Stage!",
+      "emoji": "\u26a1",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#0369a1",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 16,
+      "avgRating": 4.71
+    },
+    {
+      "slug": "pubg-mobile",
+      "name": "PUBG Mobile",
+      "emoji": "\ud83d\udd2b",
+      "tagline": "UC, skins & accounts",
+      "bannerFrom": "#fbbf24",
+      "bannerTo": "#78350f",
+      "listingCount": 16,
+      "avgRating": 4.87
+    },
+    {
+      "slug": "pubg-battlegrounds",
+      "name": "PUBG: BATTLEGROUNDS",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "G-Coin, skins & accounts",
+      "bannerFrom": "#f5a623",
+      "bannerTo": "#2a1810",
+      "listingCount": 16,
+      "avgRating": 4.930000000000001
+    },
+    {
+      "slug": "punishing-gray-raven",
+      "name": "Punishing: Gray Raven",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.82
+    },
+    {
+      "slug": "ragnarok-m-eternal-love",
+      "name": "Ragnarok M: Eternal Love",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 16,
+      "avgRating": 4.8
+    },
+    {
+      "slug": "ragnarok-online",
+      "name": "Ragnarok Online",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "ragnarok-origin",
+      "name": "Ragnarok Origin",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "raid-shadow-legends",
+      "name": "Raid: Shadow Legends",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 16,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "rainbow-six-siege",
+      "name": "Rainbow Six Siege",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 16,
+      "avgRating": 4.890000000000001
+    },
+    {
+      "slug": "rappelz",
+      "name": "Rappelz",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 16,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "red-dead-redemption-2",
+      "name": "Red Dead Redemption 2",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 16,
+      "avgRating": 4.95
+    },
+    {
+      "slug": "rise-of-kingdoms",
+      "name": "Rise of Kingdoms",
+      "emoji": "\ud83c\udfb2",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#4f46e5",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 16,
+      "avgRating": 4.74
+    },
+    {
+      "slug": "roblox",
+      "name": "Roblox",
+      "emoji": "\ud83e\uddf1",
+      "tagline": "Robux, accounts & rare items",
+      "bannerFrom": "#e2231a",
+      "bannerTo": "#1a1028",
+      "listingCount": 12,
+      "avgRating": 4.72
+    },
+    {
+      "slug": "rocket-league",
+      "name": "Rocket League",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 12,
+      "avgRating": 4.96
+    },
+    {
+      "slug": "rogue-company",
+      "name": "Rogue Company",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#b91c1c",
+      "bannerTo": "#450a0a",
+      "listingCount": 12,
+      "avgRating": 4.86
+    },
+    {
+      "slug": "runescape-3",
+      "name": "RuneScape 3",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 12,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "rust",
+      "name": "Rust",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 12,
+      "avgRating": 4.82
+    },
+    {
+      "slug": "sea-of-thieves",
+      "name": "Sea of Thieves",
+      "emoji": "\ud83d\udde1\ufe0f",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#b45309",
+      "bannerTo": "#451a03",
+      "listingCount": 12,
+      "avgRating": 4.82
+    },
+    {
+      "slug": "seven-deadly-sins-grand-cross",
+      "name": "Seven Deadly Sins: Grand Cross",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 12,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "shadowverse",
+      "name": "Shadowverse",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 12,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "shaiya",
+      "name": "Shaiya",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 12,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "sky-children-of-the-light",
+      "name": "Sky: Children of the Light",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 12,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "smite",
+      "name": "Smite",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 12,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "solo-leveling-arise",
+      "name": "Solo Leveling: Arise",
+      "emoji": "\u2b50",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#6d28d9",
+      "bannerTo": "#2e1065",
+      "listingCount": 12,
+      "avgRating": 4.8500000000000005
+    },
+    {
+      "slug": "soulworker",
+      "name": "SoulWorker",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 12,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "splatoon-3",
+      "name": "Splatoon 3",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 12,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "star-citizen",
+      "name": "Star Citizen",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 12,
+      "avgRating": 4.91
+    },
+    {
+      "slug": "star-trek-fleet-command",
+      "name": "Star Trek Fleet Command",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 12,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "star-wars-galaxy-of-heroes",
+      "name": "Star Wars: Galaxy of Heroes",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 12,
+      "avgRating": 4.76
+    },
+    {
+      "slug": "state-of-survival",
+      "name": "State of Survival",
+      "emoji": "\ud83d\udd25",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0e7490",
+      "bannerTo": "#083344",
+      "listingCount": 12,
+      "avgRating": 4.84
+    },
+    {
+      "slug": "street-fighter-duel",
+      "name": "Street Fighter Duel",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 12,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "summoners-war-sky-arena",
+      "name": "Summoners War: Sky Arena",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 12,
+      "avgRating": 4.72
+    },
+    {
+      "slug": "teamfight-tactics",
+      "name": "Teamfight Tactics",
+      "emoji": "\ud83d\udc51",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#7f1d1d",
+      "bannerTo": "#1c1917",
+      "listingCount": 12,
+      "avgRating": 4.73
+    },
+    {
+      "slug": "tera",
+      "name": "Tera",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 12,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "terraria",
+      "name": "Terraria",
+      "emoji": "\ud83c\udfb2",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#4f46e5",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 12,
+      "avgRating": 4.74
+    },
+    {
+      "slug": "the-division-2",
+      "name": "The Division 2",
+      "emoji": "\ud83c\udfc6",
+      "tagline": "In-game assets & services",
+      "bannerFrom": "#4c1d95",
+      "bannerTo": "#1e1b4b",
+      "listingCount": 12,
+      "avgRating": 4.92
+    },
+    {
+      "slug": "the-sims-4",
+      "name": "The Sims 4",
+      "emoji": "\ud83d\udc8e",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#991b1b",
+      "bannerTo": "#450a0a",
+      "listingCount": 12,
+      "avgRating": 4.83
+    },
+    {
+      "slug": "throne-and-liberty",
+      "name": "Throne and Liberty",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 12,
+      "avgRating": 4.78
+    },
+    {
+      "slug": "tibia",
+      "name": "Tibia",
+      "emoji": "\u2694\ufe0f",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#3d2914",
+      "bannerTo": "#1a1208",
+      "listingCount": 12,
+      "avgRating": 4.8100000000000005
+    },
+    {
+      "slug": "tower-of-fantasy",
+      "name": "Tower of Fantasy",
+      "emoji": "\ud83d\udcb0",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#374151",
+      "bannerTo": "#111827",
+      "listingCount": 12,
+      "avgRating": 4.98
+    },
+    {
+      "slug": "trove",
+      "name": "Trove",
+      "emoji": "\ud83c\udfae",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e3a5f",
+      "bannerTo": "#0c1929",
+      "listingCount": 12,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "undecember",
+      "name": "Undecember",
+      "emoji": "\ud83c\udf0c",
+      "tagline": "Accounts, currency & gear",
+      "bannerFrom": "#1e293b",
+      "bannerTo": "#020617",
+      "listingCount": 12,
+      "avgRating": 4.88
+    },
+    {
+      "slug": "valorant",
+      "name": "Valorant",
+      "emoji": "\ud83c\udfaf",
+      "tagline": "VP, skins & rank boost",
+      "bannerFrom": "#ff4655",
+      "bannerTo": "#0f1923",
+      "listingCount": 12,
+      "avgRating": 4.75
+    },
+    {
+      "slug": "war-thunder",
+      "name": "War Thunder",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 12,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "warframe",
+      "name": "Warframe",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Platinum & prime sets",
+      "bannerFrom": "#0ea5e9",
+      "bannerTo": "#0c4a6e",
+      "listingCount": 12,
+      "avgRating": 4.95
+    },
+    {
+      "slug": "wizard101",
+      "name": "Wizard101",
+      "emoji": "\u26cf\ufe0f",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#0d9488",
+      "bannerTo": "#134e4a",
+      "listingCount": 12,
+      "avgRating": 4.79
+    },
+    {
+      "slug": "world-of-tanks",
+      "name": "World of Tanks",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 12,
+      "avgRating": 4.9
+    },
+    {
+      "slug": "world-of-warcraft",
+      "name": "World of Warcraft",
+      "emoji": "\ud83d\udee1\ufe0f",
+      "tagline": "Gold, mounts & boosting",
+      "bannerFrom": "#1e4a8c",
+      "bannerTo": "#0a1628",
+      "listingCount": 12,
+      "avgRating": 4.7700000000000005
+    },
+    {
+      "slug": "wow-classic",
+      "name": "World of Warcraft Classic",
+      "emoji": "\ud83d\udca3",
+      "tagline": "Gold, accounts & boosting",
+      "bannerFrom": "#1d4ed8",
+      "bannerTo": "#0f172a",
+      "listingCount": 12,
+      "avgRating": 4.86
+    },
+    {
+      "slug": "world-of-warships",
+      "name": "World of Warships",
+      "emoji": "\ud83c\udf1f",
+      "tagline": "Currency, accounts & items",
+      "bannerFrom": "#1e40af",
+      "bannerTo": "#172554",
+      "listingCount": 12,
+      "avgRating": 4.7
+    },
+    {
+      "slug": "yu-gi-oh-master-duel",
+      "name": "Yu-Gi-Oh! Master Duel",
+      "emoji": "\ud83d\ude80",
+      "tagline": "Items, currency & ranks",
+      "bannerFrom": "#ca8a04",
+      "bannerTo": "#713f12",
+      "listingCount": 12,
+      "avgRating": 4.99
+    },
+    {
+      "slug": "zenless-zone-zero",
+      "name": "Zenless Zone Zero",
+      "emoji": "\u26a1",
+      "tagline": "Monochrome & Polychrome",
+      "bannerFrom": "#f59e0b",
+      "bannerTo": "#1c1917",
+      "listingCount": 12,
+      "avgRating": 4.78
+    }
+  ],
+  "stats": {
+    "gameCount": 210,
+    "activeListings": 3200,
+    "marketplaceListings": 3200,
+    "activeSellers": 89,
+    "avgRating": 4.8,
+    "reviewCount": 12840,
+    "cheatsCount": 71
+  }
+}
