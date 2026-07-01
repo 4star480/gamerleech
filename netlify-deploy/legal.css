@@ -7,12 +7,3 @@
 .legal-prose p, .legal-prose li { color: var(--muted); font-size: 0.9375rem; line-height: 1.65; }
 .legal-prose ul { padding-left: 1.25rem; margin: 0 0 12px; }
 .legal-prose a { color: var(--green); }
-.nav-discord {
-	color: var(--green) !important;
-	border: 1px solid rgba(46, 244, 122, 0.35);
-	padding: 8px 14px !important;
-	border-radius: 10px;
-	font-weight: 700 !important;
-}
-.nav-discord:hover { background: rgba(46, 244, 122, 0.1); color: var(--text) !important; }
-.dock-item.discord-dock { color: var(--green); }
