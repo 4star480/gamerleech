@@ -54,11 +54,17 @@
 		return CATEGORY_TAB_MAP[category] || 'popular';
 	}
 
+	function encodeImagePath(path) {
+		if (window.GL_encodeImagePath) return window.GL_encodeImagePath(path);
+		if (!path || /^https?:/i.test(path)) return path;
+		return path.split('/').map((seg) => encodeURIComponent(seg)).join('/');
+	}
+
 	function gameCoverImg(slug, alt) {
 		const safe = (alt || '').replace(/"/g, '&quot;');
-		const jpg = `images/games/${slug}.jpg`;
-		const svg = `images/games/${slug}.svg`;
-		return `<img class="synapse-cover-img" src="${jpg}" alt="${safe}" loading="lazy" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='${svg}'}else{this.style.display='none'}">`;
+		const jpg = encodeImagePath(`images/games/${slug}.jpg`);
+		const svg = encodeImagePath(`images/games/${slug}.svg`);
+		return `<img class="synapse-cover-img" src="${jpg}" alt="${safe}" loading="lazy" decoding="async" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='${svg}'}else{this.style.display='none'}">`;
 	}
 
 	function gameThumbHtml(game, badges) {

@@ -3,12 +3,20 @@
 	'use strict';
 
 	const cfg = window.GL_CONFIG || {};
-	const navToggle = document.querySelector('.nav-toggle');
-	const nav = document.getElementById('primary-nav');
+
+	function getNavEls() {
+		return {
+			toggle: document.querySelector('.nav-toggle'),
+			nav: document.getElementById('primary-nav'),
+		};
+	}
 
 	function initNav() {
-		if (!navToggle || !nav) return;
+		const { toggle: navToggle, nav } = getNavEls();
+		if (!navToggle || !nav) return false;
+		if (navToggle.dataset.navBound === '1') return true;
 
+		navToggle.dataset.navBound = '1';
 		navToggle.addEventListener('click', (e) => {
 			e.preventDefault();
 			e.stopPropagation();
@@ -30,9 +38,11 @@
 		document.addEventListener('keydown', (e) => {
 			if (e.key === 'Escape') closeNav();
 		});
+		return true;
 	}
 
 	function closeNav() {
+		const { toggle: navToggle, nav } = getNavEls();
 		if (!nav || !navToggle) return;
 		nav.classList.remove('open');
 		navToggle.setAttribute('aria-expanded', 'false');
@@ -69,13 +79,16 @@
 		}
 	}
 
-	initReducedMotion();
-	initNav();
-	initDock();
-	initPageEnter();
-	initEmailJs();
-	if (window.GL_CHROME) {
-		GL_CHROME.injectSynapseChrome();
+	function boot() {
+		initReducedMotion();
+		if (window.GL_CHROME) GL_CHROME.injectSynapseChrome();
+		initNav();
+		initDock();
+		initPageEnter();
+		initEmailJs();
 	}
+
+	boot();
 	window.GL_closeNav = closeNav;
+	window.GL_initNav = initNav;
 })();

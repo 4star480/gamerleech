@@ -98,9 +98,12 @@
 
 	function normalizeProduct(p) {
 		const isCheat = CHEAT_CATEGORIES.has(p.category);
-		const image = typeof window.GL_resolveProductImage === 'function'
+		const raw = typeof window.GL_resolveProductImage === 'function'
 			? window.GL_resolveProductImage(p)
-			: (p.image || `Images/${p.category}.png`);
+			: (p.image || `assets/shop/${p.category}.svg`);
+		const image = typeof window.GL_resolveProductImageUrl === 'function'
+			? window.GL_resolveProductImageUrl(p)
+			: (typeof window.GL_encodeImagePath === 'function' ? window.GL_encodeImagePath(raw) : raw);
 		return {
 			...p,
 			image,
@@ -148,10 +151,12 @@
 			)).length;
 			const name = CATEGORY_NAMES[cat] || cat;
 			const firstProduct = PRODUCTS.find((p) => p.category === cat);
-			const image = firstProduct?.image || `assets/shop/${cat}.svg`;
+			const image = firstProduct?.image || (typeof window.GL_encodeImagePath === 'function'
+				? window.GL_encodeImagePath(`assets/shop/${cat}.svg`)
+				: `assets/shop/${cat}.svg`);
 			return `
 			<a href="${shopUrl(activeTab, cat)}" class="category-card">
-				<img src="${image}" alt="" class="cat-img" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">
+				<img src="${image}" alt="" class="cat-img" decoding="async" loading="eager" onerror="this.onerror=null;this.src='${fallback}';">
 				<div class="cat-info">
 					<h3>${name}</h3>
 					<p class="muted">${count} products</p>
@@ -221,10 +226,10 @@
 	}
 
 	function productCardHTML(p) {
-		const fallback = 'assets/shop/fallback.svg';
-		const initial = p.image || (typeof window.GL_resolveProductImage === 'function'
-			? window.GL_resolveProductImage(p)
-			: `assets/shop/fallback.svg`);
+		const fallback = typeof window.GL_encodeImagePath === 'function'
+			? window.GL_encodeImagePath('assets/shop/fallback.svg')
+			: 'assets/shop/fallback.svg';
+		const initial = p.image || fallback;
 		const pricingBlock = buildPricingUI(p);
 		const price = pricingBlock ? pricingBlock.defaultPrice : Number(p.price || 0);
 		const period = pricingBlock ? pricingBlock.defaultPeriod : null;
@@ -235,7 +240,7 @@
 			<div class="product-frame-inner">
 				<div class="product-header">
 					<div class="product-badges">${statusBadge(p.status)}${isCheat ? tierBadge(p.tier) : ''}</div>
-					<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" onerror="this.onerror=null; this.src='${fallback}';">
+					<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" loading="eager" onerror="this.onerror=null; this.src='${fallback}';">
 					<div class="p-icon"><img src="${p.icon}" alt=""></div>
 				</div>
 				<div class="product-content">
@@ -382,8 +387,8 @@
 		if (!p || !productModal) return;
 
 		const fallback = 'assets/shop/fallback.svg';
-		const img = p.image || (typeof window.GL_resolveProductImage === 'function'
-			? window.GL_resolveProductImage(p)
+		const img = p.image || (typeof window.GL_resolveProductImageUrl === 'function'
+			? window.GL_resolveProductImageUrl(p)
 			: 'assets/shop/fallback.svg');
 		const pricingBlock = buildPricingUI(p);
 		const price = pricingBlock ? pricingBlock.defaultPrice : Number(p.price || 0);

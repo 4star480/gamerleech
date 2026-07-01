@@ -20,7 +20,6 @@
 		[/starfire/i, 'Images/Starfire Mod Menu.svg'],
 	];
 
-	/** Original GamerLeech category cover art (PNG/JPG in Images/) */
 	const LEGACY_CATEGORY_IMAGES = {
 		'call-of-duty': 'Images/Call of duty.png',
 		'cod-mobile': 'Images/Call of Duty Mobile.png',
@@ -38,11 +37,18 @@
 		services: 'assets/shop/services.svg',
 	};
 
+	function encodeImagePath(path) {
+		if (!path || /^https?:/i.test(path) || /^data:/i.test(path)) return path;
+		const encoded = path.split('/').map((seg) => encodeURIComponent(seg)).join('/');
+		const v = window.GL_CONFIG?.assetVersion;
+		return v ? `${encoded}?v=${encodeURIComponent(v)}` : encoded;
+	}
+
 	function resolve(product) {
 		if (!product) return 'assets/shop/fallback.svg';
 		const title = product.title || '';
-		for (const [re, path] of TITLE_MAP) {
-			if (re.test(title)) return path;
+		for (const [re, imgPath] of TITLE_MAP) {
+			if (re.test(title)) return imgPath;
 		}
 		const raw = product.image || '';
 		if (raw.startsWith('Images/') && /\.(svg|png|jpe?g)$/i.test(raw)) return raw;
@@ -51,6 +57,12 @@
 		return 'assets/shop/fallback.svg';
 	}
 
+	function resolveUrl(product) {
+		return encodeImagePath(resolve(product));
+	}
+
+	window.GL_encodeImagePath = encodeImagePath;
 	window.GL_resolveProductImage = resolve;
+	window.GL_resolveProductImageUrl = resolveUrl;
 	window.GL_markLazyImages = function () { /* noop */ };
 })();

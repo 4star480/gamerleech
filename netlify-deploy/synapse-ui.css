@@ -372,7 +372,10 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	z-index: 0;
+	z-index: 1;
+	opacity: 1;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
 }
 .synapse-game-cover::after {
 	content: '';
@@ -933,12 +936,78 @@ body.has-synapse-tabbar { padding-bottom: var(--syn-tab-h); }
 
 /* Synapse header mobile */
 @media (max-width: 1023px) {
-	.synapse-header .nav-toggle { display: inline-flex; }
+	.synapse-header .nav-toggle {
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-width: 44px;
+		min-height: 44px;
+		margin-left: auto;
+		z-index: 101;
+		-webkit-tap-highlight-color: transparent;
+	}
 	.synapse-header .synapse-nav { display: none; }
-	.synapse-header .synapse-header-link { display: none; }
+	.synapse-header .synapse-header-link,
+	.synapse-header .synapse-btn-signup { display: none; }
+	.synapse-header #primary-nav.nav {
+		display: none;
+		position: fixed;
+		left: 4%;
+		right: 4%;
+		top: calc(56px + env(safe-area-inset-top, 0px));
+		flex-direction: column;
+		gap: 4px;
+		padding: 12px;
+		border-radius: 12px;
+		border: 1px solid var(--syn-border);
+		background: rgba(16, 14, 24, 0.98);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+		z-index: 100;
+		max-height: calc(100vh - 80px);
+		overflow-y: auto;
+	}
+	.synapse-header #primary-nav.nav.open {
+		display: flex;
+	}
+	.synapse-header #primary-nav.nav a {
+		display: block;
+		padding: 12px 14px;
+		border-radius: 8px;
+		color: var(--syn-text);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 15px;
+	}
+	.synapse-header #primary-nav.nav a:hover,
+	.synapse-header #primary-nav.nav a:focus {
+		background: rgba(168, 85, 247, 0.12);
+		color: var(--syn-accent);
+	}
+	.synapse-header .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+	.synapse-header .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+		opacity: 0;
+	}
+	.synapse-header .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+		transform: rotate(-45deg) translate(7px, -6px);
+	}
 }
 @media (min-width: 1024px) {
 	.synapse-header .nav-toggle { display: none; }
+	.synapse-header #primary-nav.nav { display: none !important; }
+}
+.synapse-header .nav-toggle span {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: var(--syn-text);
+	margin: 5px 0;
+	transition: 0.2s ease;
+	pointer-events: none;
 }
 .synapse-header .nav {
 	top: calc(68px + env(safe-area-inset-top, 0px));

@@ -128,6 +128,18 @@
 
 	.p-img {
 		height: 140px;
+		width: 100%;
+		object-fit: cover;
+		display: block;
+		opacity: 1;
+	}
+
+	.cat-img {
+		width: 100%;
+		height: 160px;
+		object-fit: cover;
+		display: block;
+		opacity: 1;
 	}
 
 	.product-content {

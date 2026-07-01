@@ -62,7 +62,7 @@
 			if (section) section.hidden = true;
 			return;
 		}
-		const resolve = window.GL_resolveProductImage || ((p) => p.image || 'assets/shop/fallback.svg');
+		const resolve = window.GL_resolveProductImageUrl || window.GL_resolveProductImage || ((p) => p.image || 'assets/shop/fallback.svg');
 		el.className = 'synapse-listings-grid';
 		el.innerHTML = products
 			.map((p) => {
@@ -70,7 +70,7 @@
 				const img = resolve(p);
 				return `<a href="shop.html?category=${encodeURIComponent(p.category)}" class="synapse-hub-card synapse-listing-card">
 					<div class="synapse-listing-thumb" style="background:linear-gradient(135deg,#581c87,#22d3ee)">
-						<img class="synapse-cover-img" src="${img}" alt="${p.title.replace(/"/g, '&quot;')}" loading="lazy" onerror="this.onerror=null;this.src='assets/shop/fallback.svg'">
+						<img class="synapse-cover-img" src="${img}" alt="${p.title.replace(/"/g, '&quot;')}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='assets/shop/fallback.svg'">
 						${p.status === 'undetected' ? '<span class="synapse-badge-instant">Undetected</span>' : ''}
 						${p.tier ? `<span class="synapse-badge-hot">${p.tier}</span>` : ''}
 					</div>
