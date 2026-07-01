@@ -1,0 +1,200 @@
+/* Shop mobile fixes v3 — single column, dock clearance, card layout */
+
+/* Mobile-first product grid (overrides desktop rules in styles.css) */
+.product-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+
+.category-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 14px;
+}
+
+@media (min-width: 640px) {
+	.category-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+	.product-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 18px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.category-grid {
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 18px;
+	}
+	.product-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+}
+
+/* Shop page scroll clearance for fixed bottom dock */
+@media (max-width: 720px) {
+	body.shop-page main {
+		padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+	}
+
+	body.shop-page .section {
+		padding-top: 24px;
+		padding-bottom: 32px;
+	}
+
+	/* Header: logo left, menu + cart right — no wrap */
+	.header-inner {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 10px;
+		padding: 12px 0;
+	}
+
+	.header-inner .brand {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.header-inner .nav-toggle {
+		order: 2;
+		flex: 0 0 44px;
+		margin-left: 0;
+	}
+
+	.header-inner .header-actions {
+		order: 3;
+		flex: 0 0 auto;
+		margin-left: 0;
+	}
+
+	.header-inner .nav {
+		order: 4;
+	}
+
+	.cart-button {
+		min-height: 44px;
+		padding: 10px 14px;
+		white-space: nowrap;
+	}
+
+	.cart-button span:first-child {
+		display: none;
+	}
+
+	.cart-button::before {
+		content: "Cart";
+		font-weight: 700;
+	}
+
+	/* Shop hero / filters */
+	.shop-hero {
+		padding: 24px 0 12px;
+	}
+
+	.shop-hero h1 {
+		font-size: 1.5rem;
+		line-height: 1.2;
+	}
+
+	.shop-hero .muted {
+		font-size: 0.875rem;
+		margin-bottom: 4px;
+	}
+
+	.shop-controls {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 12px;
+		margin-top: 16px;
+	}
+
+	.shop-controls select,
+	.shop-controls input[type="search"] {
+		width: 100%;
+		min-height: 48px;
+		font-size: 16px;
+	}
+
+	/* Product cards — full width, stacked actions */
+	.product-frame-inner {
+		border-radius: 12px;
+	}
+
+	.p-img {
+		height: 140px;
+	}
+
+	.product-content {
+		padding: 14px;
+		gap: 10px;
+	}
+
+	.p-body h3 {
+		font-size: 1rem;
+	}
+
+	.p-body p {
+		font-size: 0.8125rem;
+		-webkit-line-clamp: 3;
+	}
+
+	/* Hide duplicate price when period selector shows price */
+	.product-content:has(.pricing-section) .p-footer .price-display {
+		display: none;
+	}
+
+	.p-footer {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 10px;
+		margin-top: 4px;
+		padding-top: 12px;
+	}
+
+	.p-footer .btn {
+		width: 100%;
+		min-width: 0;
+		min-height: 48px;
+		justify-content: center;
+	}
+
+	.pricing-selector-btn {
+		min-height: 48px;
+	}
+
+	/* Bottom dock */
+	.mobile-dock.shop-dock {
+		padding-top: 6px;
+		padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+		box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+	}
+
+	.mobile-dock.shop-dock .dock-item {
+		font-size: 0.625rem;
+		min-height: 44px;
+		padding: 4px 2px;
+	}
+
+	.dock-cart-wrap .dock-cart-count {
+		top: 2px;
+		right: 50%;
+		transform: translateX(calc(50% + 14px));
+	}
+}
+
+/* Very narrow phones */
+@media (max-width: 360px) {
+	.container {
+		width: min(1160px, 96%);
+	}
+
+	.trust-strip span:nth-child(3) {
+		display: none;
+	}
+}

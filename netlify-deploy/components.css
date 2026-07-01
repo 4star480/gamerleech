@@ -61,7 +61,7 @@ main.page-enter { animation: gl-page-enter 0.45s var(--ease-out, ease-out) both;
 
 .btn-success-flash { background: var(--green-700) !important; }
 .header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
-body.has-dock { padding-bottom: calc(62px + env(safe-area-inset-bottom, 0px)); }
+body.has-dock { padding-bottom: 0; }
 body.nav-open { overflow: hidden; }
 
 .header-nav { display: flex; align-items: center; gap: 22px; }
@@ -81,7 +81,9 @@ body.nav-open { overflow: hidden; }
 
 @media (max-width: 720px) {
 	.mobile-dock { display: block; }
-	body.has-dock { padding-bottom: calc(78px + env(safe-area-inset-bottom, 0px)); }
+	body.has-dock:not(.shop-page) main {
+		padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+	}
 	.site-header .nav .btn-primary { width: 100%; justify-content: center; margin-top: 4px; }
 	.trust-strip { font-size: 0.75rem; }
 	.hero { padding-top: 48px; }
