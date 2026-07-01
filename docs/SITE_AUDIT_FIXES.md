@@ -1,42 +1,49 @@
-# GamerLeech site audit fixes (June 2026)
+# GamerLeech site audit fixes
 
-## Cart & shop
+## Round 2 (latest)
 
-- **Shared cart module** (`cart.js` / `GLCart`) — single source of truth for `localStorage` key `gl_cart`, normalized prices/qty, order ID generation, order history.
-- **Shop wired to GLCart** — removed ~240 lines of duplicated inline cart logic from `shop.html`.
-- **Empty cart UX** — drawer shows empty state; checkout button disabled when count is 0; toast if user tries to checkout empty.
-- **Add-to-cart feedback** — toast notification + body scroll lock while drawer open; Escape closes drawer.
-- **Safe pricing** — `Number(p.price || 0).toFixed(2)` prevents crashes on missing prices.
+### Assets & shop
+- Fixed **71 product image paths** in `data/products.json` to match files in repo
+- Added `shop-images.js` resolver + category/product fallbacks with `onerror` → `fallback.svg`
+- Removed **duplicate inline catalog** from `shop.html` (single source: `data/products.json`)
+- Fixed broken **favicon** on shop (`assets/logo.svg`)
+- Removed dead **category filter** dropdown; search-only in category view
+- Fixed **onetime** pricing label on mobile selector
+- Empty search results message
 
-## Checkout & order flow
+### Checkout
+- **Order ID** persisted in `sessionStorage` until payment completes (no new ID on refresh)
+- **Dynamic QR codes** via `qrcode.min.js` when barcode images missing
+- **Cart not cleared** if EmailJS configured but both emails fail; user can retry
+- Success screen shows email delivery warnings when applicable
+- HTML escaping for order display fields
 
-- **Dedicated checkout app** (`checkout-app.js`) — replaced ~600 lines of inline script in `checkout.html`.
-- **Empty cart** — checkout shows browse-shop message only (no payment methods when cart is empty).
-- **Fresh order IDs** — new ID per checkout session (removed stale `gl_current_order_id` reuse).
-- **Success screen** — replaces `alert()` with in-page confirmation + Discord link; cart cleared after submit.
-- **EmailJS validation** — checks `serviceId` and both templates before sending.
-- **Mobile pay bar** — sticky bottom “I’ve sent payment” on small screens; 16px email input (no iOS zoom).
-- **Crypto selectors** — proper `<button>` elements with `aria-pressed`; QR panels toggle correctly.
+### Site-wide
+- **Unified footer** on shop + checkout (matches homepage)
+- **Trust strip** on checkout page
+- **Dock active state** works with `?category=` query URLs
+- Contact form **single-column on mobile**
+- FAQ refund copy aligned with refund policy
+- Pricing section clarified as “starting at” tiers
+- Cart drawer: `role="dialog"`, focus return on close
+- Single **EmailJS init** in `site.js` (removed duplicates)
+- Contact mailto fallback no longer shows false “sent” toast
 
-## Other
+## Round 1 (prior)
 
-- **Contact form** — EmailJS init added in `script.js` (uses `config.js` templates).
-- **Styles** — `cart-ui.css` for drawer, toast, checkout empty/success, sticky pay bar.
+- Shared `GLCart` module, checkout-app.js, cart-ui.css
+- Empty cart UX, toast notifications, mobile sticky pay bar
 
-## Files touched
+## Still manual / content
 
-| File | Change |
-|------|--------|
-| `netlify-deploy/cart.js` | New shared cart |
-| `netlify-deploy/cart-ui.css` | New cart/checkout UI |
-| `netlify-deploy/checkout-app.js` | New checkout flow |
-| `netlify-deploy/shop.html` | GLCart integration |
-| `netlify-deploy/checkout.html` | Module scripts, cleanup |
-| `netlify-deploy/script.js` | EmailJS init |
+- Verify **crypto wallet addresses** in `checkout-app.js` are production-ready
+- Add real product photos where only category SVGs exist
+- Confirm EmailJS templates match variable names in `config.js`
 
 ## Test checklist
 
-1. Shop → add product (with pricing tier) → drawer opens, count updates, toast shows.
-2. Empty cart → checkout button inactive; direct `/checkout.html` shows empty state.
-3. Checkout with items → pick crypto → enter email → accept terms → submit → success screen, cart cleared.
-4. Contact form on home → submit (EmailJS or mailto fallback).
+1. Shop homepage — category images load (or fallback)
+2. Category view — search, pricing tiers, add to cart
+3. Checkout — refresh keeps same order ID; QR appears when crypto selected
+4. Submit with EmailJS down — cart retained, error shown
+5. Submit success — cart cleared, success screen with order ID

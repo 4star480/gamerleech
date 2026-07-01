@@ -1,7 +1,13 @@
 // Mobile nav — site.js handles toggle; keep FAQ + contact here
 
 // FAQ accordion
-document.querySelectorAll('.faq-item').forEach((btn) => {
+document.querySelectorAll('.faq-item').forEach((btn, i) => {
+	const panel = btn.nextElementSibling;
+	const panelId = `faq-panel-${i + 1}`;
+	if (panel) {
+		panel.id = panelId;
+		btn.setAttribute('aria-controls', panelId);
+	}
 	btn.addEventListener('click', () => {
 		const expanded = btn.getAttribute('aria-expanded') === 'true';
 		btn.setAttribute('aria-expanded', String(!expanded));
@@ -11,13 +17,6 @@ document.querySelectorAll('.faq-item').forEach((btn) => {
 // Year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-(function initEmailJS() {
-	const ej = window.GL_CONFIG?.emailjs;
-	if (typeof emailjs !== 'undefined' && ej?.publicKey) {
-		try { emailjs.init(ej.publicKey); } catch (e) { console.warn('EmailJS init', e); }
-	}
-})();
 
 // Lazy loading images
 if ('loading' in HTMLImageElement.prototype) {
@@ -71,11 +70,12 @@ function handleContactSubmit(event) {
 
 	const subject = encodeURIComponent(`Contact: ${data.name || 'New Message'}`);
 	const body = encodeURIComponent(`Name: ${data.name || 'N/A'}\nEmail: ${data.email || 'N/A'}\n\n${data.message || ''}`);
+	button.textContent = 'Opening email…';
 	window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
 	setTimeout(() => {
-		showFormToast(button, true);
-		form.reset();
-	}, 400);
+		button.textContent = 'Send Message';
+		button.disabled = false;
+	}, 800);
 }
 
 // Smooth scroll for anchor links

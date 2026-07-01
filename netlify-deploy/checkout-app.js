@@ -21,13 +21,35 @@
 	const E_WALLET = ['binance-pay', 'crypto-com'];
 	const CRYPTO = ['bitcoin', 'ethereum', 'usdt-eth', 'usdt-polygon', 'usdt-trc20', 'usdc', 'usdc-arbitrum', 'usdc-polygon', 'usdc-solana'];
 
+	const ORDER_KEY = 'gl_checkout_order_id';
+
 	let cart = [];
 	let selectedCrypto = null;
 	let currentTotal = 0;
 	let pendingOrderId = null;
 
-	const ej = () => window.GL_CONFIG?.emailjs || {};
+	function escapeHtml(str) {
+		return String(str)
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;');
+	}
+
+	function getOrCreateOrderId() {
+		let id = sessionStorage.getItem(ORDER_KEY);
+		if (!id) {
+			id = GLCart.createOrderId();
+			sessionStorage.setItem(ORDER_KEY, id);
+		}
+		return id;
+	}
+
+	function clearCheckoutSession() {
+		sessionStorage.removeItem(ORDER_KEY);
+	}
 	const cfg = () => window.GL_CONFIG || {};
+	const ej = () => cfg().emailjs || {};
 
 	function isEmailReady() {
 		const c = ej();
@@ -54,7 +76,9 @@
 				<div class="crypto-address-label">${c.name}${c.network ? ` (${c.network})` : ''} address</div>
 				<div class="crypto-address-value" id="address-value-${id}">${c.address}</div>
 				<button type="button" class="copy-btn" data-copy="${id}">Copy address</button>
-				${c.barcode ? `<div class="qr-code-container" id="qr-code-${id}"><img src="${c.barcode}" alt="${c.name} QR" loading="lazy" onerror="this.parentElement.hidden=true"></div>` : ''}
+				<div class="qr-code-container" id="qr-code-${id}" data-address="${escapeHtml(c.address)}" hidden>
+					<canvas class="qr-dynamic" aria-label="${escapeHtml(c.name)} payment QR code"></canvas>
+				</div>
 			</div>`;
 	}
 
@@ -73,7 +97,7 @@
 	function renderCheckout() {
 		cart = GLCart.get();
 		currentTotal = GLCart.total(cart);
-		pendingOrderId = GLCart.createOrderId();
+		pendingOrderId = getOrCreateOrderId();
 
 		if (!cart.length) {
 			renderEmpty();
@@ -90,12 +114,12 @@
 						<h2>Order summary</h2>
 						<div style="padding:12px 14px;background:rgba(46,244,122,.08);border-radius:10px;margin-bottom:16px;border-left:3px solid var(--green)">
 							<div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Order ID</div>
-							<div style="font-family:ui-monospace,monospace;font-size:1rem;color:var(--green);font-weight:800">${pendingOrderId}</div>
+							<div style="font-family:ui-monospace,monospace;font-size:1rem;color:var(--green);font-weight:800">${escapeHtml(pendingOrderId)}</div>
 						</div>
 						${cart.map((item) => `
 							<div class="order-item">
 								<div class="order-item-info">
-									<h4>${item.title}</h4>
+									<h4>${escapeHtml(item.title)}</h4>
 									<p>Qty ${item.qty}${item.period ? ` · ${item.period}` : ''}</p>
 								</div>
 								<div class="order-item-price">$${(item.price * item.qty).toFixed(2)}</div>
@@ -144,6 +168,20 @@
 			</div>`;
 
 		bindCheckoutEvents();
+		renderQrCodes();
+	}
+
+	function renderQrCodes() {
+		if (typeof QRCode === 'undefined') return;
+		document.querySelectorAll('.qr-code-container[data-address]').forEach((container) => {
+			const addr = container.dataset.address;
+			if (!addr) return;
+			const canvas = container.querySelector('canvas.qr-dynamic');
+			if (!canvas) return;
+			QRCode.toCanvas(canvas, addr, { width: 200, margin: 1 }, (err) => {
+				if (err) container.hidden = true;
+			});
+		});
 	}
 
 	function bindCheckoutEvents() {
@@ -167,11 +205,17 @@
 			o.setAttribute('aria-pressed', on ? 'true' : 'false');
 		});
 		document.querySelectorAll('.crypto-address').forEach((a) => { a.hidden = true; });
-		document.querySelectorAll('.qr-code-container').forEach((q) => q.classList.remove('active'));
+		document.querySelectorAll('.qr-code-container').forEach((q) => {
+			q.classList.remove('active');
+			q.hidden = true;
+		});
 		const block = document.getElementById(`address-${cryptoId}`);
 		if (block) block.hidden = false;
 		const qr = document.getElementById(`qr-code-${cryptoId}`);
-		if (qr) qr.classList.add('active');
+		if (qr) {
+			qr.hidden = false;
+			qr.classList.add('active');
+		}
 		const status = document.getElementById('payment-status');
 		const note = document.getElementById('status-note');
 		const c = CRYPTO_ADDRESSES[cryptoId];
@@ -206,16 +250,17 @@
 		});
 	}
 
-	function showSuccess(orderId, customerEmail, paymentMethod) {
+	function showSuccess(orderId, customerEmail, paymentMethod, emailNote) {
 		const el = document.getElementById('checkout-content');
 		if (!el) return;
 		const discord = cfg().discord || '#';
 		el.innerHTML = `
 			<div class="checkout-success">
 				<h2>Payment submitted</h2>
-				<p>We received your order. Once payment is confirmed, delivery goes to <strong>${customerEmail}</strong>.</p>
-				<div class="order-id">${orderId}</div>
-				<p class="muted">Method: ${paymentMethod}<br>Total: $${currentTotal.toFixed(2)}</p>
+				<p>We received your order. Once payment is confirmed, delivery goes to <strong>${escapeHtml(customerEmail)}</strong>.</p>
+				<div class="order-id">${escapeHtml(orderId)}</div>
+				<p class="muted">Method: ${escapeHtml(paymentMethod)}<br>Total: $${currentTotal.toFixed(2)}</p>
+				${emailNote ? `<p class="checkout-warn">${escapeHtml(emailNote)}</p>` : ''}
 				<div class="checkout-success-actions">
 					<a href="${discord}" class="btn btn-primary" target="_blank" rel="noopener">Open Discord for support</a>
 					<a href="shop.html" class="btn btn-outline">Continue shopping</a>
@@ -223,6 +268,30 @@
 			</div>`;
 		document.getElementById('checkout-sticky-pay')?.remove();
 		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+
+	function showSubmitError(message) {
+		const el = document.getElementById('checkout-content');
+		const sticky = document.getElementById('checkout-sticky-pay');
+		if (sticky) {
+			sticky.querySelectorAll('.pay-now-btn').forEach((b) => {
+				b.disabled = false;
+				b.textContent = 'I\u2019ve sent payment';
+			});
+		}
+		const banner = document.getElementById('checkout-error');
+		if (banner) {
+			banner.textContent = message;
+			banner.hidden = false;
+			return;
+		}
+		if (el) {
+			const note = document.createElement('p');
+			note.id = 'checkout-error';
+			note.className = 'checkout-warn';
+			note.textContent = message;
+			el.prepend(note);
+		}
 	}
 
 	async function processPayment() {
@@ -254,7 +323,6 @@
 		let customerSent = false;
 
 		if (isEmailReady()) {
-			try { emailjs.init(ej().publicKey); } catch (_) { /* noop */ }
 			const base = {
 				order_id: orderId,
 				total_amount: `$${currentTotal.toFixed(2)}`,
@@ -286,12 +354,24 @@
 			} catch (e) { console.warn('Customer email failed', e); }
 		}
 
-		GLCart.clear();
-		showSuccess(orderId, email, paymentMethod);
-
-		if (!businessSent && !customerSent) {
-			console.info('EmailJS unavailable — order saved locally only');
+		if (isEmailReady() && !businessSent && !customerSent) {
+			showSubmitError('Order saved locally but confirmation emails failed. Your cart is still here — try again or contact us on Discord with your order ID.');
+			btns.forEach((b) => { b.disabled = false; b.textContent = 'I\u2019ve sent payment'; });
+			return;
 		}
+
+		GLCart.clear();
+		clearCheckoutSession();
+
+		let emailNote = '';
+		if (isEmailReady()) {
+			if (!customerSent) emailNote = 'We could not send your confirmation email — save your order ID and check Discord if needed.';
+			else if (!businessSent) emailNote = 'Your confirmation was sent; our team notification may be delayed.';
+		} else {
+			emailNote = 'Email service unavailable — order saved locally. Contact us on Discord with your order ID.';
+		}
+
+		showSuccess(orderId, email, paymentMethod, emailNote);
 	}
 
 	window.selectCrypto = selectCrypto;

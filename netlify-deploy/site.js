@@ -40,12 +40,12 @@
 	}
 
 	function initDock() {
-		const path = location.pathname.split('/').pop() || 'index.html';
+		const path = (location.pathname.split('/').pop() || 'index.html').split('?')[0];
 		document.querySelectorAll('.mobile-dock .dock-item').forEach((link) => {
-			const href = link.getAttribute('href') || '';
+			const href = (link.getAttribute('href') || '').split('?')[0];
 			const match =
 				(path === 'index.html' || path === '') && (href === 'index.html' || href === './' || href === '/')
-				|| href.endsWith(path);
+				|| (href && href.endsWith(path));
 			link.classList.toggle('active', match);
 		});
 	}

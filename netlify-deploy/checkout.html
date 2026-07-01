@@ -16,14 +16,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src="config.js"></script>
-	<script type="text/javascript">
-		(function() {
-			const ej = window.GL_CONFIG?.emailjs;
-			if (typeof emailjs !== 'undefined' && ej?.publicKey) {
-				try { emailjs.init(ej.publicKey); } catch (e) { console.error(e); }
-			}
-		})();
-	</script>
 	<style>
 		.checkout-container {
 			min-height: 100vh;
@@ -382,6 +374,11 @@
 	</style>
 </head>
 <body class="has-dock checkout-page">
+	<div class="trust-strip" role="region" aria-label="Store highlights">
+		<span><span class="dot" aria-hidden="true"></span> Undetected builds</span>
+		<span><span class="dot" aria-hidden="true"></span> Instant keys</span>
+		<span><span class="dot" aria-hidden="true"></span> Secure crypto</span>
+	</div>
 	<header class="site-header">
 		<div class="container header-inner">
 			<a href="index.html" class="brand">
@@ -417,16 +414,29 @@
 	</main>
 
 	<footer class="site-footer">
-		<div class="container footer-inner">
+		<div class="container footer-grid">
 			<div class="footer-brand">
 				<img src="assets/logo.svg" alt="GamerLeech" class="brand-logo" loading="lazy">
 				<p>Premium gaming cheats and services. Built for competitive players who demand the best.</p>
 			</div>
-			<nav class="footer-links">
+			<div class="footer-col">
+				<h4>Store</h4>
+				<a href="shop.html">Browse shop</a>
 				<a href="index.html#pricing">Pricing</a>
+				<a href="checkout.html">Checkout</a>
+			</div>
+			<div class="footer-col">
+				<h4>Support</h4>
+				<a href="https://discord.gg/EDhZwqxH9" target="_blank" rel="noopener noreferrer">Discord</a>
 				<a href="index.html#faq">FAQ</a>
 				<a href="index.html#contact">Contact</a>
-			</nav>
+				<a href="mailto:gamerleech2@gmail.com">gamerleech2@gmail.com</a>
+			</div>
+			<div class="footer-col">
+				<h4>Legal</h4>
+				<a href="terms.html">Terms of Service</a>
+				<a href="refund.html">Refund Policy</a>
+			</div>
 			<p class="legal">© <span id="year"></span> GamerLeech. All rights reserved.</p>
 		</div>
 	</footer>

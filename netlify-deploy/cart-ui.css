@@ -200,3 +200,30 @@ body.cart-open {
 		display: none;
 	}
 }
+
+.checkout-warn {
+	color: #ffb347;
+	font-size: 0.875rem;
+	margin: 12px 0;
+	line-height: 1.45;
+}
+
+.qr-code-container.active,
+.qr-code-container:not([hidden]) {
+	display: block;
+	text-align: center;
+	margin-top: 16px;
+}
+
+.qr-code-container canvas {
+	border-radius: 8px;
+	max-width: 200px;
+	height: auto;
+}
+
+.form-status {
+	margin-top: 12px;
+	font-size: 0.875rem;
+	color: var(--muted);
+	min-height: 1.25rem;
+}
