@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+	<rect width="640" height="360" rx="20" fill="#ffffff"/>
+	<path d="M320 60 L580 320 L60 320 Z" fill="#d32f2f"/>
+	<text x="50%" y="50%" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-weight="900" font-size="56" letter-spacing="4">APEX</text>
+	<line x1="180" y1="280" x2="460" y2="280" stroke="#000000" stroke-width="3"/>
+	<text x="50%" y="72%" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-weight="700" font-size="28" letter-spacing="3">LEGENDS</text>
+</svg>

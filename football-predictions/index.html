@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Football Match Predictions — AI-Powered Analysis</title>
+	<meta name="description" content="Advanced football match predictions with 90% accuracy using AI analysis of team form, player stats, and historical data">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="prediction-container">
+		<div class="container">
+			
+			<div class="prediction-header">
+				<h1>⚽ AI Football Match Predictions</h1>
+				<p>Advanced machine learning analysis of team form, player statistics, and historical data</p>
+				<span class="accuracy-badge">90% Prediction Accuracy</span>
+				<div style="margin-top: 15px; font-size: 0.9rem; color: #00aaff;">
+					🌐 Fetching real matches from online sources...
+				</div>
+			</div>
+
+			<div class="controls">
+				<select id="leagueSelect">
+					<option value="">All Leagues</option>
+					<optgroup label="Domestic Leagues">
+						<option value="premier-league">Premier League</option>
+						<option value="la-liga">La Liga</option>
+						<option value="serie-a">Serie A</option>
+						<option value="bundesliga">Bundesliga</option>
+						<option value="ligue-1">Ligue 1</option>
+						<option value="eredivisie">Eredivisie</option>
+						<option value="primeira-liga">Primeira Liga</option>
+						<option value="mls">MLS</option>
+					</optgroup>
+					<optgroup label="International Competitions">
+						<option value="world-cup">World Cup</option>
+						<option value="world-cup-qualifiers">World Cup Qualifiers</option>
+						<option value="euro-qualifiers">Euro Qualifiers</option>
+						<option value="euros">UEFA European Championship</option>
+						<option value="copa-america">Copa America</option>
+						<option value="afcon">Africa Cup of Nations</option>
+						<option value="nations-league">UEFA Nations League</option>
+						<option value="friendlies">International Friendlies</option>
+					</optgroup>
+					<optgroup label="Club Competitions">
+						<option value="champions-league">Champions League</option>
+						<option value="europa-league">Europa League</option>
+						<option value="conference-league">Conference League</option>
+					</optgroup>
+				</select>
+				<input type="date" id="dateSelect" value="" min="2020-01-01" title="Select any date (past, today, or future)">
+				<button class="btn-predict" onclick="loadPredictions()">🔮 Get Predictions</button>
+			</div>
+			
+			<div id="apiKeySection" style="background: rgba(0, 170, 255, 0.1); border: 1px solid rgba(0, 170, 255, 0.3); border-radius: 8px; padding: 15px; margin: 20px 0;">
+				<div style="color: #00aaff; font-weight: 600; margin-bottom: 10px;">🔑 API Key Setup (Required for Real Matches)</div>
+				<div style="color: #cccccc; font-size: 0.9rem; margin-bottom: 15px;">
+					To get <strong>real, verified matches</strong> from online sources, you need a free API key:
+				</div>
+				<div style="margin-bottom: 15px;">
+					<strong style="color: #00ff88;">Option 1: Football-Data.org (Recommended - Free)</strong>
+					<div style="font-size: 0.85rem; color: #aaaaaa; margin-top: 5px; margin-left: 20px;">
+						1. Visit: <a href="https://www.football-data.org/" target="_blank" style="color: #00aaff;">https://www.football-data.org/</a><br>
+						2. Click "Sign Up" (free account)<br>
+						3. Get your API token<br>
+						4. Paste it below
+					</div>
+				</div>
+				<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+					<input type="text" id="apiKeyInput" placeholder="Enter your Football-Data.org API key" 
+						style="flex: 1; min-width: 250px; padding: 10px; border: 1px solid #333; background: rgba(255,255,255,0.05); color: #fff; border-radius: 6px; font-family: 'Urbanist', sans-serif;">
+					<button onclick="saveAPIKey()" class="btn-predict" style="padding: 10px 20px; font-size: 0.9rem;">Save Key</button>
+					<button onclick="toggleAPIHelp()" style="padding: 10px 15px; background: transparent; border: 1px solid #666; color: #ccc; border-radius: 6px; cursor: pointer; font-size: 0.9rem;">More Options</button>
+				</div>
+				<div id="apiKeyStatus" style="margin-top: 10px; font-size: 0.85rem;"></div>
+			</div>
+			
+			<div id="apiHelpSection" style="display: none; background: rgba(255, 170, 0, 0.1); border: 1px solid rgba(255, 170, 0, 0.3); border-radius: 8px; padding: 15px; margin: 20px 0;">
+				<div style="color: #ffaa00; font-weight: 600; margin-bottom: 10px;">📋 Alternative API Options</div>
+				<div style="color: #cccccc; font-size: 0.9rem;">
+					<strong style="color: #00ff88;">Option 2: API-Football (RapidAPI)</strong><br>
+					<div style="margin-left: 20px; margin-top: 5px; margin-bottom: 15px;">
+						• Visit: <a href="https://rapidapi.com/api-sports/api/api-football" target="_blank" style="color: #00aaff;">RapidAPI API-Football</a><br>
+						• Free tier: 100 requests/day<br>
+						• Requires RapidAPI account
+					</div>
+					
+					<strong style="color: #00ff88;">Option 3: TheSportsDB (No Key Required)</strong><br>
+					<div style="margin-left: 20px; margin-top: 5px;">
+						• Currently using (limited data)<br>
+						• Works without API key but has fewer matches
+					</div>
+				</div>
+			</div>
+			
+			<div style="text-align: center; color: #aaaaaa; font-size: 0.85rem; margin-top: 10px; margin-bottom: 20px;">
+				💡 Tip: Select a date to get predictions for that day (works for past, today, and future dates)
+			</div>
+
+			<div id="matchesContainer"></div>
+		</div>
+	</div>
+
+	<script src="football-predictions.js"></script>
+</body>
+</html>
+

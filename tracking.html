@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Phone Number Tracking — Investigation Report</title>
+	<meta name="description" content="Phone number tracking investigation report">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		/* Terminal/Command Prompt Styles */
+		.terminal-container {
+			min-height: 100vh;
+			background: #0a0a0a;
+			color: #00ff00;
+			font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+			padding: 20px;
+			overflow-x: hidden;
+		}
+
+		.terminal-header {
+			background: #1a1a1a;
+			border-bottom: 1px solid #333;
+			padding: 10px 20px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin: -20px -20px 20px -20px;
+		}
+
+		.terminal-title {
+			font-size: 14px;
+			font-weight: 600;
+			color: #ccc;
+		}
+
+		.terminal-window {
+			background: #0a0a0a;
+			border: 1px solid #333;
+			border-radius: 4px;
+			padding: 20px;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.terminal-line {
+			margin: 8px 0;
+			line-height: 1.6;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+
+		.terminal-prompt {
+			color: #00ff00;
+		}
+
+		.terminal-command {
+			color: #ffffff;
+		}
+
+		.terminal-output {
+			color: #cccccc;
+		}
+
+		.terminal-success {
+			color: #00ff00;
+		}
+
+		.terminal-warning {
+			color: #ffaa00;
+		}
+
+		.terminal-error {
+			color: #ff4444;
+		}
+
+		.terminal-info {
+			color: #00aaff;
+		}
+
+		.terminal-section {
+			margin: 20px 0;
+			padding: 15px;
+			background: #0f0f0f;
+			border-left: 3px solid #00ff00;
+			border-radius: 4px;
+		}
+
+		.terminal-table {
+			margin: 10px 0;
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.terminal-table td {
+			padding: 6px 12px;
+			border-bottom: 1px solid #222;
+		}
+
+		.terminal-table td:first-child {
+			color: #00aaff;
+			width: 200px;
+		}
+
+		.terminal-table td:last-child {
+			color: #ffffff;
+		}
+
+		.typing-cursor {
+			display: inline-block;
+			width: 8px;
+			height: 16px;
+			background: #00ff00;
+			animation: blink 1s infinite;
+			margin-left: 2px;
+			vertical-align: middle;
+		}
+
+		@keyframes blink {
+			0%, 50% { opacity: 1; }
+			51%, 100% { opacity: 0; }
+		}
+
+		.loading-dots::after {
+			content: '...';
+			animation: dots 1.5s steps(4, end) infinite;
+		}
+
+		@keyframes dots {
+			0%, 20% { content: '.'; }
+			40% { content: '..'; }
+			60%, 100% { content: '...'; }
+		}
+
+		.back-link {
+			display: inline-block;
+			color: #00ff00;
+			text-decoration: none;
+			margin-bottom: 20px;
+			padding: 8px 16px;
+			border: 1px solid #333;
+			border-radius: 4px;
+			transition: all 0.3s ease;
+		}
+
+		.back-link:hover {
+			background: #1a1a1a;
+			border-color: #00ff00;
+		}
+
+		@media (max-width: 768px) {
+			.terminal-container {
+				padding: 10px;
+			}
+
+			.terminal-window {
+				padding: 15px;
+			}
+
+			.terminal-table {
+				font-size: 12px;
+			}
+
+			.terminal-table td:first-child {
+				width: 120px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="terminal-container">
+		<div class="terminal-header">
+			<div class="terminal-title">📞 Phone Number Tracking System — Investigation Report</div>
+		</div>
+		<div class="terminal-window">
+			<a href="index.html" class="back-link">← Back to Home</a>
+			
+			<div class="terminal-line">
+				<span class="terminal-prompt">C:\PhoneTracker></span>
+				<span class="terminal-command">track --numbers +2349169517948 +642108816897</span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-success">[INFO]</span> <span class="terminal-output">Initializing phone number tracking system...</span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-success">[INFO]</span> <span class="terminal-output">Connecting to tracking databases<span class="loading-dots"></span></span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-success">[SUCCESS]</span> <span class="terminal-output">Connection established. Starting investigation...</span>
+			</div>
+
+			<div class="terminal-line" style="margin-top: 30px;">
+				<span class="terminal-info">═══════════════════════════════════════════════════════════════════════════════</span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-info">                    PHONE NUMBER TRACKING REPORT</span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-info">═══════════════════════════════════════════════════════════════════════════════</span>
+			</div>
+
+			<!-- Nigerian Number Section -->
+			<div class="terminal-section" style="margin-top: 30px;">
+				<div class="terminal-line">
+					<span class="terminal-warning">[TARGET 1]</span> <span class="terminal-command">Nigerian Number: +2349169517948</span>
+				</div>
+				
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-success">[STATUS]</span> <span class="terminal-output">Investigation Complete</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<table class="terminal-table">
+						<tr>
+							<td>Phone Number:</td>
+							<td>+2349169517948</td>
+						</tr>
+						<tr>
+							<td>Country:</td>
+							<td>Nigeria (NG)</td>
+						</tr>
+						<tr>
+							<td>Country Code:</td>
+							<td>+234</td>
+						</tr>
+						<tr>
+							<td>Local Format:</td>
+							<td>0916 951 7948</td>
+						</tr>
+						<tr>
+							<td>Number Type:</td>
+							<td>Mobile</td>
+						</tr>
+						<tr>
+							<td>Carrier:</td>
+							<td>MTN Nigeria (inferred from prefix)</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-info">[REGISTRATION INFORMATION]</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 10px;">
+					<table class="terminal-table">
+						<tr>
+							<td>Registered Name:</td>
+							<td class="terminal-success">Abdulmaleek Abba</td>
+						</tr>
+						<tr>
+							<td>Location:</td>
+							<td class="terminal-success">Abuja, Nigeria</td>
+						</tr>
+						<tr>
+							<td>Address:</td>
+							<td>Abuja, Federal Capital Territory, Nigeria</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-warning">[ADDITIONAL FINDINGS]</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 10px;">
+					<table class="terminal-table">
+						<tr>
+							<td>Number Source:</td>
+							<td class="terminal-warning">Virtually Generated</td>
+						</tr>
+						<tr>
+							<td>Email Associated:</td>
+							<td class="terminal-error">None Found</td>
+						</tr>
+						<tr>
+							<td>Social Media:</td>
+							<td class="terminal-error">No linked accounts found</td>
+						</tr>
+						<tr>
+							<td>Public Records:</td>
+							<td class="terminal-error">No public listings</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- New Zealand Number Section -->
+			<div class="terminal-section" style="margin-top: 30px;">
+				<div class="terminal-line">
+					<span class="terminal-warning">[TARGET 2]</span> <span class="terminal-command">New Zealand Number: +642108816897</span>
+				</div>
+				
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-success">[STATUS]</span> <span class="terminal-output">Investigation Complete</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<table class="terminal-table">
+						<tr>
+							<td>Phone Number:</td>
+							<td>+642108816897</td>
+						</tr>
+						<tr>
+							<td>Country:</td>
+							<td>New Zealand (NZ)</td>
+						</tr>
+						<tr>
+							<td>Country Code:</td>
+							<td>+64</td>
+						</tr>
+						<tr>
+							<td>Local Format:</td>
+							<td>0210 881 6897</td>
+						</tr>
+						<tr>
+							<td>Number Type:</td>
+							<td>Mobile</td>
+						</tr>
+						<tr>
+							<td>Carrier:</td>
+							<td>Vodafone New Zealand (inferred from prefix)</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-info">[REGISTRATION INFORMATION]</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 10px;">
+					<table class="terminal-table">
+						<tr>
+							<td>Registered Name:</td>
+							<td class="terminal-error">Not Available</td>
+						</tr>
+						<tr>
+							<td>Location:</td>
+							<td class="terminal-error">Not Available</td>
+						</tr>
+						<tr>
+							<td>Address:</td>
+							<td class="terminal-error">No address information found</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-warning">[ADDITIONAL FINDINGS]</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 10px;">
+					<table class="terminal-table">
+						<tr>
+							<td>Number Source:</td>
+							<td class="terminal-warning">Virtually Generated</td>
+						</tr>
+						<tr>
+							<td>Email Associated:</td>
+							<td class="terminal-error">None Found</td>
+						</tr>
+						<tr>
+							<td>Social Media:</td>
+							<td class="terminal-error">No linked accounts found</td>
+						</tr>
+						<tr>
+							<td>Public Records:</td>
+							<td class="terminal-error">No public listings</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!-- Summary Section -->
+			<div class="terminal-line" style="margin-top: 40px;">
+				<span class="terminal-info">═══════════════════════════════════════════════════════════════════════════════</span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-info">                              INVESTIGATION SUMMARY</span>
+			</div>
+
+			<div class="terminal-line">
+				<span class="terminal-info">═══════════════════════════════════════════════════════════════════════════════</span>
+			</div>
+
+			<div class="terminal-section" style="margin-top: 20px;">
+				<div class="terminal-line">
+					<span class="terminal-success">[SUMMARY]</span> <span class="terminal-output">Investigation completed for 2 phone numbers</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 15px;">
+					<span class="terminal-warning">Key Findings:</span>
+				</div>
+
+				<div class="terminal-line" style="margin-top: 10px; padding-left: 20px;">
+					<span class="terminal-output">• Nigerian number (+2349169517948) registered to: <span class="terminal-success">Abdulmaleek Abba</span></span>
+				</div>
+
+				<div class="terminal-line" style="padding-left: 20px;">
+					<span class="terminal-output">• Nigerian number location: <span class="terminal-success">Abuja, Nigeria</span></span>
+				</div>
+
+				<div class="terminal-line" style="padding-left: 20px;">
+					<span class="terminal-output">• Both numbers identified as: <span class="terminal-warning">Virtually Generated</span></span>
+				</div>
+
+				<div class="terminal-line" style="padding-left: 20px;">
+					<span class="terminal-output">• Email addresses: <span class="terminal-error">None associated with either number</span></span>
+				</div>
+
+				<div class="terminal-line" style="padding-left: 20px;">
+					<span class="terminal-output">• New Zealand number: <span class="terminal-error">Limited information available</span></span>
+				</div>
+			</div>
+
+			<div class="terminal-line" style="margin-top: 30px;">
+				<span class="terminal-success">[INFO]</span> <span class="terminal-output">Investigation report generated successfully.</span>
+			</div>
+
+			<div class="terminal-line" style="margin-top: 10px;">
+				<span class="terminal-prompt">C:\PhoneTracker></span>
+				<span class="typing-cursor"></span>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Add typing animation effect
+		document.addEventListener('DOMContentLoaded', function() {
+			// Simulate typing effect for commands
+			const commands = document.querySelectorAll('.terminal-command');
+			commands.forEach((cmd, index) => {
+				const text = cmd.textContent;
+				cmd.textContent = '';
+				setTimeout(() => {
+					let i = 0;
+					const typeInterval = setInterval(() => {
+						if (i < text.length) {
+							cmd.textContent += text.charAt(i);
+							i++;
+						} else {
+							clearInterval(typeInterval);
+						}
+					}, 30);
+				}, index * 500);
+			});
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

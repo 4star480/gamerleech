@@ -1,0 +1,365 @@
+/* Football Predictions - Standalone Project Styles */
+
+/* Reset & Base */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	font-family: 'Urbanist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+	color: #ffffff;
+	line-height: 1.6;
+	overflow-x: hidden;
+}
+
+/* Container */
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Prediction Container */
+.prediction-container {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+	color: #ffffff;
+	padding: 20px;
+}
+
+.prediction-header {
+	text-align: center;
+	padding: 40px 20px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 12px;
+	margin-bottom: 30px;
+	backdrop-filter: blur(10px);
+}
+
+.prediction-header h1 {
+	font-size: 2.5rem;
+	margin-bottom: 10px;
+	background: linear-gradient(135deg, #00ff88, #00aaff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.prediction-header p {
+	color: #cccccc;
+	font-size: 1.1rem;
+}
+
+.accuracy-badge {
+	display: inline-block;
+	background: linear-gradient(135deg, #00ff88, #00aaff);
+	color: #000;
+	padding: 8px 20px;
+	border-radius: 20px;
+	font-weight: 600;
+	margin-top: 15px;
+	font-size: 0.9rem;
+}
+
+/* Controls */
+.controls {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.controls select,
+.controls input {
+	padding: 12px 20px;
+	border: 1px solid #333;
+	background: rgba(255, 255, 255, 0.05);
+	color: #fff;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-family: 'Urbanist', sans-serif;
+}
+
+.controls select {
+	flex: 1;
+	min-width: 200px;
+}
+
+.controls select:focus,
+.controls input:focus {
+	outline: none;
+	border-color: #00aaff;
+}
+
+.btn-predict {
+	padding: 12px 30px;
+	background: linear-gradient(135deg, #00ff88, #00aaff);
+	color: #000;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+	font-family: 'Urbanist', sans-serif;
+}
+
+.btn-predict:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+}
+
+.btn-predict:active {
+	transform: translateY(0);
+}
+
+/* Matches Grid */
+.matches-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+	gap: 25px;
+	margin-bottom: 30px;
+}
+
+.match-card {
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	padding: 25px;
+	backdrop-filter: blur(10px);
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.match-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+	border-color: rgba(0, 255, 136, 0.3);
+}
+
+.match-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-date {
+	color: #00aaff;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.match-league {
+	color: #cccccc;
+	font-size: 0.85rem;
+}
+
+/* Teams */
+.teams {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 25px 0;
+}
+
+.team {
+	flex: 1;
+	text-align: center;
+}
+
+.team-name {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.team-stats {
+	font-size: 0.85rem;
+	color: #aaaaaa;
+	margin-top: 8px;
+}
+
+.vs-divider {
+	margin: 0 20px;
+	font-size: 1.2rem;
+	color: #666;
+	font-weight: 600;
+}
+
+/* Score Prediction */
+.score-prediction {
+	text-align: center;
+	margin: 20px 0;
+	font-size: 2rem;
+	font-weight: 800;
+	background: linear-gradient(135deg, #00ff88, #00aaff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Prediction Result */
+.prediction-result {
+	background: rgba(0, 255, 136, 0.1);
+	border: 1px solid rgba(0, 255, 136, 0.3);
+	border-radius: 8px;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.prediction-title {
+	font-size: 1.1rem;
+	font-weight: 600;
+	margin-bottom: 15px;
+	color: #00ff88;
+}
+
+.prediction-outcome {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.outcome-badge {
+	padding: 10px 20px;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+.outcome-badge.win {
+	background: linear-gradient(135deg, #00ff88, #00cc6a);
+	color: #000;
+}
+
+.outcome-badge.draw {
+	background: linear-gradient(135deg, #ffaa00, #ff8800);
+	color: #000;
+}
+
+.outcome-badge.loss {
+	background: linear-gradient(135deg, #ff4444, #cc0000);
+	color: #fff;
+}
+
+.confidence-score {
+	text-align: right;
+}
+
+.confidence-value {
+	font-size: 2rem;
+	font-weight: 800;
+	background: linear-gradient(135deg, #00ff88, #00aaff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.confidence-label {
+	font-size: 0.85rem;
+	color: #aaaaaa;
+	margin-top: 5px;
+}
+
+/* Analysis */
+.analysis-details {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.analysis-item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	font-size: 0.9rem;
+}
+
+.analysis-label {
+	color: #aaaaaa;
+}
+
+.analysis-value {
+	color: #fff;
+	font-weight: 600;
+}
+
+/* Loading & Error States */
+.loading {
+	text-align: center;
+	padding: 60px 20px;
+	color: #00aaff;
+}
+
+.loading-spinner {
+	border: 4px solid rgba(0, 170, 255, 0.2);
+	border-top: 4px solid #00aaff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+	margin: 0 auto 20px;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.error-message {
+	background: rgba(255, 68, 68, 0.1);
+	border: 1px solid rgba(255, 68, 68, 0.3);
+	color: #ff4444;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	margin: 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.matches-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.teams {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.vs-divider {
+		margin: 10px 0;
+	}
+
+	.prediction-header h1 {
+		font-size: 1.8rem;
+	}
+
+	.controls {
+		flex-direction: column;
+	}
+
+	.controls select,
+	.controls input {
+		width: 100%;
+	}
+}
+
+
+
+
+
+

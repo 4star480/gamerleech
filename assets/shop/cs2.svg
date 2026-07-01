@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+	<rect width="640" height="360" rx="20" fill="#ffffff"/>
+	<text x="22%" y="55%" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-weight="900" font-size="68" letter-spacing="2">CS</text>
+	<rect x="280" y="140" width="80" height="120" rx="5" fill="#000000" opacity="0.8"/>
+	<path d="M290 150 L350 150 L350 180 L340 180 L340 200 L360 200 L360 220 L330 220 L330 200 L310 200 L310 180 L300 180 L300 150 Z" fill="#ffffff" opacity="0.6"/>
+	<text x="78%" y="55%" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-weight="900" font-size="68" letter-spacing="2">GO</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="lumiaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BE185D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="url(#lumiaGrad)"/>
+  <text x="100" y="85" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="2">LUMIA</text>
+  <text x="100" y="120" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="18">LUA MENU</text>
+  <circle cx="100" cy="50" r="6" fill="white" opacity="0.9"/>
+</svg>
+
+
+
