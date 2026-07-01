@@ -23,6 +23,7 @@
 		const input = document.getElementById(MENU_ID);
 		if (!input?.checked) return;
 		input.checked = false;
+		document.body.classList.remove('mobile-menu-open');
 		unlock();
 	}
 
@@ -79,6 +80,7 @@
 		if (!input) return;
 
 		input.addEventListener('change', () => {
+			document.body.classList.toggle('mobile-menu-open', input.checked);
 			if (input.checked) lock();
 			else unlock();
 		});
