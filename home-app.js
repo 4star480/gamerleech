@@ -62,39 +62,14 @@
 			if (section) section.hidden = true;
 			return;
 		}
-		const resolve = window.GL_resolveProductImageUrl || window.GL_resolveProductImage || ((p) => p.image || 'assets/shop/fallback.svg');
 		el.className = 'synapse-listings-grid';
 		el.innerHTML = products
 			.map((p) => {
-				const price = p.pricing?.weekly ?? p.pricing?.monthly ?? p.price ?? 0;
-				const img = resolve(p);
-				return `<a href="shop.html?category=${encodeURIComponent(p.category)}" class="synapse-hub-card synapse-listing-card">
-					<div class="synapse-listing-thumb" style="background:linear-gradient(135deg,#581c87,#22d3ee)">
-						<img class="synapse-cover-img" src="${img}" alt="${p.title.replace(/"/g, '&quot;')}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='assets/shop/fallback.svg'">
-						${p.status === 'undetected' ? '<span class="synapse-badge-instant">Undetected</span>' : ''}
-						${p.tier ? `<span class="synapse-badge-hot">${p.tier}</span>` : ''}
-					</div>
-					<div class="synapse-listing-body">
-						<div class="synapse-listing-top">
-							<span>⚡ Cheats</span>
-							<span class="synapse-cat-badge">${p.category || 'game'}</span>
-						</div>
-						<h3 class="synapse-listing-title">${p.title}</h3>
-						<div class="synapse-listing-footer">
-							<div class="synapse-seller">
-								<span class="synapse-avatar" style="background:#7e22ce">G</span>
-								<div>
-									<div class="synapse-seller-name">GamerLeech</div>
-									<div class="synapse-stars">★★★★★</div>
-								</div>
-							</div>
-							<div class="synapse-price">
-								<strong>$${Number(price).toFixed(2)}</strong>
-								<span>from</span>
-							</div>
-						</div>
-					</div>
-				</a>`;
+				const href = `shop.html?category=${encodeURIComponent(p.category)}`;
+				const card = chrome.cheatCardHtml(p, {
+					bodyHtml: `<a href="${href}" class="synapse-btn-outline" style="display:block;text-align:center;margin-top:12px;text-decoration:none">View in shop</a>`,
+				});
+				return card;
 			})
 			.join('');
 	}

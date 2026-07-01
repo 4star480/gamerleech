@@ -9,17 +9,27 @@
 
 	async function buildIndex() {
 		const data = await chrome.loadMarketplace();
-		if (!data) return;
 		index = [];
-		(data.games || []).forEach((g) => {
-			index.push({ type: 'game', label: g.name, href: `browse.html?game=${g.slug}`, icon: g.emoji });
-		});
-		(data.listings || []).slice(0, 500).forEach((l) => {
+		if (data) {
+			(data.games || []).forEach((g) => {
+				index.push({ type: 'game', label: g.name, href: `browse.html?game=${g.slug}`, icon: g.emoji });
+			});
+			(data.listings || []).slice(0, 500).forEach((l) => {
+				index.push({
+					type: 'listing',
+					label: l.title,
+					href: `browse.html?listing=${encodeURIComponent(l.id)}`,
+					icon: l.game?.emoji || '📦',
+				});
+			});
+		}
+		const cheats = await chrome.loadCheatsProducts();
+		(cheats || []).forEach((p) => {
 			index.push({
-				type: 'listing',
-				label: l.title,
-				href: `browse.html?listing=${encodeURIComponent(l.id)}`,
-				icon: l.game?.emoji || '📦',
+				type: 'cheat',
+				label: p.title,
+				href: `shop.html?category=${encodeURIComponent(p.category)}`,
+				icon: '⚡',
 			});
 		});
 	}

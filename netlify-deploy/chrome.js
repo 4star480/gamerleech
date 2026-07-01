@@ -197,6 +197,71 @@
 		if (window.GL_WISHLIST) window.GL_WISHLIST.wire(el);
 	}
 
+	function cheatCategoryCardHtml(cat, name, count, image, href) {
+		const fallback = 'assets/shop/fallback.svg';
+		const img = image || fallback;
+		return `<a href="${href}" class="synapse-hub-card synapse-game-card synapse-category-card">
+			<div class="synapse-game-cover" style="background:linear-gradient(135deg,#581c87,#22d3ee)">
+				<img class="synapse-cover-img" src="${img}" alt="" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}'">
+			</div>
+			<div class="synapse-game-body">
+				<h3>${name}</h3>
+				<p>${count} product${count === 1 ? '' : 's'}</p>
+				<div class="synapse-game-meta">Browse cheats →</div>
+			</div>
+		</a>`;
+	}
+
+	function cheatCardHtml(p, opts) {
+		opts = opts || {};
+		const resolve = window.GL_resolveProductImageUrl || window.GL_resolveProductImage || ((x) => x.image || 'assets/shop/fallback.svg');
+		const fallback = 'assets/shop/fallback.svg';
+		const img = resolve(p);
+		const price = p.pricing?.weekly ?? p.pricing?.monthly ?? p.pricing?.lifetime ?? p.price ?? 0;
+		const catLabel = (CATEGORY_LABELS[p.category] || p.category || 'cheats').replace(/_/g, ' ');
+		const statusBadge = p.status === 'undetected'
+			? '<span class="synapse-badge-instant">Undetected</span>'
+			: p.status === 'updating'
+				? '<span class="synapse-badge-hot">Updating</span>'
+				: '';
+		const tierBadge = p.tier && p.tier !== 'service'
+			? `<span class="synapse-badge-hot">${p.tier}</span>`
+			: '';
+		const featured = p.featured ? '<span class="synapse-badge-hot">Featured</span>' : '';
+		const inner = opts.bodyHtml || '';
+
+		return `<article class="synapse-cheat-wrap product-frame" data-id="${p.id}">
+			<div class="synapse-hub-card synapse-listing-card synapse-cheat-card">
+				<div class="synapse-listing-thumb" style="background:linear-gradient(135deg,#581c87,#22d3ee)">
+					<img class="synapse-cover-img" src="${img}" alt="${String(p.title).replace(/"/g, '&quot;')}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}'">
+					${featured}${statusBadge}${tierBadge}
+				</div>
+				<div class="synapse-listing-body">
+					<div class="synapse-listing-top">
+						<span>⚡ Cheats</span>
+						<span class="synapse-cat-badge">${catLabel}</span>
+					</div>
+					<h3 class="synapse-listing-title">${p.title}</h3>
+					${p.desc ? `<p class="synapse-cheat-desc">${p.desc}</p>` : ''}
+					<div class="synapse-listing-footer">
+						<div class="synapse-seller">
+							<span class="synapse-avatar" style="background:#7e22ce">G</span>
+							<div>
+								<div class="synapse-seller-name">GamerLeech</div>
+								<div class="synapse-stars">★★★★★</div>
+							</div>
+						</div>
+						<div class="synapse-price">
+							<strong>$${Number(price).toFixed(2)}</strong>
+							<span>from</span>
+						</div>
+					</div>
+					${inner}
+				</div>
+			</div>
+		</article>`;
+	}
+
 	function listingCardHtml(l, linkPrefix) {
 		const hue = hueFromName(l.seller.username);
 		const instant = l.deliveryMins <= 60;
@@ -362,12 +427,18 @@
 	}
 
 	function initSearch() {
+		const isShop = document.body.classList.contains('shop-page');
 		document.querySelectorAll('[data-synapse-search]').forEach((form) => {
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
 				const q = form.querySelector('input')?.value?.trim();
-				if (q) location.href = 'browse.html?q=' + encodeURIComponent(q);
-				else location.href = 'browse.html';
+				if (isShop) {
+					location.href = q ? `shop.html?q=${encodeURIComponent(q)}` : 'shop.html';
+				} else if (q) {
+					location.href = 'browse.html?q=' + encodeURIComponent(q);
+				} else {
+					location.href = 'browse.html';
+				}
 			});
 		});
 	}
@@ -393,6 +464,8 @@
 		renderGameCarousel,
 		renderListings,
 		listingCardHtml,
+		cheatCardHtml,
+		cheatCategoryCardHtml,
 		getFeaturedListings,
 		renderReviews,
 		renderGuides,

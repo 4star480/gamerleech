@@ -12,6 +12,7 @@
 	}
 
 	function initNav() {
+		if (document.getElementById('gamerleech-mobile-menu')) return true;
 		const { toggle: navToggle, nav } = getNavEls();
 		if (!navToggle || !nav) return false;
 		if (navToggle.dataset.navBound === '1') return true;

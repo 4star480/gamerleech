@@ -4,119 +4,172 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="theme-color" content="#07060e">
-	<title>GamerLeech Shop — Premium Gaming Cheats & Services</title>
-	<meta name="description" content="Browse premium gaming cheats for Call of Duty, Valorant, Fortnite, FiveM, Roblox, and more. Undetected cheats with weekly, monthly, and lifetime options.">
-	<meta name="keywords" content="gaming cheats, call of duty cheats, valorant cheats, fortnite cheats, fivem cheats, roblox executor">
+	<title>GamerLeech Cheats — Premium Gaming Tools</title>
+	<meta name="description" content="Browse premium gaming cheats for Call of Duty, Valorant, Fortnite, FiveM, Roblox, and more. Undetected builds with weekly, monthly, and lifetime options.">
 	<link rel="canonical" href="https://gamerleech.netlify.app/shop.html">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="synapse-ui.css">
-	<link rel="stylesheet" href="components.css">
-	<link rel="stylesheet" href="shop-premium.css?v=1">
-	<link rel="stylesheet" href="cart-ui.css?v=4">
-	<link rel="stylesheet" href="mobile-shop.css">
+	<link rel="stylesheet" href="synapse-ui.css?v=6">
+	<link rel="stylesheet" href="shop-premium.css?v=6">
+	<link rel="stylesheet" href="cart-ui.css?v=5">
+	<link rel="stylesheet" href="mobile-shop.css?v=6">
 	<link rel="icon" href="assets/logo.svg">
 	<script src="config.js"></script>
 </head>
 <body class="has-synapse-tabbar shop-page">
 	<div id="live-ticker" class="live-ticker"></div>
-	<header class="synapse-header">
+
+	<header class="synapse-header safe-top">
 		<div class="synapse-header-inner">
 			<a href="index.html" class="synapse-brand">
 				<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
-				<span class="synapse-brand-text"><span class="synapse-brand-name">GamerLeech</span><span class="synapse-brand-tag">Cheats</span></span>
+				<span class="synapse-brand-text">
+					<span class="synapse-brand-name">GamerLeech</span>
+					<span class="synapse-brand-tag">Cheats</span>
+				</span>
 			</a>
+			<div class="synapse-search-wrap">
+				<form class="synapse-search-glow" data-synapse-search>
+					<div class="synapse-search-inner">
+						<span aria-hidden="true">🔍</span>
+						<input type="search" name="q" id="header-search" placeholder="Search cheats & services…" aria-label="Search shop">
+					</div>
+				</form>
+			</div>
 			<nav class="synapse-nav">
 				<a href="shop.html" class="active">Cheats</a>
 				<a href="browse.html">Marketplace</a>
 				<a href="games.html">All games</a>
-				<a href="status.html">Status</a>
+				<a href="sell.html">Sell</a>
 			</nav>
 			<div class="synapse-header-actions">
-				<a href="wishlist.html">♥</a>
-				<button type="button" class="cart-button" id="cart-button" aria-label="Open cart" style="background:none;border:0;color:var(--syn-muted);font:inherit;cursor:pointer">🛒 <span class="cart-count" id="cart-count">0</span></button>
+				<a href="wishlist.html" title="Wishlist">♥</a>
+				<button type="button" class="synapse-cart-btn" id="cart-button" aria-label="Open cart">🛒 <span class="cart-count" id="cart-count">0</span></button>
+				<a href="login.html" class="synapse-header-link">Log in</a>
+				<a href="register.html" class="synapse-btn-signup">Sign up</a>
 			</div>
-			<button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav" aria-expanded="false">
-				<span></span><span></span><span></span>
-			</button>
+			<button class="nav-toggle" aria-label="Toggle navigation" aria-hidden="true" hidden><span></span><span></span><span></span></button>
 		</div>
 	</header>
 
-	<main>
-		<section class="shop-hero">
-			<div class="container">
-				<a href="shop.html" id="back-link" class="back-link" style="display: none;">← Back</a>
-				<nav class="catalog-tabs" id="catalog-tabs" aria-label="Shop sections"></nav>
-				<h1 id="page-title">Gaming Cheats</h1>
-				<p class="muted" id="page-subtitle">Curated services designed for fast results. Add items to your cart and request a proposal.</p>
-				<div class="shop-controls" id="shop-controls" style="display: none;">
-					<input id="search-input" type="search" placeholder="Search services" aria-label="Search services">
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="container">
-				<div class="shop-layout" id="shop-layout">
-					<aside class="shop-sidebar" id="shop-sidebar" aria-label="Category filters">
-						<div class="filter-group">
-							<h3>Categories</h3>
-							<div class="filter-list" id="sidebar-filters"></div>
-						</div>
-						<div class="filter-group">
-							<h3>Quick links</h3>
-							<div class="filter-list">
-								<a href="status.html" class="filter-btn" style="text-decoration:none">Live status</a>
-								<a href="checkout.html" class="filter-btn" style="text-decoration:none">Checkout</a>
-							</div>
-						</div>
-					</aside>
-					<div class="shop-main">
-						<div class="tier-chips" id="tier-chips" aria-label="Product type filters"></div>
-						<div class="featured-strip" id="featured-strip">
-							<h2>Featured builds</h2>
-							<div class="featured-grid" id="featured-grid"></div>
-						</div>
-						<div class="category-grid" id="category-grid"></div>
-						<div class="product-grid" id="product-grid" style="display: none;"></div>
+	<main class="synapse-page">
+		<section class="synapse-shop-hero">
+			<div class="synapse-section">
+				<nav class="synapse-breadcrumb" aria-label="Breadcrumb">
+					<a href="index.html" class="synapse-link">Home</a>
+					<span aria-hidden="true">/</span>
+					<span id="breadcrumb-current">Cheats</span>
+				</nav>
+				<a href="shop.html" id="back-link" class="synapse-link synapse-back-link" style="display:none">← Back</a>
+				<h1 id="page-title" class="synapse-shop-title">Gaming <span class="synapse-hero-gradient">Cheats</span></h1>
+				<p id="page-subtitle" class="synapse-shop-sub">Premium undetected builds across top titles — crypto checkout on every order.</p>
+				<div class="synapse-search-glow synapse-shop-search-mobile" data-synapse-search>
+					<div class="synapse-search-inner">
+						<span aria-hidden="true">🔍</span>
+						<input type="search" id="search-input" placeholder="Search cheats…" aria-label="Search cheats">
 					</div>
 				</div>
 			</div>
 		</section>
-	</main>
 
+		<div class="synapse-section synapse-shop-body">
+			<nav id="shop-site-tabs" class="synapse-tabs scroll-touch" aria-label="Site sections"></nav>
+
+			<nav class="synapse-catalog-tabs" id="catalog-tabs" aria-label="Shop catalog"></nav>
+
+			<div id="shop-filters" class="synapse-filters scroll-touch" hidden></div>
+			<div id="tier-chips" class="synapse-filters synapse-tier-filters scroll-touch" aria-label="Product type filters"></div>
+
+			<section class="synapse-featured-section" id="featured-strip">
+				<div class="synapse-section-head">
+					<div>
+						<h2>Featured builds</h2>
+						<p class="synapse-section-meta">Hand-picked undetected tools</p>
+					</div>
+				</div>
+				<div id="featured-grid" class="synapse-listings-grid"></div>
+			</section>
+
+			<div id="category-grid" class="synapse-category-grid"></div>
+			<div id="product-grid" class="synapse-listings-grid" style="display:none"></div>
+
+			<div class="synapse-cta synapse-shop-cta">
+				<h2>Need accounts or currency?</h2>
+				<p>Browse 3,200+ player-to-player marketplace offers — accounts, gold, items, and boosting.</p>
+				<a href="browse.html" class="synapse-btn-primary">Open marketplace</a>
+			</div>
+		</div>
+	</main>
 
 	<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title" aria-hidden="true">
 		<div class="cart-header">
 			<h2 id="cart-drawer-title">Your Cart</h2>
-			<button class="icon-btn" id="cart-close" aria-label="Close cart">✕</button>
+			<button class="icon-btn touch-target" id="cart-close" aria-label="Close cart">✕</button>
 		</div>
 		<div class="cart-scroll">
 			<div class="cart-items" id="cart-items"></div>
 		</div>
 		<div class="cart-footer">
 			<p class="cart-total">Total: <strong id="cart-total">$0</strong></p>
-			<button type="button" class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+			<button type="button" class="btn btn-primary cart-checkout-btn touch-target" id="checkout-btn">Proceed to Checkout</button>
 		</div>
 	</aside>
 	<div class="cart-backdrop" id="cart-backdrop" hidden></div>
 	<div class="cart-toast" id="cart-toast" role="status" aria-live="polite"></div>
 
-	<footer class="synapse-footer">
+	<footer class="synapse-footer safe-bottom">
 		<div class="synapse-footer-inner">
-			<div class="synapse-footer-bottom" style="border:0;margin:0;padding:0">
-				<p>© <span id="year"></span> GamerLeech</p>
+			<div class="synapse-footer-grid">
+				<div class="synapse-footer-col synapse-footer-brand">
+					<a href="index.html" class="synapse-brand">
+						<img src="assets/logo.svg" alt="" class="synapse-brand-logo" width="36" height="36">
+						<span class="synapse-brand-text">
+							<span class="synapse-brand-name">GamerLeech</span>
+							<span class="synapse-brand-tag">Cheats</span>
+						</span>
+					</a>
+					<p>Undetected cheats and growth services with instant crypto checkout.</p>
+				</div>
+				<div class="synapse-footer-col">
+					<h4>Cheats</h4>
+					<nav>
+						<a href="shop.html">› All cheats</a>
+						<a href="shop.html?category=valorant">› Valorant</a>
+						<a href="shop.html?category=call-of-duty">› Call of Duty</a>
+						<a href="shop.html?category=fivem">› FiveM</a>
+					</nav>
+				</div>
+				<div class="synapse-footer-col">
+					<h4>Store</h4>
+					<nav>
+						<a href="shop.html?tab=services">› Services</a>
+						<a href="status.html">› Live status</a>
+						<a href="checkout.html">› Checkout</a>
+						<a href="browse.html">› Marketplace</a>
+					</nav>
+				</div>
+				<div class="synapse-footer-col">
+					<h4>Support</h4>
+					<nav>
+						<a href="terms.html">› Terms</a>
+						<a href="refund.html">› Refunds</a>
+						<a href="mailto:gamerleech2@gmail.com">› gamerleech2@gmail.com</a>
+					</nav>
+				</div>
+			</div>
+			<div class="synapse-footer-bottom">
+				<p>© <span id="year"></span> GamerLeech. Independent store — not affiliated with any game publisher.</p>
 				<div>
-					<a href="browse.html" class="synapse-link">Marketplace</a>
-					<a href="terms.html" style="color:var(--syn-muted);margin-left:16px;text-decoration:none">Terms</a>
+					<a href="refund.html">Privacy</a>
+					<a href="terms.html">Terms</a>
 				</div>
 			</div>
 		</div>
 	</footer>
 
-	<nav class="synapse-tabbar" aria-label="Mobile navigation">
+	<nav class="synapse-tabbar safe-bottom" aria-label="Mobile navigation">
 		<div class="synapse-tabbar-inner">
 			<a href="index.html"><span class="synapse-tabbar-icon">⌂</span>Home</a>
 			<a href="shop.html"><span class="synapse-tabbar-icon">⚡</span>Cheats</a>
@@ -126,14 +179,14 @@
 		</div>
 	</nav>
 
-	<div class="cart-pay-bar" id="cart-pay-bar" hidden>
-		<button type="button" class="btn btn-primary" id="checkout-btn-fixed">Proceed to Checkout</button>
+	<div class="cart-pay-bar mobile-above-tab-bar" id="cart-pay-bar" hidden>
+		<button type="button" class="btn btn-primary touch-target" id="checkout-btn-fixed">Proceed to Checkout</button>
 	</div>
 
 	<div class="product-modal" id="product-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
 		<div class="product-modal-backdrop" data-close-modal></div>
 		<div class="product-modal-panel">
-			<button type="button" class="icon-btn product-modal-close" data-close-modal aria-label="Close">✕</button>
+			<button type="button" class="icon-btn product-modal-close touch-target" data-close-modal aria-label="Close">✕</button>
 			<div class="modal-hero">
 				<img src="" alt="">
 				<div class="modal-meta">
@@ -148,14 +201,21 @@
 		</div>
 	</div>
 
+	<script src="body-scroll-lock.js"></script>
 	<script src="cart.js"></script>
-	<script src="shop-images.js"></script>
+	<script src="shop-images.js?v=6"></script>
 	<script src="wishlist.js"></script>
+	<script src="mobile-menu.js?v=2"></script>
 	<script src="chrome.js"></script>
+	<script src="search-suggest.js?v=2"></script>
 	<script src="site.js"></script>
-	<script src="script.js"></script>
-	<script src="shop-app.js?v=4"></script>
-	<script>GL_CHROME?.loadMarketplace().then(d => d && GL_CHROME.renderTicker(d.ticker));</script>
+	<script src="shop-app.js?v=6"></script>
+	<script>
+		document.getElementById('year').textContent = new Date().getFullYear();
+		GL_CHROME?.initMobileTabbar?.();
+		GL_CHROME?.initSearch?.();
+		GL_CHROME?.renderCategoryTabs?.('cheats');
+		GL_CHROME?.loadMarketplace().then(d => d && GL_CHROME.renderTicker(d.ticker));
+	</script>
 </body>
 </html>
-

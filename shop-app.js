@@ -49,15 +49,16 @@
 	const featuredGrid = document.getElementById('featured-grid');
 	const featuredStrip = document.getElementById('featured-strip');
 	const searchEl = document.getElementById('search-input');
-	const shopControls = document.getElementById('shop-controls');
+	const headerSearchEl = document.getElementById('header-search');
 	const pageTitle = document.getElementById('page-title');
 	const pageSubtitle = document.getElementById('page-subtitle');
 	const backLink = document.getElementById('back-link');
-	const sidebarFilters = document.getElementById('sidebar-filters');
+	const shopFilters = document.getElementById('shop-filters');
 	const tierChips = document.getElementById('tier-chips');
 	const productModal = document.getElementById('product-modal');
-	const shopLayout = document.getElementById('shop-layout');
 	const catalogTabs = document.getElementById('catalog-tabs');
+	const breadcrumbCurrent = document.getElementById('breadcrumb-current');
+	const chrome = window.GL_CHROME;
 
 	function getParams() {
 		return new URLSearchParams(window.location.search);
@@ -66,6 +67,17 @@
 	function getTabFromURL() {
 		const tab = getParams().get('tab');
 		return tab === 'services' ? 'services' : 'cheats';
+	}
+
+	function getSearchQuery() {
+		const q = getParams().get('q');
+		if (q) return q;
+		return (searchEl?.value || headerSearchEl?.value || '').trim();
+	}
+
+	function syncSearchInputs(value) {
+		if (searchEl) searchEl.value = value;
+		if (headerSearchEl) headerSearchEl.value = value;
 	}
 
 	function getCategoryFromURL() {
@@ -135,14 +147,15 @@
 			{ id: 'cheats', label: 'Cheats', count: cheatCount },
 			{ id: 'services', label: 'Services', count: serviceCount }
 		].map((t) => `
-			<button type="button" class="catalog-tab${activeTab === t.id ? ' active' : ''}" data-tab="${t.id}">
-				${t.label}<span class="catalog-tab-count">${t.count}</span>
+			<button type="button" class="synapse-catalog-tab${activeTab === t.id ? ' active' : ''}" data-tab="${t.id}">
+				${t.label}<span class="synapse-catalog-tab-count">${t.count}</span>
 			</button>
 		`).join('');
 	}
 
 	function renderCategories(categories) {
-		const fallback = 'assets/shop/fallback.svg';
+		if (!chrome?.cheatCategoryCardHtml) return;
+		categoryGrid.className = 'synapse-category-grid';
 		categoryGrid.innerHTML = categories.map((cat) => {
 			const count = PRODUCTS.filter((p) => p.category === cat && (
 				activeTab === 'cheats'
@@ -151,19 +164,9 @@
 			)).length;
 			const name = CATEGORY_NAMES[cat] || cat;
 			const firstProduct = PRODUCTS.find((p) => p.category === cat);
-			const image = firstProduct?.image || (typeof window.GL_encodeImagePath === 'function'
-				? window.GL_encodeImagePath(`assets/shop/${cat}.svg`)
-				: `assets/shop/${cat}.svg`);
-			return `
-			<a href="${shopUrl(activeTab, cat)}" class="category-card">
-				<img src="${image}" alt="" class="cat-img" decoding="async" loading="eager" onerror="this.onerror=null;this.src='${fallback}';">
-				<div class="cat-info">
-					<h3>${name}</h3>
-					<p class="muted">${count} products</p>
-				</div>
-			</a>`;
+			const image = firstProduct?.image || `assets/shop/${cat}.svg`;
+			return chrome.cheatCategoryCardHtml(cat, name, count, image, shopUrl(activeTab, cat));
 		}).join('');
-		if (typeof window.GL_markLazyImages === 'function') window.GL_markLazyImages(categoryGrid);
 	}
 
 	function buildPricingUI(p) {
@@ -226,53 +229,36 @@
 	}
 
 	function productCardHTML(p) {
-		const fallback = typeof window.GL_encodeImagePath === 'function'
-			? window.GL_encodeImagePath('assets/shop/fallback.svg')
-			: 'assets/shop/fallback.svg';
-		const initial = p.image || fallback;
 		const pricingBlock = buildPricingUI(p);
 		const price = pricingBlock ? pricingBlock.defaultPrice : Number(p.price || 0);
 		const period = pricingBlock ? pricingBlock.defaultPeriod : null;
-		const isCheat = p.catalog === 'cheats';
-
-		return `
-		<article class="product-frame" data-id="${p.id}">
-			<div class="product-frame-inner">
-				<div class="product-header">
-					<div class="product-badges">${statusBadge(p.status)}${isCheat ? tierBadge(p.tier) : ''}</div>
-					<img class="p-img" src="${initial}" alt="${p.title}" decoding="async" loading="eager" onerror="this.onerror=null; this.src='${fallback}';">
-					<div class="p-icon"><img src="${p.icon}" alt=""></div>
+		const actions = `
+			<div class="synapse-cheat-actions">
+				${pricingBlock ? pricingBlock.html : ''}
+				<div class="cheat-price-row">
+					<span class="price-label">Price</span>
+					<span class="p-price" data-product-id="${p.id}">$${price.toFixed(2)}</span>
 				</div>
-				<div class="product-content">
-					<div class="p-body">
-						<h3>${p.title}</h3>
-						<p class="muted">${p.desc}</p>
-					</div>
-					${pricingBlock ? pricingBlock.html : ''}
-					<div class="p-footer">
-						<div class="price-display">
-							<span class="price-label">Price:</span>
-							<span class="p-price" data-product-id="${p.id}">$${price.toFixed(2)}</span>
-						</div>
-					</div>
-					<div class="product-actions-row">
-						<button type="button" class="btn btn-details view-details" data-id="${p.id}">Details</button>
-						<button class="btn btn-outline add-to-cart" data-id="${p.id}"${period ? ` data-period="${period}" data-price="${price}"` : ''}>Add to cart</button>
-					</div>
+				<div class="product-actions-row">
+					<button type="button" class="btn btn-details view-details touch-target" data-id="${p.id}">Details</button>
+					<button type="button" class="btn btn-outline add-to-cart touch-target" data-id="${p.id}"${period ? ` data-period="${period}" data-price="${price}"` : ''}>Add to cart</button>
 				</div>
-			</div>
-		</article>`;
+			</div>`;
+		return chrome?.cheatCardHtml
+			? chrome.cheatCardHtml(p, { bodyHtml: actions })
+			: `<article class="product-frame" data-id="${p.id}">${p.title}</article>`;
 	}
 
 	function renderProducts(list) {
+		productGrid.className = 'synapse-listings-grid';
 		productGrid.innerHTML = list.length
 			? list.map(productCardHTML).join('')
-			: '<p class="muted" style="grid-column:1/-1;text-align:center;padding:32px 0">No products match your filters.</p>';
+			: '<p class="synapse-empty" style="grid-column:1/-1">No products match your filters.</p>';
 	}
 
 	function renderFeatured() {
 		if (!featuredGrid || !featuredStrip) return;
-		if (activeTab !== 'cheats') {
+		if (activeTab !== 'cheats' || getCategoryFromURL()) {
 			featuredStrip.hidden = true;
 			return;
 		}
@@ -282,17 +268,23 @@
 			return;
 		}
 		featuredStrip.hidden = false;
+		featuredGrid.className = 'synapse-listings-grid';
 		featuredGrid.innerHTML = featured.map(productCardHTML).join('');
 	}
 
-	function renderSidebar(categories) {
-		if (!sidebarFilters) return;
+	function renderShopFilters(categories) {
+		if (!shopFilters) return;
 		const cat = getCategoryFromURL();
-		sidebarFilters.innerHTML = categories.map((c) => {
-			const count = PRODUCTS.filter((p) => p.category === c).length;
+		if (!cat) {
+			shopFilters.hidden = true;
+			shopFilters.innerHTML = '';
+			return;
+		}
+		shopFilters.hidden = false;
+		shopFilters.innerHTML = categories.map((c) => {
 			const name = CATEGORY_NAMES[c] || c;
 			const active = cat === c ? ' active' : '';
-			return `<button type="button" class="filter-btn${active}" data-filter-cat="${c}"><span>${name}</span><span class="filter-count">${count}</span></button>`;
+			return `<a href="${shopUrl(activeTab, c)}" class="synapse-filter-btn${active}">${name}</a>`;
 		}).join('');
 	}
 
@@ -312,12 +304,12 @@
 		];
 		tierChips.style.display = 'flex';
 		tierChips.innerHTML = tiers.map((t) => `
-			<button type="button" class="tier-chip${activeTier === t.id ? ' active' : ''}" data-tier="${t.id}">${t.label}</button>
+			<button type="button" class="synapse-filter-btn${activeTier === t.id ? ' active' : ''}" data-tier="${t.id}">${t.label}</button>
 		`).join('');
 	}
 
 	function filteredProducts() {
-		const q = (searchEl?.value || '').toLowerCase().trim();
+		const q = getSearchQuery().toLowerCase();
 		const cat = getCategoryFromURL();
 		const tabProducts = productsForTab(activeTab);
 		return tabProducts.filter((p) => {
@@ -332,21 +324,20 @@
 		activeTab = CHEAT_CATEGORIES.has(category) ? 'cheats' : 'services';
 		const filtered = productsForTab(activeTab).filter((p) => p.category === category);
 		const name = CATEGORY_NAMES[category] || category;
-		pageTitle.textContent = name;
+		pageTitle.innerHTML = name;
 		pageSubtitle.textContent = activeTab === 'cheats'
 			? `${filtered.length} cheat products · Status on each card`
 			: `${filtered.length} services · Instant delivery`;
-		if (searchEl) searchEl.placeholder = activeTab === 'cheats' ? 'Search cheats' : 'Search services';
-		shopControls.style.display = 'flex';
+		if (breadcrumbCurrent) breadcrumbCurrent.textContent = name;
 		backLink.style.display = 'inline-block';
 		backLink.href = shopUrl(activeTab);
-		backLink.textContent = activeTab === 'cheats' ? '← Back to Cheats' : '← Back to Services';
+		backLink.textContent = activeTab === 'cheats' ? '← All cheats' : '← All services';
 		if (featuredStrip) featuredStrip.hidden = true;
-		shopLayout?.classList.add('in-category');
 		categoryGrid.style.display = 'none';
 		productGrid.style.display = 'grid';
 		renderCatalogTabs();
 		renderTierChips();
+		renderShopFilters(tabCategories(activeTab));
 		applyFilters();
 	}
 
@@ -356,25 +347,24 @@
 		const count = productsForTab(activeTab).length;
 
 		if (activeTab === 'cheats') {
-			pageTitle.textContent = 'Gaming Cheats';
+			pageTitle.innerHTML = 'Gaming <span class="synapse-hero-gradient">Cheats</span>';
 			pageSubtitle.textContent = `${count} products across ${categories.length} games · Pick a category to browse`;
-			if (searchEl) searchEl.placeholder = 'Search cheats';
 		} else {
 			pageTitle.textContent = 'Services';
 			pageSubtitle.textContent = `${count} social growth & setup services · TikTok, Facebook, and more`;
-			if (searchEl) searchEl.placeholder = 'Search services';
 		}
+		if (breadcrumbCurrent) breadcrumbCurrent.textContent = activeTab === 'cheats' ? 'Cheats' : 'Services';
 
-		shopControls.style.display = 'none';
 		backLink.style.display = 'none';
-		shopLayout?.classList.remove('in-category');
 		categoryGrid.style.display = 'grid';
 		productGrid.style.display = 'none';
 		activeTier = 'all';
+		const urlQ = getParams().get('q');
+		if (urlQ) syncSearchInputs(urlQ);
 		renderCatalogTabs();
 		renderFeatured();
 		renderCategories(categories);
-		renderSidebar(categories);
+		renderShopFilters(categories);
 		renderTierChips();
 	}
 
@@ -571,7 +561,7 @@
 		const price = parseFloat(tab.getAttribute('data-price'));
 		tabs.querySelectorAll('.pricing-tab').forEach((t) => t.classList.remove('active'));
 		tab.classList.add('active');
-		const scope = tab.closest('.product-frame, .product-modal-panel') || document;
+		const scope = tab.closest('.synapse-cheat-wrap, .product-frame, .product-modal-panel') || document;
 		const priceEl = scope.querySelector(`.p-price[data-product-id="${productId}"], .modal-price`);
 		if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
 		const addBtn = scope.querySelector(`.add-to-cart[data-id="${productId}"]`);
@@ -607,7 +597,7 @@
 				const period = option.getAttribute('data-period');
 				const price = parseFloat(option.getAttribute('data-price'));
 				updateMobileSelector(productId, period, price);
-				const scope = option.closest('.product-frame, .product-modal-panel') || document;
+				const scope = option.closest('.synapse-cheat-wrap, .product-frame, .product-modal-panel') || document;
 				const priceEl = scope.querySelector(`.p-price[data-product-id="${productId}"], .modal-price`);
 				if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
 				const addBtn = scope.querySelector(`.add-to-cart[data-id="${productId}"]`);
@@ -620,17 +610,15 @@
 	}
 
 	searchEl?.addEventListener('input', applyFilters);
+	headerSearchEl?.addEventListener('input', () => {
+		if (searchEl) searchEl.value = headerSearchEl.value;
+		applyFilters();
+	});
 
 	catalogTabs?.addEventListener('click', (e) => {
 		const tab = e.target.closest('[data-tab]');
 		if (!tab) return;
 		window.location.href = shopUrl(tab.getAttribute('data-tab'));
-	});
-
-	sidebarFilters?.addEventListener('click', (e) => {
-		const btn = e.target.closest('[data-filter-cat]');
-		if (!btn) return;
-		window.location.href = shopUrl(activeTab, btn.getAttribute('data-filter-cat'));
 	});
 
 	tierChips?.addEventListener('click', (e) => {

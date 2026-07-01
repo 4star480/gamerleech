@@ -7,17 +7,17 @@ path = Path(__file__).parent / "data" / "products.json"
 data = json.loads(path.read_text(encoding="utf-8"))
 
 TITLE_MAP = [
-    (re.compile(r"eulen", re.I), "Images/eulen clear.jpg"),
-    (re.compile(r"susano", re.I), "Images/susano.png"),
-    (re.compile(r"hx cheat", re.I), "Images/hx cheats.jpeg"),
-    (re.compile(r"tz project", re.I), "Images/tz projects.jpeg"),
+    (re.compile(r"eulen", re.I), "Images/Eulen Cheats.svg"),
+    (re.compile(r"susano", re.I), "Images/Susano.svg"),
+    (re.compile(r"hx cheat", re.I), "Images/HX Cheats.svg"),
+    (re.compile(r"tz project", re.I), "Images/TZ Project.svg"),
     (re.compile(r"account generator", re.I), "Images/Account Generator.svg"),
     (re.compile(r"external pvp", re.I), "Images/External PvP.svg"),
     (re.compile(r"redengine spoofer|red engine spoofer", re.I), "Images/redENGINE Spoofer.svg"),
     (re.compile(r"redengine executor|red engine executor", re.I), "Images/redENGINE Executor.svg"),
-    (re.compile(r"macho", re.I), "Images/Macho cheats.jpeg"),
-    (re.compile(r"lumia", re.I), "Images/Lumia menu.jpeg"),
-    (re.compile(r"phaze", re.I), "Images/Phaze menu.jpeg"),
+    (re.compile(r"macho", re.I), "Images/Macho.svg"),
+    (re.compile(r"lumia", re.I), "Images/Lumia Lua Menu.svg"),
+    (re.compile(r"phaze", re.I), "Images/Phaze Lua Menu.svg"),
     (re.compile(r"vortex", re.I), "Images/Vortex Lua Menu.svg"),
     (re.compile(r"dragon mod", re.I), "Images/Dragon Mod Menu.svg"),
     (re.compile(r"op mod", re.I), "Images/OP Mod Menu.svg"),
@@ -25,21 +25,44 @@ TITLE_MAP = [
 ]
 
 LEGACY_CATEGORY_IMAGES = {
-    "call-of-duty": "Images/Call of duty.png",
+    "call-of-duty": "images/games/call-of-duty.svg",
     "cod-mobile": "Images/Call of Duty Mobile.png",
-    "fivem": "Images/Fivem.png",
-    "valorant": "Images/Valorant.png",
-    "roblox": "Images/Roblox.png",
-    "fortnite": "Images/Fortnite.jpg",
-    "rainbow-six": "Images/rainbow six.png",
-    "gta5": "Images/GTA V.jpg",
+    "fivem": "assets/shop/fivem.svg",
+    "valorant": "images/games/valorant.svg",
+    "roblox": "images/games/roblox.svg",
+    "fortnite": "images/games/fortnite.svg",
+    "rainbow-six": "images/games/rainbow-six-siege.svg",
+    "gta5": "images/games/gta-v.svg",
     "premium": "assets/shop/premium.svg",
-    "cs2": "Images/CSGO.jpg",
-    "apex": "Images/Apex.png",
+    "cs2": "images/games/cs2.svg",
+    "apex": "images/games/apex-legends.svg",
     "tiktok": "assets/shop/tiktok.svg",
     "facebook": "assets/shop/facebook.svg",
     "services": "assets/shop/services.svg",
 }
+
+DEPLOY_ROOT = Path(__file__).parent
+
+
+def asset_exists(rel: str) -> bool:
+    return (DEPLOY_ROOT / rel).exists()
+
+
+def resolve_product_image(p: dict) -> str:
+    title = p.get("title", "")
+    for pattern, img_path in TITLE_MAP:
+        if pattern.search(title):
+            return img_path if asset_exists(img_path) else "assets/shop/fallback.svg"
+    cat = p.get("category", "")
+    if cat in LEGACY_CATEGORY_IMAGES:
+        path = LEGACY_CATEGORY_IMAGES[cat]
+        return path if asset_exists(path) else "assets/shop/fallback.svg"
+    raw = p.get("image", "")
+    if raw and asset_exists(raw):
+        return raw
+    if raw.startswith("assets/"):
+        return raw
+    return "assets/shop/fallback.svg"
 
 CATEGORY_FALLBACK = LEGACY_CATEGORY_IMAGES
 
@@ -104,22 +127,6 @@ def infer_features(p):
     elif "Instant key delivery" not in feats:
         feats.append("Instant key delivery")
     return feats[:8]
-
-
-def resolve_product_image(p: dict) -> str:
-    title = p.get("title", "")
-    for pattern, img_path in TITLE_MAP:
-        if pattern.search(title):
-            return img_path
-    raw = p.get("image", "")
-    if raw.startswith("Images/") and re.search(r"\.(svg|png|jpe?g)$", raw, re.I):
-        return raw
-    cat = p.get("category", "")
-    if cat in LEGACY_CATEGORY_IMAGES:
-        return LEGACY_CATEGORY_IMAGES[cat]
-    if raw.startswith("assets/"):
-        return raw
-    return "assets/shop/fallback.svg"
 
 
 for p in data["products"]:
